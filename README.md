@@ -37,4 +37,4 @@ Then open the website in your browser at `http://127.0.0.1:5000`.
 
 ## Notes
 
-This README provides a starting point for the Zitrac Flask website and can be updated with project-specific details as needed.
+This README provides a starting point for the Zitrac website and can be updated with project-specific details as needed.
