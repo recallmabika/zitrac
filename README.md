@@ -1,4 +1,4 @@
-# Zitrac Flask Website
+# Zitrac Website
 
 Zitrac Flask is a simple web application built with Flask. It serves as the website frontend and API for the Zitrac project.
 
