@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} - ZITRAC{% endblock %}
+
+{% block meta %}
+<meta name="description" content="{{ post.excerpt }}">
+{% endblock %}
+
+{% block og %}
+<meta property="og:title" content="{{ post.title }}">
+<meta property="og:description" content="{{ post.excerpt }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://zitrac.co.zw/blog/{{ post.slug }}">
+{% if post.image %}
+<meta property="og:image" content="https://zitrac.co.zw{{ url_for('static', filename='images/' ~ resolve_image(post.image)) }}">
+{% endif %}
+<meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
+{% block content %}
+<section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4">
+        <div class="flex items-center gap-3 mb-3">
+            <p class="font-mono text-[11px] tracking-widest text-gray-400 uppercase">
+                {{ post.month }} {{ post.year }}
+            </p>
+            <span class="text-gray-300">·</span>
+            <p class="font-mono text-[11px] tracking-widest text-gray-400 uppercase">
+                {{ read_time }} min read
+            </p>
+        </div>
+
+        <h1 class="font-display text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+            {{ post.title }}
+        </h1>
+
+        {% if post.image %}
+            <img src="{{ url_for('static', filename='images/' ~ resolve_image(post.image)) }}"
+                 alt="{{ post.title }}" class="w-full h-72 object-cover mt-8">
+        {% endif %}
+
+        <div class="post-content mt-10">
+            {{ post.content | safe }}
+        </div>
+
+        <!-- End-of-article CTA -->
+        <div class="mt-12 bg-gray-50 border border-gray-200 p-8 text-center">
+            <h3 class="font-display text-xl font-bold text-gray-900">
+                Dealing with this yourself?
+            </h3>
+            <p class="mt-2 text-gray-600 text-sm max-w-md mx-auto">
+                Tell us what you're working with — we'll come back with a clear scope and a written quote.
+            </p>
+            <a href="{{ url_for('contact') }}"
+               class="inline-block mt-5 px-7 py-3 bg-red-600 text-white font-semibold hover:bg-red-700 transition-colors duration-200">
+                Get a Quote
+            </a>
+        </div>
+
+        <a href="{{ url_for('blog') }}" class="inline-block mt-10 text-sm font-semibold text-red-600 hover:text-red-700">
+            ← Back to Blog
+        </a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ZITRAC Admin{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" sizes="any">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-gray-100 min-h-screen font-sans">
+
+    <!-- Top navbar - dark, no public links -->
+    <nav class="bg-gray-900 border-b border-gray-800 h-14 flex items-center px-6 fixed top-0 left-0 right-0 z-50">
+        <div class="flex items-center gap-3 flex-1">
+            <div class="w-6 h-6 bg-white flex items-center justify-center text-white font-bold text-xs">
+                <img src="{{ url_for('static', filename='images/zitracLogo.png') }}" alt="ZITRAC" class="h-4 w-auto">
+            </div>
+            <span class="font-mono text-[11px] tracking-widest text-gray-400 uppercase">ZITRAC</span>
+            <span class="text-gray-600">/</span>
+            <span class="font-mono text-[11px] tracking-widest text-gray-200 uppercase">{% block breadcrumb %}Admin{% endblock %}</span>
+        </div>
+        <div class="flex items-center gap-5">
+            <a href="/" target="_blank" class="text-xs text-gray-400 hover:text-white transition-colors">↗ View Site</a>
+            <a href="{{ url_for('admin_logout') }}" class="text-xs text-gray-400 hover:text-red-400 transition-colors">Sign Out</a>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="fixed top-14 left-0 bottom-0 w-52 bg-gray-900 border-r border-gray-800 px-3 py-6">
+        <p class="font-mono text-[9px] tracking-widest text-gray-600 uppercase px-3 mb-3">Content</p>
+        <a href="{{ url_for('admin_posts') }}"
+           class="flex items-center gap-2.5 px-3 py-2 text-sm rounded {% if active == 'posts' %}bg-gray-800 text-white{% else %}text-gray-400 hover:text-white hover:bg-gray-800{% endif %} transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            Blog Posts
+        </a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-52 mt-14 p-8 min-h-screen">
+        {% block content %}{% endblock %}
+    </main>
+
+</body>
+</html>

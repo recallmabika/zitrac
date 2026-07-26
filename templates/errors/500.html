@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Server Error - ZITRAC{% endblock %}
+
+{% block content %}
+<section class="min-h-[70vh] flex items-center justify-center bg-white">
+    <div class="max-w-md mx-auto px-4 text-center">
+        <p class="font-mono text-sm font-semibold tracking-widest text-red-600 mb-4">ERROR 500</p>
+        <h1 class="font-display text-3xl md:text-4xl font-semibold text-gray-900 mb-4">
+            Something broke on our end.
+        </h1>
+        <p class="text-gray-600 leading-relaxed mb-8">
+            We've logged the issue and we're looking into it. Try again shortly, or reach out if it persists.
+        </p>
+        <a href="{{ url_for('home') }}"
+           class="inline-block px-7 py-3 bg-red-600 text-white font-semibold hover:bg-red-700 transition-colors duration-200">
+            Back to Home
+        </a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,22 @@
+<svg width="900" height="340" viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>ITRAC logo</title>
+<desc>A stylized Z formed from black top and bottom bars with a bold red diagonal and arrowhead, next to the red wordmark ITRAC, grounded by a thin red rule.</desc>
+
+<!-- Top bar (black) -->
+<rect x="40" y="40" width="240" height="48" fill="#111111"/>
+
+<!-- Diagonal (red) - shares edges with top bar and bottom bar for a seamless join -->
+<polygon points="280,40 280,88 40,280 40,232" fill="#D62839"/>
+
+<!-- Bottom bar (black) -->
+<rect x="40" y="232" width="240" height="48" fill="#111111"/>
+
+<!-- Arrowhead - continues the diagonal's trajectory beyond the top-right corner -->
+<polygon points="280,40 280,88 356,20" fill="#D62839"/>
+
+<!-- Wordmark -->
+<text x="278" y="196" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="128" letter-spacing="-2" fill="#D62839">ITRAC</text>
+
+<!-- Grounding rule -->
+<rect x="40" y="300" width="760" height="3" fill="#D62839"/>
+</svg>

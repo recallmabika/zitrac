@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ZITRAC{% endblock %}</title>
+
+    {% block meta %}
+    <meta name="description" content="ZITRAC — IT consulting, web development, and connectivity services for businesses and schools across Zimbabwe.">
+    {% endblock %}
+
+    {% block og %}
+    <meta property="og:title" content="ZITRAC">
+    <meta property="og:description" content="IT consulting, web development, and connectivity services across Zimbabwe.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zitrac.co.zw">
+    <meta property="og:image" content="https://zitrac.co.zw{{ url_for('static', filename='images/zitracLogo.png') }}">
+    <meta name="twitter:card" content="summary_large_image">
+    {% endblock %}
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" sizes="any">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-xs shadow-lg shadow-gray-200/20">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 py-6">
+
+        <a href="{{ url_for('home') }}" class="inline-flex items-center gap-3">
+            <img src="{{ url_for('static', filename='images/zitracLogo.png') }}" alt="ZITRAC" class="h-9 w-auto">
+            <span class="inline-block">
+                <span class="font-extrabold text-3xl tracking-tight text-red-600">ZITRAC</span>
+                <span class="block h-0.5 w-full bg-red-600 mt-1"></span>
+            </span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-1">
+            {% for key, href, label in nav_items %}
+                <a href="{{ href }}"
+                   class="relative px-4 py-2 text-sm font-semibold tracking-wide text-gray-600 hover:text-red-600 transition-colors duration-200
+                          {{ 'text-red-600' if current_page == key else '' }}">
+                    {{ label }}
+                    <span class="absolute left-4 right-4 -bottom-0.5 h-0.5 bg-red-600 transition-transform duration-300 origin-left
+                                  {{ 'scale-x-100' if current_page == key else 'scale-x-0 hover:scale-x-100' }}"></span>
+                </a>
+            {% endfor %}
+        </div>
+
+        <button id="menuBtn" class="md:hidden text-gray-700 focus:outline-none">
+            <svg id="iconOpen" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="iconClose" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+    </nav>
+
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-4 pb-4 space-y-1">
+        {% for key, href, label in nav_items %}
+            <a href="{{ href }}"
+               class="block px-4 py-3 font-semibold
+                      {{ 'text-red-600' if current_page == key else 'text-gray-700 hover:text-red-600' }}">
+                {{ label }}
+            </a>
+        {% endfor %}
+    </div>
+</header>
+
+<main>
+{% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer bg-[#0d1117] text-gray-400">
+    <div class="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <div class="lg:col-span-1">
+            <div class="inline-flex items-center gap-3">
+                <img src="{{ url_for('static', filename='images/zitracLogo.png') }}" alt="ZITRAC" class="h-9 w-auto bg-white footer-logo">
+                <span class="font-extrabold text-xl tracking-tight text-white">ZITRAC</span>
+            </div>
+            <span class="block h-0.5 w-24 bg-red-600 mt-2 mb-4"></span>
+            <p class="text-sm leading-relaxed max-w-xs">
+                IT consulting, software development, and connectivity services for businesses and schools across Zimbabwe.
+            </p>
+        </div>
+
+        <div>
+            <p class="font-mono text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">Quick Links</p>
+            <ul class="space-y-2.5 text-sm">
+                <li><a href="{{ url_for('home') }}" class="footer-link hover:text-white transition-colors duration-200">Home</a></li>
+                <li><a href="{{ url_for('about') }}" class="footer-link hover:text-white transition-colors duration-200">About</a></li>
+                <li><a href="{{ url_for('services') }}" class="footer-link hover:text-white transition-colors duration-200">Services</a></li>
+                <li><a href="{{ url_for('blog') }}" class="footer-link hover:text-white transition-colors duration-200">Blog</a></li>
+                <li><a href="{{ url_for('contact') }}" class="footer-link hover:text-white transition-colors duration-200">Contact</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <p class="font-mono text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">Services</p>
+            <ul class="space-y-2.5 text-sm">
+                <li><a href="{{ url_for('services') }}" class="footer-link hover:text-white transition-colors duration-200">IT Consulting</a></li>
+                <li><a href="{{ url_for('services') }}" class="footer-link hover:text-white transition-colors duration-200">Web &amp; Software Development</a></li>
+                <li><a href="{{ url_for('services') }}" class="footer-link hover:text-white transition-colors duration-200">Starlink WiFi Installation</a></li>
+                <li><a href="{{ url_for('services') }}" class="footer-link hover:text-white transition-colors duration-200">School Information Systems</a></li>
+                <li><a href="{{ url_for('services') }}" class="footer-link hover:text-white transition-colors duration-200">POS &amp; CCTV Systems</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <p class="font-mono text-xs font-semibold tracking-widest uppercase text-gray-500 mb-4">Contact</p>
+            <ul class="space-y-2.5 text-sm">
+                <li><a href="tel:+263779466786" class="footer-link hover:text-white transition-colors duration-200">+263 77 946 6786</a></li>
+                <li><a href="mailto:info@zitrac.co.zw" class="footer-link hover:text-white transition-colors duration-200">info@zitrac.co.zw</a></li>
+                <li><a href="mailto:support@zitrac.co.zw" class="footer-link hover:text-white transition-colors duration-200">support@zitrac.co.zw</a></li>
+                <li class="text-gray-500">Harare, Zimbabwe</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="border-t border-white/10">
+        <p class="max-w-6xl mx-auto px-4 py-6 text-xs text-gray-500">
+            &copy; {{ current_year }} ZITRAC. All rights reserved.
+        </p>
+    </div>
+</footer>
+
+<button id="scrollTopBtn" aria-label="Scroll to top"
+        class="scroll-top-btn fixed bottom-6 right-6 z-50 w-11 h-11 flex items-center justify-center bg-red-600 text-white hover:bg-red-700 transition-colors duration-200">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"/>
+    </svg>
+</button>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

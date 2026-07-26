@@ -1,0 +1,41 @@
+{% extends "base_admin.html" %}
+{% block title %}Admin Login - ZITRAC{% endblock %}
+{% block breadcrumb %}Login{% endblock %}
+
+{% block content %}
+<section class="w-full px-8 py-12 mb-16 bg-gray-50 min-h-[60vh] flex items-start">
+    <div class="relative mx-8 px-4 w-full max-w-md">
+        <h1 class="text-2xl font-bold text-gray-900 mb-6">Admin Login</h1>
+
+        {% if error %}
+            <p id="flash-msg" class="mb-4 text-sm text-red-600 bg-red-50 border border-red-200 px-4 py-3 transition-opacity duration-700">
+                {{ error }}
+            </p>
+        {% endif %}
+
+        <form method="POST" class="bg-white p-6 border border-gray-200">
+            <label for="password" class="block font-mono text-[11px] tracking-widest text-gray-500 uppercase mb-2">
+                Password
+            </label>
+            <input type="password" id="password" name="password" required autofocus
+                   class="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-red-600">
+            <button type="submit"
+                    class="mt-5 w-full px-6 py-3 bg-red-600 text-white font-semibold hover:bg-red-700 transition-colors duration-200">
+                Log In
+            </button>
+        </form>
+    </div>
+</section>
+
+<script>
+    var msg = document.getElementById('flash-msg');
+    if (msg) {
+        setTimeout(function () {
+            msg.style.opacity = '0';
+            setTimeout(function () {
+                msg.style.display = 'none';
+            }, 700);
+        }, 6000);
+    }
+</script>
+{% endblock %}

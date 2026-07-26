@@ -1,0 +1,439 @@
+.hero-section {
+    height: 85vh;
+    min-height: 700px;
+}
+
+.hero-slide {
+    opacity: 0;
+    filter: blur(14px);
+    transition:
+        opacity 1800ms ease-in-out,
+        filter 1800ms ease-in-out;
+    z-index: 0;
+}
+
+.hero-slide.is-active {
+    opacity: 1;
+    filter: blur(0px);
+    z-index: 1;
+}
+
+.stats-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: statsSlide 18s linear infinite;
+}
+
+.stats-track:hover {
+    animation-play-state: paused;
+}
+
+.stat-flip {
+    opacity: 0;
+    transform: perspective(800px) rotateX(90deg);
+    transform-origin: center bottom;
+    transition:
+        opacity 600ms ease,
+        transform 600ms ease;
+}
+
+.stat-flip-delay-0 { transition-delay: 0ms; }
+.stat-flip-delay-1 { transition-delay: 150ms; }
+.stat-flip-delay-2 { transition-delay: 300ms; }
+.stat-flip-delay-3 { transition-delay: 450ms; }
+
+.stat-flip.is-visible {
+    opacity: 1;
+    transform: perspective(800px) rotateX(0deg);
+}
+
+@keyframes statsSlide {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes heroKenBurns {
+    from { transform: scale(1.12); }
+    to   { transform: scale(1); }
+}
+
+/* Services slider */
+.services-section {
+    height: 460px;
+    overflow: hidden;
+}
+
+.services-track {
+    transition: transform 900ms cubic-bezier(0.65, 0, 0.35, 1);
+    will-change: transform;
+}
+
+.service-slide {
+    width: 100%;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 700ms ease, transform 700ms ease;
+}
+
+@media (min-width: 640px) {
+    .service-slide { width: 50%; }
+}
+
+@media (min-width: 1024px) {
+    .service-slide { width: 33.3333%; }
+}
+
+.service-slide.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger the reveal across the visible slides */
+.service-slide:nth-child(3n+1) { transition-delay: 0ms; }
+.service-slide:nth-child(3n+2) { transition-delay: 120ms; }
+.service-slide:nth-child(3n+3) { transition-delay: 240ms; }
+
+.service-slide:hover {
+    z-index: 2;
+}
+
+.service-slide-desc {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.service-slide:hover .service-slide-desc {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Why Choose Us */
+.why-item {
+    transition: border-color 250ms ease;
+}
+
+.why-item:hover {
+    border-color: #dc2626;
+}
+
+/* FAQ */
+.faq-summary {
+    list-style: none;
+}
+
+.faq-summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-icon {
+    transition: transform 250ms ease;
+}
+
+.faq-item[open] .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-item {
+    transition: border-color 250ms ease;
+}
+
+.faq-item[open],
+.faq-item:hover {
+    border-color: #dc2626;
+}
+
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 350ms ease;
+}
+
+/* Featured Work */
+.case-card {
+    transition: transform 300ms ease;
+}
+
+.case-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Testimonials — resolved ticket log */
+.ticket-log .ticket-row {
+    border-top: 1px solid #e5e7eb;
+}
+
+.ticket-log .ticket-row:first-child {
+    border-top: none;
+}
+
+.ticket-quote {
+    font-optical-sizing: auto;
+}
+
+.ticket-status {
+    border-radius: 2px;
+}
+
+/* Blog Teaser — changelog style log */
+.blog-log .blog-log-row {
+    border-top: 1px solid #e5e7eb;
+    transition: padding-left 250ms ease;
+}
+
+.blog-log .blog-log-row:first-child {
+    border-top: none;
+}
+
+.blog-log-row:hover {
+    padding-left: 0.5rem;
+}
+
+.blog-log-arrow svg {
+    transition: transform 250ms ease, color 250ms ease;
+}
+
+.blog-log-row:hover .blog-log-arrow {
+    color: #dc2626;
+}
+
+.blog-log-row:hover .blog-log-arrow svg {
+    transform: translateX(4px);
+}
+
+/* Secondary CTA Band */
+.cta-band {
+    background-image: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+/* Contact Quick Strip */
+.contact-quick-item {
+    transition: opacity 200ms ease;
+}
+
+.contact-quick-item:hover {
+    opacity: 0.75;
+}
+
+.contact-quick-icon {
+    transition: background-color 200ms ease;
+}
+
+.contact-quick-item:hover .contact-quick-icon {
+    background-color: #dc2626;
+    color: #fff;
+}
+
+/* Footer */
+.footer-link {
+    color: #9ca3af;
+}
+
+/* Scroll to top */
+.scroll-top-btn {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 250ms ease, transform 250ms ease;
+}
+
+.scroll-top-btn.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* .footer-logo {
+    filter: brightness(0) invert(1);
+} */
+
+/* Service directory index */
+.service-index-row:hover .service-index-leader {
+    border-color: #dc2626;
+}
+
+/* How We Work — spaced-out process grid */
+.process-flow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.process-step {
+    padding-top: 2rem;
+    padding-right: 1rem;
+    border-top: 2px solid #e5e7eb;
+}
+
+.process-number {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #dc2626;
+    line-height: 1;
+    margin-bottom: 1.25rem;
+}
+
+.process-step h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.process-step p {
+    margin-top: 0;
+}
+
+@media (min-width: 768px) {
+    .process-flow {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3rem;
+        column-gap: 3.5rem;
+    }
+}
+
+/* Blog post cards */
+.post-card { transition: transform 250ms ease; }
+.post-card:hover { transform: translateY(-4px); }
+
+/* WP post content typography */
+.post-content { 
+    font-size: 1rem; 
+    line-height: 1.75; 
+    color: #374151; 
+}
+.post-content p { margin-bottom: 1.25rem; }
+.post-content h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+.post-content h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+.post-content a { color: #dc2626; text-decoration: underline; }
+.post-content ul, .post-content ol { margin: 0 0 1.25rem 1.25rem; }
+.post-content ul { list-style: disc; }
+.post-content ol { list-style: decimal; }
+.post-content blockquote { 
+    border-left: 2px 
+    solid #dc2626; 
+    padding-left: 1rem; 
+    font-style: italic; 
+    color: #4b5563; 
+    margin: 1.5rem 0; }
+.post-content img { width: 100%; height: auto; margin: 1.5rem 0; }
+
+/* Generic scroll-reveal, used across all pages */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-0 { transition-delay: 0ms; }
+.reveal-delay-1 { transition-delay: 120ms; }
+.reveal-delay-2 { transition-delay: 240ms; }
+.reveal-delay-3 { transition-delay: 360ms; }
+
+/* Why Choose Us — hover blur reveal */
+.reliability-img {
+    filter: blur(4px);
+    transform: scale(1.05);
+    transition: filter 500ms ease, transform 500ms ease;
+}
+
+.reliability-overlay {
+    opacity: 0;
+    transition: opacity 500ms ease;
+}
+
+.reliability-text {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 500ms ease 100ms, transform 500ms ease 100ms;
+}
+
+.reliability-reveal:hover .reliability-img {
+    filter: blur(0.2px);
+    transform: scale(1.85);
+}
+
+.reliability-reveal:hover .reliability-overlay {
+    opacity: 1;
+}
+
+.reliability-reveal:hover .reliability-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes contactSpin {
+    to { transform: rotate(360deg); }
+}
+
+#formBanner {
+    transition: opacity 500ms ease, transform 500ms ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#formBanner.fade-out {
+    opacity: 0;
+    transform: translateY(-6px);
+}
+
+/* Shuffle transition: directional entrance + spin */
+.slide-exit {
+    transition: opacity 700ms cubic-bezier(0.4, 0, 0.2, 1), transform 700ms cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0 !important;
+}
+
+.slide-exit.spin-cw {
+    transform: rotate(18deg) scale(0.94) !important;
+}
+
+.slide-exit.spin-ccw {
+    transform: rotate(-18deg) scale(0.94) !important;
+}
+
+.slide-enter {
+    opacity: 0;
+    transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1), transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-enter.from-top {
+    transform: translateY(-40px) rotate(-10deg) scale(0.92);
+}
+
+.slide-enter.from-bottom {
+    transform: translateY(40px) rotate(10deg) scale(0.92);
+}
+
+.slide-enter.spin-cw {
+    transform: rotate(180deg) scale(0.9);
+}
+
+.slide-enter.spin-ccw {
+    transform: rotate(-180deg) scale(0.9);
+}
+
+.slide-enter-active {
+    opacity: 1 !important;
+    transform: translateY(0) rotate(0deg) scale(1) !important;
+}

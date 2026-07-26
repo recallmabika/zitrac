@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block title %}About ZITRAC - IT Solutions & Development{% endblock %}
+
+{% block content %}
+<!-- About Hero -->
+<section class="relative w-full h-[60vh] min-h-[720px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img src="{{ url_for('static', filename='images/hero_4.jpg') }}" alt="ZITRAC team at work"
+             class="w-full h-full object-cover object-center">
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+    <div class="relative z-20 max-w-6xl mx-auto px-4 pb-16 w-full">
+        <p class="text-red-400 font-semibold tracking-widest text-sm mb-3">ABOUT ZITRAC</p>
+        <h1 class="font-display text-white mt-24 text-4xl md:text-5xl font-semibold leading-[1.1] max-w-2xl">
+            Built by people who actually show up.
+        </h1>
+        <p class="mt-24 text-gray-200 text-lg max-w-xl">
+            We're an IT consulting and development team working with businesses and schools across Zimbabwe — from a single support call to a full custom system.
+        </p>
+    </div>
+</section>
+
+<!-- Mission & Values -->
+<section class="relative w-full h-[60vh] min-h-[720px] flex items-center overflow-hidden py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        <div>
+            <p class="text-red-600 font-semibold tracking-widest text-sm mb-2">OUR MISSION</p>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Technology that fits, not just what's trending.</h2>
+            <p class="text-gray-600 leading-relaxed">
+                We work with organisations that need technology to actually hold up under daily use — a school running attendance every morning, a retailer counting stock every night, a site that can't afford downtime. Our job is to make the right call for each situation, not push a one-size package.
+            </p>
+        </div>
+        <div>
+            {% for value in values %}
+                <div class="why-item pl-6 border-l-2 border-gray-200 py-1 {{ 'mt-6' if not loop.first else '' }}">
+                    <h3 class="font-bold text-gray-900">{{ value.title }}</h3>
+                    <p class="mt-1 text-gray-600 text-sm">{{ value.desc }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Our Team / Disciplines -->
+<section class="relative w-full h-[60vh] min-h-[720px] flex items-center overflow-hidden py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="mb-4">
+            <p class="text-red-600 font-semibold tracking-widest text-sm mb-2">OUR TEAM</p>
+            <h2 class="text-3xl font-bold text-gray-900">What we're set up to do</h2>
+        </div>
+        <div class="blog-log">
+            {% for d in disciplines %}
+                <div class="blog-log-row flex items-start gap-6 md:gap-10 py-7">
+                    <div class="flex-none w-full md:w-56 font-mono text-xs font-semibold tracking-wider text-red-600 pt-1 uppercase">
+                        {{ d.label }}
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-gray-600 leading-relaxed max-w-2xl">{{ d.desc }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Services Recap -->
+<section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+        <p class="text-red-600 font-semibold tracking-widest text-sm mb-2">WHAT WE OFFER</p>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Services at a glance</h2>
+        <p class="text-gray-600 leading-relaxed max-w-2xl mb-8">
+            From a single consulting session to a fully custom system, here's where we can help.
+        </p>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3">
+            {% for name in service_names %}
+                <li>
+                    <a href="{{ url_for('services') }}" class="flex items-center gap-3 text-gray-800 hover:text-red-600 transition-colors duration-200">
+                        <span class="w-1.5 h-1.5 bg-red-600 flex-none"></span>
+                        <span class="font-medium">{{ name }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<!-- CTA Band -->
+<section class="cta-band py-16 bg-red-600">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div>
+            <h2 class="font-display text-white text-2xl md:text-3xl font-semibold">
+                Ready to talk about your setup?
+            </h2>
+            <p class="mt-2 text-red-100 text-sm md:text-base">
+                Get in touch and we'll tell you what it'll take.
+            </p>
+        </div>
+        <a href="{{ url_for('contact') }}"
+           class="flex-none px-7 py-3 bg-white text-red-600 font-semibold hover:bg-gray-100 transition-colors duration-200">
+            Get a Quote
+        </a>
+    </div>
+</section>
+{% endblock %}

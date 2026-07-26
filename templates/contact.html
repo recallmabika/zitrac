@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% block title %}Contact ZITRAC - Get a Quote{% endblock %}
+
+{% block content %}
+<!-- Contact Hero -->
+<section class="relative w-full h-[60vh] min-h-[720px] flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img src="{{ url_for('static', filename='images/contact-1.png') }}" alt="ZITRAC contact"
+             class="w-full h-full object-cover object-center">
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+    <div class="relative z-20 max-w-6xl mx-auto px-4 pb-12 w-full">
+        <p class="text-red-400 font-semibold tracking-widest text-sm mb-3">CONTACT</p>
+        <h1 class="font-display text-white mt-24 text-4xl md:text-5xl font-semibold leading-[1.1] max-w-2xl">
+            Tell us what needs to work better.
+        </h1>
+    </div>
+</section>
+
+<!-- Quick Contact Strip -->
+<section class="bg-white border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+        {% for c in quick_contacts %}
+            {% if c.href %}<a href="{{ c.href }}"{% else %}<div{% endif %}
+               class="contact-quick-item flex items-center gap-3">
+                <span class="contact-quick-icon w-9 h-9 flex-none flex items-center justify-center bg-gray-100 text-gray-500 rounded-full">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </span>
+                <span>
+                    <span class="block font-mono text-[11px] tracking-widest text-gray-400 uppercase">{{ c.label }}</span>
+                    <span class="block font-semibold text-gray-900 text-sm">{{ c.value }}</span>
+                </span>
+            {% if c.href %}</a>{% else %}</div>{% endif %}
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Form + Info -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+
+        <div class="lg:col-span-2">
+            <p class="text-red-600 font-semibold tracking-widest text-sm mb-2">GET A QUOTE</p>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Send us the details</h2>
+            <p class="text-gray-600 leading-relaxed mb-8">
+                Whether it's one service or several, tell us what you're dealing with. We'll come back with a clear scope and a written quote before any work starts.
+            </p>
+
+            <div class="why-item pl-6 border-l-2 border-gray-200 py-1">
+                <h3 class="font-bold text-gray-900">Response time</h3>
+                <p class="mt-1 text-gray-600 text-sm">We reply within one business day, usually sooner.</p>
+            </div>
+            <div class="why-item pl-6 border-l-2 border-gray-200 py-1 mt-6">
+                <h3 class="font-bold text-gray-900">Not sure which service?</h3>
+                <p class="mt-1 text-gray-600 text-sm">Describe the problem, not the solution — we'll match it to the right service.</p>
+            </div>
+            <div class="why-item pl-6 border-l-2 border-gray-200 py-1 mt-6">
+                <h3 class="font-bold text-gray-900">On-site or remote</h3>
+                <p class="mt-1 text-gray-600 text-sm">Based in Harare and able to travel for installations across Zimbabwe.</p>
+            </div>
+        </div>
+
+        <div class="lg:col-span-3">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% for category, message in messages %}
+                    {% if category == 'success' %}
+                        <div class="mb-6 border-l-2 border-green-600 bg-white px-5 py-4">
+                            <p class="font-bold text-gray-900">Message sent</p>
+                            <p class="mt-1 text-sm text-green-700">Thanks — we'll get back to you within one business day.</p>
+                        </div>
+                    {% elif category == 'error' %}
+                        <div class="mb-6 border-l-2 border-red-600 bg-white px-5 py-4">
+                            <p class="font-bold text-gray-900">Something went wrong</p>
+                            <p class="mt-1 text-sm text-gray-600">Please check your details and try again, or email us directly at info@zitrac.co.zw.</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endwith %}
+
+            <form action="{{ url_for('contact') }}" method="POST" class="bg-white p-8 border border-gray-200" id="contactForm" novalidate>
+
+                <!-- Honeypot field, hidden from real users -->
+                <div class="absolute -left-[9999px] w-px h-px overflow-hidden">
+                    <label for="website">Website</label>
+                    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
+                <div id="formBanner" class="hidden mb-6 border-l-2 px-5 py-4"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                        <label for="name" class="block font-mono text-[11px] tracking-widest text-gray-500 uppercase mb-2">Name</label>
+                        <input type="text" id="name" name="name"
+                            class="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-red-600">
+                        <p class="field-error hidden mt-1.5 text-xs text-red-600"></p>
+                    </div>
+                    <div>
+                        <label for="email" class="block font-mono text-[11px] tracking-widest text-gray-500 uppercase mb-2">Email</label>
+                        <input type="email" id="email" name="email"
+                            class="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-red-600">
+                        <p class="field-error hidden mt-1.5 text-xs text-red-600"></p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
+                    <div>
+                        <label for="phone" class="block font-mono text-[11px] tracking-widest text-gray-500 uppercase mb-2">Phone (optional)</label>
+                        <input type="tel" id="phone" name="phone"
+                            class="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-red-600">
+                    </div>
+                    <div>
+                        <label for="service" class="block font-mono text-[11px] tracking-widest text-gray-500 uppercase mb-2">Service</label>
+                        <select id="service" name="service"
+                                class="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-red-600 bg-white">
+                            {% for option in service_options %}
+                                <option value="{{ option }}">{{ option }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mt-5">
+                    <label for="message" class="block font-mono text-[11px] tracking-widest text-gray-500 uppercase mb-2">Message</label>
+                    <textarea id="message" name="message" rows="5"
+                            class="w-full border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:border-red-600"></textarea>
+                    <p class="field-error hidden mt-1.5 text-xs text-red-600"></p>
+                </div>
+
+                <button type="submit" id="submitBtn"
+                        class="mt-6 w-full md:w-auto px-8 py-3 bg-red-600 text-white font-semibold hover:bg-red-700 transition-colors duration-200 inline-flex items-center justify-center gap-2">
+                    <span id="submitLabel">Send Message</span>
+                    <svg id="submitSpinner" class="hidden w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Band -->
+<section class="cta-band py-16 bg-red-600">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div>
+            <h2 class="font-display text-white text-2xl md:text-3xl font-semibold">
+                Prefer to talk it through first?
+            </h2>
+            <p class="mt-2 text-red-100 text-sm md:text-base">
+                Call +263 77 946 6786 — same team, faster answer.
+            </p>
+        </div>
+        <a href="tel:+263779466786"
+           class="flex-none px-7 py-3 bg-white text-red-600 font-semibold hover:bg-gray-100 transition-colors duration-200">
+            Call Now
+        </a>
+    </div>
+</section>
+{% endblock %}
