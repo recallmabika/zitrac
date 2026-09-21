@@ -12,18 +12,21 @@ export default function InteractiveCanvasBackground() {
     if (!ctx) return;
 
     let animId;
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    const updateSize = () => {
+      if (!canvas) return;
+      const rect = canvas.parentElement ? canvas.parentElement.getBoundingClientRect() : null;
+      width = canvas.width = rect ? rect.width : window.innerWidth;
+      height = canvas.height = rect ? rect.height : window.innerHeight;
+    };
+    updateSize();
 
     const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      updateSize();
     };
     window.addEventListener('resize', handleResize, { passive: true });
 
     // 1. Connecting Nodes & Lines
-    const numNodes = Math.min(36, Math.floor((width * height) / 30000));
+    const numNodes = Math.min(45, Math.floor((width * height) / 25000));
     const nodes = Array.from({ length: numNodes }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -209,7 +212,7 @@ export default function InteractiveCanvasBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 pointer-events-none z-10 opacity-75"
+      className="absolute inset-0 pointer-events-none z-10 opacity-90"
       aria-hidden="true"
     />
   );

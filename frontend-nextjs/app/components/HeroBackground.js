@@ -55,11 +55,18 @@ export default function HeroBackground() {
           >
             {slide.type === 'video' ? (
               <video
+                key={slide.src}
                 autoPlay
                 loop
                 muted
                 playsInline
+                preload="auto"
                 className={`w-full h-full object-cover scale-105 ${isActive ? 'hero-bg-zoom' : ''}`}
+                ref={(el) => {
+                  if (el && isActive) {
+                    el.play().catch(() => {});
+                  }
+                }}
               >
                 <source src={slide.src} type="video/mp4" />
               </video>
@@ -103,12 +110,15 @@ export default function HeroBackground() {
         aria-hidden="true"
       />
 
-      {/* Gradient overlays for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/60"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/40"></div>
+      {/* Gradient overlays - adjusted to preserve rich video and canvas visibility */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-black/50"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
+
+      {/* Interactive Matrix, connecting nodes, dashed lines canvas */}
+      <InteractiveCanvasBackground />
 
       {/* Animated connecting dots grid */}
-      <div className="hero-dots absolute inset-0 pointer-events-none opacity-15"></div>
+      <div className="hero-dots absolute inset-0 pointer-events-none opacity-20"></div>
     </div>
   );
 }

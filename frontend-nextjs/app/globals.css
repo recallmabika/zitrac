@@ -211,8 +211,17 @@
                 box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
+  /* Darker background on hover while on the hero */
+  header#main-navbar:not(.navbar-scrolled):hover {
+    background-color: rgba(5, 5, 5, 0.88) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+
   .navbar-hero-scroll {
-    background-color: rgba(0, 0, 0, 0.3) !important;
+    background-color: rgba(0, 0, 0, 0.55) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
   }
 
   .navbar-scrolled {
