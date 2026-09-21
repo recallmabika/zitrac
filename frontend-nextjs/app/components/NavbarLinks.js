@@ -64,6 +64,7 @@ const insightsAndDelivery = [
 const secondaryNav = [
   { href: '/work/', label: 'Our Work' },
   { href: '/pricing/', label: 'Pricing' },
+  { href: '/services/web-hosting-domain-registration/', label: 'Hosting & Domains' },
   { href: '/about/', label: 'About' },
 ];
 
@@ -223,7 +224,7 @@ export default function NavbarLinks() {
             
             <div className="space-y-4 relative z-10">
               <div className="font-raleway text-lg font-light tracking-[0.25em] uppercase text-white/90">
-                ZITRAC<span className="text-red-500 font-bold tracking-normal">.</span>
+                ZITRAC
               </div>
               <div className="text-[15px] font-semibold text-white leading-snug">
                 Zimbabwe Enterprise Cloud Infrastructure

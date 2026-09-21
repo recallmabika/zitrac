@@ -100,10 +100,10 @@ export default function RootLayout({ children }) {
               {/* Elegant Thin Raleway Typography with Relaxed Letter Spacing */}
               <div className="flex flex-col leading-none">
                 <span className="brand-title font-raleway text-2xl sm:text-3xl font-light tracking-[0.3em] uppercase text-white transition-colors duration-300">
-                  ZITRAC<span className="text-red-500 font-bold tracking-normal">.</span>
+                  ZITRAC
                 </span>
                 <span className="brand-subtext text-[9px] font-mono uppercase tracking-[0.25em] text-slate-400 mt-1 transition-colors duration-300">
-                  Technologies <span className="text-red-500 font-bold px-0.5">.</span> Zimbabwe
+                  Technologies <span className="mx-1 opacity-50">|</span> Zimbabwe
                 </span>
               </div>
             </Link>
