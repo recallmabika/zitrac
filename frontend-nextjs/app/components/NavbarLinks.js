@@ -14,7 +14,7 @@ const coreSpecializations = [
     showcase: {
       title: 'Strategic IT Consulting',
       desc: 'Expert guidance for enterprise architecture, risk management, and digital transformation in Zimbabwe.',
-      image: '/assets/global-network.png'
+      images: ['/assets/consulting-1.png', '/assets/consulting-2.png'],
     }
   },
   {
@@ -23,9 +23,9 @@ const coreSpecializations = [
     badge: 'AI Powered',
     desc: 'Bespoke applications integrated with intelligent automation engines.',
     showcase: {
-      title: 'Next-Gen Software',
+      title: 'Next-Gen Software & AI',
       desc: 'Scalable cloud applications and AI-driven internal tools engineered for performance and reliability.',
-      image: '/assets/cloud-infrastructure.png'
+      images: ['/assets/software-1.png', '/assets/software-2.png'],
     }
   },
   {
@@ -36,7 +36,7 @@ const coreSpecializations = [
     showcase: {
       title: 'Zero-Trust Security',
       desc: 'Military-grade encryption, endpoint protection, and proactive vulnerability scanning for your infrastructure.',
-      image: '/assets/particle-wave-1.png'
+      images: ['/assets/software-3.png', '/assets/software-1.png'],
     }
   },
   {
@@ -45,9 +45,9 @@ const coreSpecializations = [
     badge: 'Sub-Second',
     desc: 'Fast, accessible frontends built for maximum search crawler dominance.',
     showcase: {
-      title: 'High-Performance Web',
+      title: 'High-Performance Web Engineering',
       desc: 'Lightning-fast React & Next.js web applications optimized for conversion and global accessibility.',
-      image: '/assets/particle-wave-2.png'
+      images: ['/assets/software-2.png', '/assets/consulting-1.png'],
     }
   },
   {
@@ -56,9 +56,9 @@ const coreSpecializations = [
     badge: '99.98% SLA',
     desc: 'High-availability cPanel hosting tiers & official local DNS delegation.',
     showcase: {
-      title: 'Enterprise Hosting',
+      title: 'Enterprise Cloud Hosting',
       desc: '99.98% SLA uptime, automated backups, and instant .co.zw domain provisioning in Harare.',
-      image: '/assets/global-network.png'
+      images: ['/assets/consulting-2.png', '/assets/software-3.png'],
     }
   },
 ];
@@ -98,7 +98,9 @@ export default function NavbarLinks() {
   const pathname = usePathname();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [hoveredService, setHoveredService] = useState(null);
+  const [imgIndex, setImgIndex] = useState(0);
   const timeoutRef = useRef(null);
+  const imgIntervalRef = useRef(null);
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -110,6 +112,20 @@ export default function NavbarLinks() {
       setDropdownOpen(false);
     }, 200);
   };
+
+  // Crossfade between the two images every 2s while hovering a service
+  useEffect(() => {
+    if (hoveredService) {
+      setImgIndex(0);
+      imgIntervalRef.current = setInterval(() => {
+        setImgIndex(i => (i === 0 ? 1 : 0));
+      }, 2000);
+    } else {
+      clearInterval(imgIntervalRef.current);
+      setImgIndex(0);
+    }
+    return () => clearInterval(imgIntervalRef.current);
+  }, [hoveredService]);
 
   useEffect(() => {
     setDropdownOpen(false);
@@ -176,7 +192,7 @@ export default function NavbarLinks() {
           dropdownOpen
             ? 'opacity-100 max-h-[600px] py-12 pointer-events-auto'
             : 'opacity-0 max-h-0 py-0 pointer-events-none'
-        } bg-[#0a0a0a]/98 backdrop-blur-3xl`}
+        } bg-[#0a0a0a]/75 backdrop-blur-md`}
       >
         <div className="mx-auto max-w-full px-[30px] grid grid-cols-1 lg:grid-cols-12 gap-12">
           
@@ -248,20 +264,23 @@ export default function NavbarLinks() {
           </div>
 
           {/* Column 3: Visual Showcase Card */}
-          <div className="lg:col-span-3 flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-gradient-to-br from-slate-900/50 to-black/80 p-7 relative overflow-hidden group">
-            {/* Dynamic Background Image */}
-            <div 
-              className="absolute inset-0 opacity-20 transition-opacity duration-500 mix-blend-screen group-hover:opacity-40"
-              style={{
-                backgroundImage: `url(${hoveredService?.showcase?.image || '/assets/global-network.png'})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            ></div>
-            
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-slate-800/40 via-transparent to-transparent pointer-events-none"></div>
-            
+          <div className="lg:col-span-3 flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-black/60 p-7 relative overflow-hidden">
+            {/* Crossfading background images */}
+            {(hoveredService ? hoveredService.showcase.images : ['/assets/consulting-1.png', '/assets/consulting-2.png']).map((src, i) => (
+              <div
+                key={src}
+                className="absolute inset-0 transition-opacity duration-700"
+                style={{
+                  backgroundImage: `url(${src})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  opacity: imgIndex === i ? 0.35 : 0,
+                }}
+              />
+            ))}
+            {/* Dark gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/30 pointer-events-none"></div>
+
             <div className="space-y-4 relative z-10 transition-all duration-300">
               <div className="font-raleway text-lg font-light tracking-[0.25em] uppercase text-white/90">
                 ZITRAC
@@ -277,7 +296,7 @@ export default function NavbarLinks() {
             <div className="pt-8 relative z-10">
               <Link
                 href="/contact/"
-                className="block text-center rounded-xl bg-white text-black py-3 px-4 text-xs font-bold uppercase tracking-widest hover:bg-slate-200 hover:scale-[1.02] transition-all focus:outline-none focus:ring-2 focus:ring-white"
+                className="block text-center rounded-xl bg-white text-black py-3 px-4 text-xs font-bold uppercase tracking-widest hover:bg-slate-200 hover:scale-[1.02] transition-all focus:outline-none"
               >
                 Schedule Consultation
               </Link>
