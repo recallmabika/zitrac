@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  
+  /* Universal Accessibility Focus Traversal Rule */
+  :focus-visible {
+    outline: 2px solid #dc2626 !important;
+    outline-offset: 2px !important;
+  }
+}
