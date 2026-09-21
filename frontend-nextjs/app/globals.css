@@ -211,17 +211,18 @@
                 box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* Darker background on hover while on the hero */
+  /* Darker background on hover while on the hero - reduced a bit per feedback */
   header#main-navbar:not(.navbar-scrolled):hover {
-    background-color: rgba(5, 5, 5, 0.88) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
+    background-color: rgba(5, 5, 5, 0.72) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
   }
 
+  /* Apply same styling on scroll while over hero */
   .navbar-hero-scroll {
-    background-color: rgba(0, 0, 0, 0.55) !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
+    background-color: rgba(5, 5, 5, 0.72) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
   }
 
   .navbar-scrolled {
