@@ -137,7 +137,7 @@ export default function RootLayout({ children }) {
           <div className="mx-auto max-w-full px-[30px] grid grid-cols-1 md:grid-cols-4 gap-10">
             <div className="space-y-4">
               <span className="font-raleway text-2xl sm:text-3xl font-light tracking-[0.3em] uppercase text-white">
-                ZITRAC<span className="text-red-500 font-bold tracking-normal">.</span>
+                ZITRAC
               </span>
               <p className="text-xs leading-relaxed text-slate-400 font-normal">
                 Premier enterprise IT support company in Zimbabwe. Engineering mission-critical infrastructure, custom software, and AI threat defense systems from Harare.

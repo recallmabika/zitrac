@@ -64,7 +64,8 @@ const insightsAndDelivery = [
 const secondaryNav = [
   { href: '/work/', label: 'Our Work' },
   { href: '/pricing/', label: 'Pricing' },
-  { href: '/services/web-hosting-domain-registration/', label: 'Hosting & Domains' },
+  { href: '/services/web-hosting-domain-registration/', label: 'Hosting' },
+  { href: '/services/web-hosting-domain-registration/#domains', label: 'Domains' },
   { href: '/about/', label: 'About' },
 ];
 

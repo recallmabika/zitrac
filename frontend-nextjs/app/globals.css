@@ -42,12 +42,7 @@
     scrollbar-color: #27272a #000000;
   }
 
-  /* Universal Accessibility Focus Traversal Rule */
-  :focus-visible {
-    outline: 2px solid #dc2626 !important;
-    outline-offset: 2px !important;
-  }
-
+  /* Removed Universal Accessibility Focus Traversal Rule */
   /* Smooth link and button transitions globally */
   a, button {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
