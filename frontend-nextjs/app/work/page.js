@@ -106,7 +106,7 @@ export default function WorkPage() {
           </div>
           <Link
             href="/contact/"
-            className="btn-glow rounded-full bg-red-600 px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-red-500 transition-all focus:outline-none focus:ring-2 focus:ring-red-600"
+            className="btn-glow rounded-full bg-red-600 px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-red-500 transition-all focus:outline-none"
           >
             Initiate Architectural Brief
           </Link>

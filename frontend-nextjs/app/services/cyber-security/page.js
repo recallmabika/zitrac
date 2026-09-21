@@ -69,7 +69,7 @@ export default function CyberSecurityPage() {
           </div>
           <Link
             href="/contact/"
-            className="rounded-lg bg-red-600 px-6 py-3 text-xs font-semibold text-white hover:bg-red-700 transition focus:outline-none focus:ring-2 focus:ring-red-600"
+            className="rounded-lg bg-red-600 px-6 py-3 text-xs font-semibold text-white hover:bg-red-700 transition focus:outline-none"
           >
             Request Security Audit
           </Link>

@@ -103,7 +103,7 @@ export default function WebHostingDomainRegistrationPage() {
               <div>
                 <Link
                   href={`/contact/?service=Web+Hosting&tier=${pkg.name}`}
-                  className={`block w-full text-center rounded-lg py-3 text-xs font-bold uppercase tracking-wider transition focus:outline-none focus:ring-2 focus:ring-red-600 ${
+                  className={`block w-full text-center rounded-lg py-3 text-xs font-bold uppercase tracking-wider transition focus:outline-none ${
                     pkg.popular
                       ? 'bg-red-600 text-white hover:bg-red-700'
                       : 'bg-slate-800 text-slate-200 hover:bg-slate-700'
