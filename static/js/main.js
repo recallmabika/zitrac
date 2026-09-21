@@ -392,3 +392,72 @@
         }
     });
 })();
+
+// --- Cookie / T&Cs consent ---
+(function () {
+    var banner = document.getElementById('cookie-banner');
+    var accepted = localStorage.getItem('zitrac_cookie_consent');
+    if (!accepted) {
+        banner.classList.remove('hidden');
+    }
+    document.getElementById('cookie-accept').addEventListener('click', function () {
+        localStorage.setItem('zitrac_cookie_consent', 'accepted');
+        banner.classList.add('hidden');
+    });
+    document.getElementById('cookie-decline').addEventListener('click', function () {
+        localStorage.setItem('zitrac_cookie_consent', 'declined');
+        banner.classList.add('hidden');
+    });
+})();
+
+// --- Newsletter subscribe popup, shown once per visitor, after a short delay ---
+(function () {
+    var overlay = document.getElementById('subscribe-overlay');
+    var alreadySeen = localStorage.getItem('zitrac_subscribe_seen');
+
+    if (!alreadySeen) {
+        setTimeout(function () {
+            overlay.classList.remove('hidden');
+            overlay.classList.add('flex');
+            localStorage.setItem('zitrac_subscribe_seen', 'true');
+        }, 8000);
+    }
+
+    function closeOverlay() {
+        overlay.classList.add('hidden');
+        overlay.classList.remove('flex');
+    }
+
+    document.getElementById('subscribe-close').addEventListener('click', closeOverlay);
+    overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeOverlay();
+    });
+
+    var form = document.getElementById('subscribe-form');
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var formData = new FormData(form);
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+            var successEl = document.getElementById('subscribe-success');
+            var errorEl = document.getElementById('subscribe-error');
+            if (data.success) {
+                form.classList.add('hidden');
+                successEl.classList.remove('hidden');
+                setTimeout(closeOverlay, 2000);
+            } else {
+                errorEl.textContent = data.error || 'Something went wrong.';
+                errorEl.classList.remove('hidden');
+            }
+        })
+        .catch(function () {
+            document.getElementById('subscribe-error').textContent = 'Network error — please try again.';
+            document.getElementById('subscribe-error').classList.remove('hidden');
+        });
+    });
+})();

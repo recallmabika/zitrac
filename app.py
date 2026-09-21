@@ -6,7 +6,9 @@ import math
 import smtplib
 from datetime import datetime
 from email.mime.text import MIMEText
-from urllib.parse import urlparse
+from email.mime.multipart import MIMEMultipart
+from email.mime.image import MIMEImage
+from urllib.parse import urlparse, quote_plus
 from functools import wraps
 
 import random
@@ -18,21 +20,36 @@ from werkzeug.utils import secure_filename
 import data
 from models import db, Post, Subscriber
 
+import pymysql
+pymysql.install_as_MySQLdb()
+
 load_dotenv()
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 app.secret_key = os.environ.get('FLASK_SECRET_KEY')
+app.config['WTF_CSRF_TIME_LIMIT'] = None
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.root_path, 'zitrac.db')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# --- Database configuration ---
+USE_MYSQL = os.environ.get('USE_MYSQL', 'false').lower() == 'true'
+
+if USE_MYSQL:
+    DB_HOST = os.environ.get('DB_HOST', 'localhost')
+    DB_NAME = os.environ.get('DB_NAME')
+    DB_USER = os.environ.get('DB_USER')
+    DB_PASS = quote_plus(os.environ.get('DB_PASS', ''))
+    app.config['SQLALCHEMY_DATABASE_URI'] = (
+        f'mysql+pymysql://{DB_USER}:{DB_PASS}@{DB_HOST}/{DB_NAME}'
+    )
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.root_path, 'zitrac.db')
 
 # --- Security hardening ---
-app.config['SESSION_COOKIE_SECURE'] = True      # cookie only sent over HTTPS
-app.config['SESSION_COOKIE_HTTPONLY'] = True    # JS cannot read the cookie
-app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'   # basic CSRF mitigation on top of tokens below
+app.config['SESSION_COOKIE_SECURE'] = True
+app.config['SESSION_COOKIE_HTTPONLY'] = True
+app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 
-csrf = CSRFProtect(app)  # protects every POST form site-wide; templates need {{ csrf_token() }}
+csrf = CSRFProtect(app)
 
 db.init_app(app)
 
@@ -61,17 +78,13 @@ ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL')  # where the login verification code
 if not ADMIN_EMAIL:
     raise RuntimeError("ADMIN_EMAIL must be set — the address that receives login verification codes.")
 
-OTP_VALID_SECONDS = 300  # 5 minutes
+OTP_VALID_SECONDS = 300
 
-ADMIN_PREFIX = 'admin'  # plain, memorable path — real protection is the emailed code below, not URL secrecy
+ADMIN_PREFIX = 'admin'
 
-# In-memory login attempt tracker: {ip: [timestamp, ...]}
-# Note: resets on app restart, and won't work correctly across multiple
-# worker processes. Fine for a single small Flask process; swap for
-# Flask-Limiter + Redis if this ever scales up.
 _login_attempts = {}
 MAX_ATTEMPTS = 5
-LOCKOUT_SECONDS = 300  # 5 minutes
+LOCKOUT_SECONDS = 300
 
 IMAGE_DIR = os.path.join(app.root_path, 'static', 'images')
 IMAGE_EXTS = ('jpg', 'png', 'jpeg')
@@ -114,8 +127,7 @@ def is_safe_admin_next(next_url):
 
 
 # ---------------------------------------------------------------------------
-# Admin routes — all live under the random ADMIN_PREFIX, not a guessable
-# path like /admin. Keep the prefix secret; treat it like a password.
+# Admin routes
 # ---------------------------------------------------------------------------
 
 @app.route(f'/{ADMIN_PREFIX}')
@@ -126,19 +138,97 @@ def admin_index():
 
 def send_otp_email(code):
     subject = "Your ZITRAC admin login code"
-    body = (
-        f"Your login verification code is: {code}\n\n"
-        f"This code expires in 5 minutes. If you didn't request this, "
-        f"someone may have your admin password — consider changing it."
+
+    text_body = (
+        f"ZITRAC Admin Login\n\n"
+        f"Your verification code is: {code}\n\n"
+        f"This code expires in 5 minutes.\n\n"
+        f"If you didn't request this, someone may have your admin password — "
+        f"consider changing it immediately."
     )
-    msg = MIMEText(body, _charset='utf-8')
+
+    html_body = f"""\
+    <html>
+      <body style="margin:0; padding:0; background-color:#f4f4f5; font-family:Arial, Helvetica, sans-serif;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f4f5; padding:40px 0;">
+          <tr>
+            <td align="center">
+              <table role="presentation" width="480" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border:1px solid #e5e7eb;">
+
+                <tr>
+                  <td style="padding:32px 40px 24px 40px; text-align:center; border-bottom:1px solid #e5e7eb;">
+                    <img src="cid:zitrac_logo" alt="ZITRAC" style="height:36px;">
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:40px;">
+                    <p style="margin:0 0 8px 0; font-size:13px; letter-spacing:1px; text-transform:uppercase; color:#dc2626; font-weight:700;">
+                      Admin Login
+                    </p>
+                    <h1 style="margin:0 0 16px 0; font-size:22px; color:#111827;">
+                      Your verification code
+                    </h1>
+                    <p style="margin:0 0 24px 0; font-size:14px; line-height:1.6; color:#4b5563;">
+                      Use the code below to complete your login to the ZITRAC admin panel.
+                    </p>
+
+                    <div style="background-color:#f9fafb; border:1px solid #e5e7eb; padding:20px; text-align:center; margin-bottom:24px;">
+                      <span style="font-size:32px; font-weight:800; letter-spacing:8px; color:#111827;">
+                        {code}
+                      </span>
+                    </div>
+
+                    <p style="margin:0 0 4px 0; font-size:13px; color:#6b7280;">
+                      This code expires in <strong>5 minutes</strong>.
+                    </p>
+                    <p style="margin:24px 0 0 0; font-size:13px; line-height:1.6; color:#6b7280; border-top:1px solid #e5e7eb; padding-top:20px;">
+                      If you didn't request this code, someone may have your admin password.
+                      Consider changing it immediately and reviewing recent account activity.
+                    </p>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="padding:20px 40px; background-color:#0d1117; text-align:center;">
+                    <p style="margin:0; font-size:11px; color:#9ca3af; letter-spacing:0.5px;">
+                      &copy; {datetime.now().year} ZITRAC &middot; Harare, Zimbabwe
+                    </p>
+                  </td>
+                </tr>
+
+              </table>
+            </td>
+          </tr>
+        </table>
+      </body>
+    </html>
+    """
+
+    msg = MIMEMultipart('related')
     msg['Subject'] = subject
     msg['From'] = f"ZITRAC Admin <{SMTP_USER}>"
     msg['To'] = ADMIN_EMAIL
 
+    msg_alternative = MIMEMultipart('alternative')
+    msg.attach(msg_alternative)
+    msg_alternative.attach(MIMEText(text_body, 'plain', _charset='utf-8'))
+    msg_alternative.attach(MIMEText(html_body, 'html', _charset='utf-8'))
+
+    logo_path = os.path.join(app.root_path, 'static', 'images', 'zitracLogo.png')
+    try:
+        with open(logo_path, 'rb') as f:
+            logo_img = MIMEImage(f.read())
+            logo_img.add_header('Content-ID', '<zitrac_logo>')
+            logo_img.add_header('Content-Disposition', 'inline', filename='zitracLogo.png')
+            msg.attach(logo_img)
+    except FileNotFoundError:
+        app.logger.warning(f"Logo file not found at {logo_path} — sending OTP email without logo.")
+
     if not SMTP_PASS:
         app.logger.warning("SMTP_PASS not set — OTP email not actually sent (dev mode).")
         return False
+
     try:
         with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) as server:
             server.login(SMTP_USER, SMTP_PASS)
@@ -284,7 +374,7 @@ def save_post_from_form(request, post=None):
             return 'Image must be a JPG or PNG file.'
         final_name = f"{slug}{ext}"
         file.save(os.path.join(BLOG_IMAGE_DIR, final_name))
-        image_filename = f"blog/{slug}"  # stored without extension, matches resolve_image()
+        image_filename = f"blog/{slug}"
 
     if post:
         post.slug = slug
@@ -341,6 +431,12 @@ def resolve_case_studies(case_studies):
 @app.context_processor
 def inject_helpers():
     return dict(resolve_image=resolve_image)
+
+
+MAINTENANCE_MODE = os.environ.get('MAINTENANCE_MODE', 'false').lower() == 'true'
+MAINTENANCE_NOTICE = os.environ.get('MAINTENANCE_NOTICE', 'false').lower() == 'true'
+MAINTENANCE_NOTICE_START = os.environ.get('MAINTENANCE_NOTICE_START', '')
+MAINTENANCE_NOTICE_END = os.environ.get('MAINTENANCE_NOTICE_END', '')
 
 
 @app.context_processor
@@ -480,23 +576,11 @@ def send_contact_email(subject, body, reply_to):
         return False
 
 
-MAINTENANCE_MODE = os.environ.get('MAINTENANCE_MODE', 'false').lower() == 'true'
-
-# Separate from full maintenance mode above — this just shows a dismissible
-# banner warning visitors about an upcoming/ongoing window, site stays live.
-MAINTENANCE_NOTICE = os.environ.get('MAINTENANCE_NOTICE', 'false').lower() == 'true'
-MAINTENANCE_NOTICE_START = os.environ.get('MAINTENANCE_NOTICE_START', '')  # e.g. "Aug 2, 11:00 PM"
-MAINTENANCE_NOTICE_END = os.environ.get('MAINTENANCE_NOTICE_END', '')      # e.g. "Aug 3, 2:00 AM"
-
-
 @app.before_request
 def check_maintenance_mode():
     if not MAINTENANCE_MODE:
-        return  # normal operation, do nothing
+        return
 
-    # Always allow access to admin routes (so you can work on the site while
-    # it's in maintenance mode) and static files (so the maintenance page
-    # itself can load its CSS/images).
     path = request.path
     if path.startswith(f'/{ADMIN_PREFIX}') or path.startswith('/static/'):
         return
@@ -528,14 +612,12 @@ def subscribe():
 
 @app.errorhandler(404)
 def handle_404(e):
-    return render_template('404.html'), 404
+    return render_template('errors/404.html'), 404
 
 
 @app.errorhandler(500)
 def handle_500(e):
-    # e.original_exception (if present) is already logged by Flask's own
-    # logger before this handler runs — this just controls what the visitor sees.
-    return render_template('500.html'), 500
+    return render_template('errors/500.html'), 500
 
 
 if __name__ == '__main__':

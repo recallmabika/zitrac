@@ -80,6 +80,7 @@
             {% endwith %}
 
             <form action="{{ url_for('contact') }}" method="POST" class="bg-white p-8 border border-gray-200" id="contactForm" novalidate>
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
                 <!-- Honeypot field, hidden from real users -->
                 <div class="absolute -left-[9999px] w-px h-px overflow-hidden">

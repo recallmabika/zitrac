@@ -4,3 +4,4 @@ flask-sqlalchemy
 Flask-WTF
 pyotp
 qrcode[pil]
+pymysql

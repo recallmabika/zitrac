@@ -123,7 +123,8 @@
                         Edit
                     </a>
                     <form action="{{ url_for('admin_post_delete', post_id=post.id) }}" method="POST"
-                          onsubmit="return confirm('Permanently delete "{{ post.title }}"?');">
+                        onsubmit="return confirm('Permanently delete "{{ post.title }}"?');">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         <button type="submit"
                                 class="inline-flex items-center gap-1 px-3 py-1.5 text-xs text-gray-400 border border-gray-200 hover:border-red-300 hover:text-red-600 hover:bg-red-50 transition-colors">
                             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
