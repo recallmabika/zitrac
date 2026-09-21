@@ -16,19 +16,19 @@
     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
 
     <div class="relative z-20 max-w-6xl mx-auto px-4 pb-4 md:pb-32 w-full">
-        <h1 class="font-display text-white text-4xl mt-12 md:text-6xl font-semibold leading-[1.1] max-w-2xl">
+        <h1 class="font-display text-white text-4xl mt-12 md:text-6xl font-semibold leading-[1.1] max-w-2xl" style="font-family: 'Inter', sans-serif;">
             Technology that works for your business.
         </h1>
         <p class="mt-24 text-gray-200 text-lg max-w-lg">
             Reliable IT consulting, software development, and connectivity services for businesses and schools across Zimbabwe.
         </p>
-        <div class="mt-24 flex gap-4">
+        <div class="mt-24 flex gap-4" style="font-family: 'Inter', sans-serif;">
             <a href="{{ url_for('contact') }}"
                class="px-7 py-3 bg-red-600 text-white font-semibold hover:bg-red-700 transition-colors duration-200">
                 Get a Quote
             </a>
             <a href="{{ url_for('services') }}"
-               class="px-7 py-3 border border-white/60 text-white font-semibold hover:border-white hover:bg-white/10 transition-colors duration-200">
+               class="px-7 py-3 border border-white/60 text-white font-semibold hover:border-white hover:bg-white/10 transition-colors duration-200" >
                 Our Services
             </a>
         </div>
@@ -85,10 +85,10 @@
                         <div class="absolute inset-0 border-r border-white/10"></div>
 
                         <div class="relative z-10 h-full flex flex-col justify-end p-6 md:p-8">
-                            <h3 class="font-display text-white text-xl md:text-2xl font-semibold leading-tight">
+                            <h3 class="font-display text-white text-xl md:text-2xl font-semibold leading-tight" style="font-family: 'Inter', sans-serif;">
                                 {{ service.title }}
                             </h3>
-                            <p class="service-slide-desc mt-2 text-sm text-gray-300 max-w-xs">
+                            <p class="service-slide-desc mt-2 text-sm text-gray-300 max-w-xs" style="font-family: 'Inter', sans-serif;">
                                 {{ service.desc }}
                             </p>
                         </div>
@@ -157,7 +157,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                     <div class="relative z-10 h-full flex flex-col justify-end p-6">
                         <p class="text-red-400 text-xs font-semibold tracking-widest uppercase">{{ case.client }}</p>
-                        <h3 class="font-display text-white text-lg font-semibold leading-tight mt-2">{{ case.title }}</h3>
+                        <h3 class="font-display text-white text-lg font-semibold leading-tight mt-2" style="font-family: 'Inter', sans-serif;">{{ case.title }}</h3>
                         <p class="mt-2 text-sm text-gray-300">{{ case.desc }}</p>
                     </div>
                 </div>
@@ -179,7 +179,7 @@
                     <div class="flex items-center justify-between gap-4">
                         <span class="font-mono text-xs font-medium tracking-wider text-gray-400">{{ t.id }}</span>
                     </div>
-                    <p class="ticket-quote font-display text-xl md:text-2xl text-gray-900 leading-snug mt-5">
+                    <p class="ticket-quote font-display text-xl md:text-2xl text-gray-900 leading-snug mt-5" style="font-family: 'Inter', sans-serif;">
                         &ldquo;{{ t.quote }}&rdquo;
                     </p>
                     <p class="mt-5 font-mono text-xs tracking-wide text-gray-500">
@@ -256,7 +256,7 @@
 <section class="cta-band py-16 bg-red-600">
     <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
         <div>
-            <h2 class="font-display text-white text-2xl md:text-3xl font-semibold">
+            <h2 class="font-display text-white text-2xl md:text-3xl font-semibold" style="font-family: 'Inter', sans-serif;">
                 Need a system built around how you actually work?
             </h2>
             <p class="mt-2 text-red-100 text-sm md:text-base">

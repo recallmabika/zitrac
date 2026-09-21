@@ -576,7 +576,7 @@ def check_maintenance_mode():
     if path.startswith(f'/{ADMIN_PREFIX}') or path.startswith('/static/'):
         return
 
-    return render_template('maintenance.html'), 503
+    return render_template('errors/maintenance.html'), 503
 
 
 @app.route('/subscribe', methods=['POST'])

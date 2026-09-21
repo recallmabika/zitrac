@@ -56,16 +56,16 @@
         <a href="{{ url_for('home') }}" class="inline-flex items-center gap-3">
             <img src="{{ url_for('static', filename='images/zitracLogo.png') }}" alt="ZITRAC" class="h-9 w-auto">
             <span class="inline-block">
-                <span class="font-extrabold text-3xl tracking-tight text-red-600">ZITRAC</span>
+                <span class="font-bold text-3xl tracking-tight text-red-600">ZITRAC</span>
                 <span class="block h-0.5 w-full bg-red-600 mt-1"></span>
             </span>
         </a>
 
-        <div class="hidden md:flex items-center gap-1">
+        <div class="hidden md:flex items-center gap-1" style="font-family: 'Inter', sans-serif;">
             {% for key, href, label in nav_items %}
                 <a href="{{ href }}"
-                   class="relative px-4 py-2 text-sm font-semibold tracking-wide text-gray-600 hover:text-red-600 transition-colors duration-200
-                          {{ 'text-red-600' if current_page == key else '' }}">
+                   class="relative px-4 py-2 text-sm tracking-wide text-gray-600 hover:text-red-600 transition-colors duration-200
+                          {{ 'text-red-600' if current_page == key else '' }}" style="font-family: 'Inter', sans-serif;">
                     {{ label }}
                     <span class="absolute left-4 right-4 -bottom-0.5 h-0.5 bg-red-600 transition-transform duration-300 origin-left
                                   {{ 'scale-x-100' if current_page == key else 'scale-x-0 hover:scale-x-100' }}"></span>
