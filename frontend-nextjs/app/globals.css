@@ -426,3 +426,56 @@
   background-image: radial-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px);
   background-size: 40px 40px;
 }
+
+/* ── Light Mode / Theme Variables Support ── */
+
+html.light {
+  color-scheme: light;
+  background-color: #fcfcfc !important;
+}
+
+html.light body {
+  background-color: #fcfcfc !important;
+  color: #0f172a !important;
+}
+
+html.light footer {
+  background-color: #f8fafc !important;
+  border-top-color: #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+html.light footer h3,
+html.light footer .font-raleway {
+  color: #0f172a !important;
+}
+
+html.light footer input {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.light footer input::placeholder {
+  color: #94a3b8 !important;
+}
+
+html.light .theme-toggle-segmented {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light .theme-toggle-segmented button.bg-white {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+html.light .theme-toggle-segmented button:not(.bg-white) {
+  color: #64748b !important;
+}
+
+html.light .theme-toggle-segmented button:not(.bg-white):hover {
+  color: #0f172a !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
