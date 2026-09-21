@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -12,3 +13,8 @@ class Post(db.Model):
     month = db.Column(db.String(10), nullable=False)
     year = db.Column(db.String(10), nullable=False)
     published_at = db.Column(db.DateTime, nullable=False)
+
+class Subscriber(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(255), unique=True, nullable=False)
+    subscribed_at = db.Column(db.DateTime, default=datetime.utcnow)
