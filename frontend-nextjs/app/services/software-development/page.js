@@ -14,7 +14,7 @@ export const metadata = {
 export default function SoftwareDevelopmentPage() {
   return (
     <div className="py-12 md:py-20">
-      <div className="mx-auto max-w-5xl px-6 space-y-12">
+      <div className="mx-auto max-w-full px-[30px] space-y-12">
         <header className="space-y-4">
           <div className="text-xs font-bold uppercase tracking-widest text-red-500">Custom Engineering & AI</div>
           <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">

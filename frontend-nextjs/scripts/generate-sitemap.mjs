@@ -10,6 +10,8 @@ const BASE_URL = 'https://zitrac.co.zw';
 
 const staticRoutes = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
+  { path: '/work/', priority: '0.85', changefreq: 'monthly' },
+  { path: '/pricing/', priority: '0.85', changefreq: 'monthly' },
   { path: '/about/', priority: '0.8', changefreq: 'monthly' },
   { path: '/contact/', priority: '0.9', changefreq: 'monthly' },
   { path: '/services/', priority: '0.9', changefreq: 'weekly' },

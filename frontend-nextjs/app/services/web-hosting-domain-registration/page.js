@@ -45,7 +45,7 @@ const packages = [
 export default function WebHostingDomainRegistrationPage() {
   return (
     <div className="py-12 md:py-20">
-      <div className="mx-auto max-w-6xl px-6 space-y-12">
+      <div className="mx-auto max-w-full px-[30px] space-y-12">
         <header className="max-w-3xl space-y-4">
           <div className="text-xs font-bold uppercase tracking-widest text-red-500">Cloud & Infrastructure</div>
           <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
