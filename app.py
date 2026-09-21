@@ -30,7 +30,6 @@ app.url_map.strict_slashes = False
 app.secret_key = os.environ.get('FLASK_SECRET_KEY')
 app.config['WTF_CSRF_TIME_LIMIT'] = None
 
-# --- Database configuration ---
 USE_MYSQL = os.environ.get('USE_MYSQL', 'false').lower() == 'true'
 
 if USE_MYSQL:
@@ -44,7 +43,6 @@ if USE_MYSQL:
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.root_path, 'zitrac.db')
 
-# --- Security hardening ---
 app.config['SESSION_COOKIE_SECURE'] = True
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
@@ -74,7 +72,7 @@ if not all([SMTP_HOST, SMTP_USER, MAIL_TO]):
     app.logger.warning("SMTP settings incomplete — contact form email sending will fail.")
 
 ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD')
-ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL')  # where the login verification code gets sent
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL')
 if not ADMIN_EMAIL:
     raise RuntimeError("ADMIN_EMAIL must be set — the address that receives login verification codes.")
 
@@ -93,8 +91,7 @@ os.makedirs(BLOG_IMAGE_DIR, exist_ok=True)
 
 
 def estimate_read_time(html_content):
-    """Rough word count from HTML content, ~200 words/minute."""
-    text = re.sub('<[^<]+?>', '', html_content)  # strip tags
+    text = re.sub('<[^<]+?>', '', html_content)
     word_count = len(text.split())
     minutes = max(1, math.ceil(word_count / 200))
     return minutes
@@ -116,8 +113,6 @@ def login_required(f):
 
 
 def is_safe_admin_next(next_url):
-    """Only allow redirects to relative paths inside our own admin section —
-    blocks the open-redirect trick of passing a full external URL via ?next=."""
     if not next_url:
         return False
     parsed = urlparse(next_url)
@@ -125,10 +120,6 @@ def is_safe_admin_next(next_url):
         return False
     return next_url.startswith(f'/{ADMIN_PREFIX}/')
 
-
-# ---------------------------------------------------------------------------
-# Admin routes
-# ---------------------------------------------------------------------------
 
 @app.route(f'/{ADMIN_PREFIX}')
 @app.route(f'/{ADMIN_PREFIX}/')
@@ -242,7 +233,7 @@ def send_otp_email(code):
 @app.route(f'/{ADMIN_PREFIX}/login', methods=['GET', 'POST'])
 def admin_login():
     error = None
-    stage = session.get('login_stage', 'password')  # 'password' or 'code'
+    stage = session.get('login_stage', 'password')
     client_ip = request.remote_addr
     now = time.time()
 
@@ -281,7 +272,6 @@ def admin_login():
                 stage = 'password'
             return render_template('admin/login.html', error=error, stage=stage)
 
-        # stage == 'password'
         password = request.form.get('password', '')
         password_correct = bool(ADMIN_PASSWORD) and hmac.compare_digest(password, ADMIN_PASSWORD)
 
@@ -450,10 +440,6 @@ def inject_globals():
     )
 
 
-# ---------------------------------------------------------------------------
-# Public routes
-# ---------------------------------------------------------------------------
-
 @app.route('/')
 def home():
     latest_posts = Post.query.order_by(Post.published_at.desc()).limit(3).all()
@@ -489,6 +475,11 @@ def services():
         services=data.SERVICES_DETAILED,
         process=data.PROCESS,
     )
+
+
+@app.route('/terms')
+def terms():
+    return render_template('terms.html', current_page='terms')
 
 
 @app.route('/blog', strict_slashes=False)

@@ -21,7 +21,7 @@
 </section>
 
 <!-- Mission & Values -->
-<section class="relative w-full h-[60vh] min-h-[720px] flex items-center overflow-hidden py-20 bg-white">
+<section class="min-h-[60vh] flex items-center py-20 bg-white">
     <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
         <div>
             <p class="text-red-600 font-semibold tracking-widest text-sm mb-2">OUR MISSION</p>
@@ -42,7 +42,7 @@
 </section>
 
 <!-- Our Team / Disciplines -->
-<section class="relative w-full h-[60vh] min-h-[720px] flex items-center overflow-hidden py-20 bg-gray-50">
+<section class="min-h-[60vh] flex items-center py-20 bg-gray-50">
     <div class="max-w-6xl mx-auto px-4">
         <div class="mb-4">
             <p class="text-red-600 font-semibold tracking-widest text-sm mb-2">OUR TEAM</p>
@@ -50,7 +50,7 @@
         </div>
         <div class="blog-log">
             {% for d in disciplines %}
-                <div class="blog-log-row flex items-start gap-6 md:gap-10 py-7">
+                <div class="blog-log-row flex flex-col md:flex-row gap-2 md:gap-10 py-7">
                     <div class="flex-none w-full md:w-56 font-mono text-xs font-semibold tracking-wider text-red-600 pt-1 uppercase">
                         {{ d.label }}
                     </div>
