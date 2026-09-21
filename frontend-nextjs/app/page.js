@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import ShellSnippet from './components/ShellSnippet';
+
+import HeroBackground from './components/HeroBackground';
 
 export const metadata = {
   title: 'Managed IT Services & Software Development Zimbabwe | ZITRAC',
@@ -15,85 +16,91 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <div className="space-y-32 py-12 md:py-24 relative overflow-hidden">
-      {/* Background terminal/matrix code watermark mimicking the Sanity reference image */}
-      <div 
-        aria-hidden="true" 
-        className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden font-mono text-[16px] sm:text-[20px] md:text-[26px] leading-[1.8] text-white/[0.035] whitespace-pre pl-6 pt-8"
-      >
-{`create-agent with sanity context
-  → Install: universal agents
-  → Link: Claude Code, Cursor, Codex
-The Content Operations Platform
-  → Power content applications and AI workflows at scale
-  → Fast API endpoints & direct streaming
-  → Automated threat watchdogs guarding enterprise data`}
-      </div>
+    <div className="relative overflow-hidden bg-black">
+      {/* Hero Section with Ambient Cinematic Video Background & Converging Glow Animations */}
+      <section className="relative z-10 w-full min-h-screen flex items-center pt-24 pb-8 border-b border-white/5">
+        <HeroBackground />
 
-      {/* Hero Section - Sanity Styled Typography & Spacing */}
-      <section className="relative z-10 mx-auto max-w-full px-[30px]">
-        <div className="max-w-5xl space-y-8">
-          
-          {/* Subtle Tag / Pill */}
-          <div className="animate-on-scroll inline-flex items-center gap-2.5 rounded-full border border-red-500/20 bg-red-950/30 px-3.5 py-1 text-xs font-medium text-red-400">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-            </span>
-            <span className="tracking-wide">Enterprise Computing &amp; Digital Architecture</span>
-          </div>
-
-          {/* Mega Display H1 - Sanity Reference Style (Extra Large, Tight Tracking, Clean Sans) */}
+        <div className="relative z-10 w-full mx-auto px-[30px]">
+          <div className="max-w-5xl space-y-6 py-10 md:py-14">
+            {/* Mega Display H1 - Elegant Raleway Typography matching company mark */}
           <div className="overflow-hidden">
-            <h1 className="hero-title-line text-5xl sm:text-7xl md:text-8xl lg:text-[92px] font-extrabold tracking-tight text-white leading-[1.02]">
+            <h1 className="hero-title-line font-raleway text-[1.85rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] font-light tracking-[0.04em] text-white leading-[1.15]">
               Enterprise IT Consulting and Custom Software Development in Zimbabwe
             </h1>
           </div>
 
-          {/* Subheading text block */}
-          <p className="hero-fade-up text-lg sm:text-xl md:text-2xl text-slate-300 leading-relaxed max-w-4xl font-normal">
-            At ZITRAC Technologies, we bridge the gap between complex computing concepts and active enterprise deployment. As a premier <strong className="text-white font-semibold">IT support company in Zimbabwe</strong>, we engineer bespoke technological solutions designed to streamline workflows, protect digital assets, and drive operational efficiency. From our engineering hub, our <strong className="text-white font-semibold">tech consultants in Harare</strong> provide end-to-end management of corporate networks, cloud computing transitions, and full-stack systems built to stay working.
+          {/* Subheading text block with relaxed letter spacing */}
+          <p className="hero-fade-up font-raleway text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-4xl font-light tracking-wide">
+            At ZITRAC Technologies, we bridge the gap between complex computing concepts and active enterprise deployment. As a premier <strong className="text-white font-medium">IT support company in Zimbabwe</strong>, we engineer bespoke technological solutions designed to streamline workflows, protect digital assets, and drive operational efficiency. From our engineering hub, our <strong className="text-white font-medium">tech consultants in Harare</strong> provide end-to-end management of corporate networks, cloud computing transitions, and full-stack systems built to stay working.
           </p>
 
-          {/* Action Button Row - Rounded Pills and Interactive Code Snippet as in Sanity Image */}
-          <div className="hero-fade-up flex flex-wrap items-center gap-4 pt-4">
+          {/* Action Button Row - Rounded Pills */}
+          <div className="hero-fade-up flex flex-wrap items-center gap-4 pt-2">
             <Link
               href="/contact/"
-              className="btn-glow rounded-full bg-red-600 px-8 py-4 text-sm sm:text-base font-bold text-white shadow-xl hover:bg-red-500 hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-black"
+              className="btn-glow rounded-full bg-red-600 px-8 py-3.5 text-sm font-bold text-white shadow-xl hover:bg-red-500 hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-black"
             >
               Start Building With Us
             </Link>
 
             <Link
               href="/services/"
-              className="rounded-full border border-white/20 bg-white/5 hover:bg-white/10 px-8 py-4 text-sm sm:text-base font-medium text-white transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-600"
+              className="rounded-full border border-white/20 bg-white/10 hover:bg-white hover:text-black backdrop-blur px-8 py-3.5 text-sm font-medium text-white transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white"
             >
               Explore Solutions
             </Link>
-
-            {/* Interactive Shell Snippet like in Sanity image */}
-            <ShellSnippet />
           </div>
 
-          {/* Logo Showcase Callout */}
-          <div className="pt-6 flex items-center gap-4">
-            <div className="relative h-12 w-28 rounded-lg overflow-hidden border border-white/15 shadow-xl">
-              <Image
-                src="/assets/zitrac-logo.jpg"
-                alt="ZITRAC Logo Badge"
-                fill
-                className="object-cover"
-              />
-            </div>
+          {/* Authority Trust Metrics (Logo removed) */}
+          <div className="hero-fade-up pt-2 flex items-center gap-3">
+            <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></div>
             <span className="text-xs font-mono text-slate-400">
-              Trusted by enterprise leaders across Zimbabwe &bull; 99.98% High Availability Uptime SLA
+              Active Enterprise Cloud Deployments in Harare &bull; 99.98% High Availability Uptime SLA
             </span>
           </div>
-
+          </div>
+        </div>
+        
+        {/* Red Scrolling Marquee Trust Strip - Docked to bottom of hero */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden bg-red-600/95 backdrop-blur py-5 z-20 border-y border-red-500/30">
+          <div className="marquee-track flex whitespace-nowrap">
+            {[0, 1].map((i) => (
+              <div key={i} className="marquee-content flex items-center gap-8 px-4 shrink-0" aria-hidden={i === 1}>
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">Next.js</span>
+                <span className="text-white/40">✦</span>
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">Python Flask</span>
+                <span className="text-white/40">✦</span>
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">Cloudflare R2</span>
+                <span className="text-white/40">✦</span>
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">Zero-Trust IAM</span>
+                <span className="text-white/40">✦</span>
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">AI Automation</span>
+                <span className="text-white/40">✦</span>
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">cPanel Hosting</span>
+                <span className="text-white/40">✦</span>
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">DNSSEC</span>
+                <span className="text-white/40">✦</span>
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">TLS 1.3</span>
+                <span className="text-white/40">✦</span>
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">.co.zw Domains</span>
+                <span className="text-white/40">✦</span>
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">AWS S3</span>
+                <span className="text-white/40">✦</span>
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">99.98% Uptime SLA</span>
+                <span className="text-white/40">✦</span>
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">SOC Monitoring</span>
+                <span className="text-white/40">✦</span>
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">Harare Engineering Hub</span>
+                <span className="text-white/40">✦</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Service Capabilities Grid with Smooth Motion & Lift */}
+
       <section className="relative z-10 mx-auto max-w-full px-[30px]">
         <div className="animate-on-scroll mb-14">
           <div className="text-xs font-mono font-semibold tracking-widest text-red-500 uppercase mb-2">
@@ -193,6 +200,19 @@ The Content Operations Platform
         <div className="animate-on-scroll rounded-3xl border border-white/10 bg-gradient-to-b from-slate-950 to-black p-10 md:p-16 relative overflow-hidden">
           <div className="absolute right-0 top-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
           
+          {/* Cloud Infrastructure Visual - decorative right side */}
+          <div className="absolute right-0 bottom-0 w-[45%] h-full pointer-events-none hidden md:block">
+            <Image
+              src="/assets/cloud-infrastructure.png"
+              alt=""
+              width={700}
+              height={450}
+              className="absolute bottom-0 right-0 w-full h-auto opacity-20 object-contain mix-blend-screen"
+              unoptimized
+              aria-hidden="true"
+            />
+          </div>
+
           <div className="max-w-3xl space-y-6 relative z-10">
             <div className="text-xs font-mono font-bold tracking-widest text-red-500 uppercase">
               RELIABILITY BENCHMARK
@@ -215,6 +235,43 @@ The Content Operations Platform
                 className="inline-block rounded-full border border-white/20 bg-white/5 hover:bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-red-600"
               >
                 Corporate Profile
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Global Network Reach Visual Section */}
+      <section className="relative z-10 mx-auto max-w-full px-[30px]">
+        <div className="animate-on-scroll rounded-3xl border border-white/10 bg-slate-950/80 overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
+            {/* Visual Side */}
+            <div className="relative p-8 md:p-12 flex items-center justify-center">
+              <Image
+                src="/assets/global-network.png"
+                alt="Global network infrastructure with connected endpoints"
+                width={600}
+                height={450}
+                className="w-full h-auto max-w-md object-contain"
+                unoptimized
+              />
+            </div>
+            {/* Content Side */}
+            <div className="p-8 md:p-12 space-y-5">
+              <div className="text-xs font-mono font-bold tracking-widest text-red-500 uppercase">
+                GLOBAL REACH
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
+                Connected Infrastructure Across Every Endpoint
+              </h2>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                From enterprise CDN distribution to real-time SOC monitoring nodes, ZITRAC deploys interconnected systems that keep your data flowing and your perimeter sealed — with 100% deployment completion guarantees.
+              </p>
+              <Link
+                href="/services/"
+                className="inline-flex items-center text-xs font-bold text-red-400 hover:text-red-300 tracking-wider uppercase"
+              >
+                Explore Full Architecture <span className="ml-1.5">&rarr;</span>
               </Link>
             </div>
           </div>

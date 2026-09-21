@@ -2,42 +2,66 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
-const servicesDropdown = [
+const coreSpecializations = [
   {
     title: 'Enterprise IT Consulting',
-    desc: 'Strategic infrastructure audits & round-the-clock technical support',
     href: '/services/it-consulting/',
-    tag: 'Advisory',
+    badge: 'Advisory',
+    desc: 'Strategic infrastructure audits, DR failover & 24/7 technical support.',
   },
   {
-    title: 'Custom Software & AI Automation',
-    desc: 'Bespoke applications integrated with intelligent automation engines',
+    title: 'Custom Software & AI',
     href: '/services/software-development/',
-    tag: 'AI Integrated',
+    badge: 'AI Powered',
+    desc: 'Bespoke applications integrated with intelligent automation engines.',
   },
   {
-    title: 'Cyber Security & Autonomous Watchdogs',
-    desc: 'Zero-trust perimeter defense and AI threat detection monitors',
+    title: 'Cyber Security Watchdogs',
     href: '/services/cyber-security/',
-    tag: 'Zero-Trust',
+    badge: 'Zero-Trust',
+    desc: 'Automated threat detection watchdogs & proactive penetration audits.',
   },
   {
-    title: 'Custom Web Design & Engineering',
-    desc: 'Sub-second static architectures optimized for high search visibility',
+    title: 'Tailored Web Engineering',
     href: '/services/web-design-development/',
-    tag: 'Technical SEO',
+    badge: 'Sub-Second',
+    desc: 'Fast, accessible frontends built for maximum search crawler dominance.',
   },
   {
-    title: 'Web Hosting & .co.zw Domain Registration',
-    desc: 'High-availability cPanel hosting tiers & official DNS delegation',
+    title: 'Web Hosting & .co.zw Domains',
     href: '/services/web-hosting-domain-registration/',
-    tag: '99.98% SLA',
+    badge: '99.98% SLA',
+    desc: 'High-availability cPanel hosting tiers & official local DNS delegation.',
   },
 ];
 
-const mainNavItems = [
+const insightsAndDelivery = [
+  {
+    title: 'Engineering Methodologies',
+    href: '/about/',
+    desc: 'Our zero-downtime split-architecture paradigm & SLA discipline.',
+  },
+  {
+    title: 'Client Deployments & Proof',
+    href: '/work/',
+    desc: 'Verified enterprise case studies and real-world impact metrics.',
+  },
+  {
+    title: 'Cloudflare R2 Media Vaults',
+    href: '/services/software-development/',
+    desc: 'Zero-disk server streaming architectures utilizing external S3 storage.',
+  },
+  {
+    title: 'Harare Regional Presence',
+    href: '/contact/',
+    desc: 'Central engineering hub coordinating operations across Zimbabwe.',
+  },
+];
+
+const secondaryNav = [
   { href: '/work/', label: 'Our Work' },
   { href: '/pricing/', label: 'Pricing' },
   { href: '/about/', label: 'About' },
@@ -47,7 +71,6 @@ export default function NavbarLinks() {
   const pathname = usePathname();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const timeoutRef = useRef(null);
-  const dropdownRef = useRef(null);
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -57,10 +80,9 @@ export default function NavbarLinks() {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setDropdownOpen(false);
-    }, 180);
+    }, 200);
   };
 
-  // Close dropdown on click outside or navigation
   useEffect(() => {
     setDropdownOpen(false);
   }, [pathname]);
@@ -68,99 +90,161 @@ export default function NavbarLinks() {
   const isServicesActive = pathname?.startsWith('/services');
 
   return (
-    <nav aria-label="Main Navigation" className="hidden lg:flex items-center space-x-1.5 text-sm font-medium">
-      {/* Services Dropdown Trigger */}
-      <div
-        ref={dropdownRef}
-        className="relative"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <Link
-          href="/services/"
-          className={`nav-link-item inline-flex items-center gap-1.5 ${
-            isServicesActive
-              ? 'active text-red-600 font-semibold'
-              : 'text-slate-300 hover:text-white'
-          }`}
-          aria-expanded={dropdownOpen}
-          aria-haspopup="true"
-        >
-          <span>Services</span>
-          <svg
-            className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-red-500' : 'text-slate-400'}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+    <div
+      className="flex items-center"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Top Navbar Row */}
+      <nav aria-label="Main Navigation" className="hidden lg:flex items-center space-x-1 font-raleway">
+        {/* Services Mega-Menu Trigger */}
+        <div className="relative">
+          <Link
+            href="/services/"
+            className={`nav-link-item inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.2em] font-light ${
+              isServicesActive || dropdownOpen
+                ? 'active text-red-600 font-medium'
+                : 'text-slate-300 hover:text-white'
+            }`}
+            aria-expanded={dropdownOpen}
+            aria-haspopup="true"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
-          </svg>
-        </Link>
+            <span>Services</span>
+            <svg
+              className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                dropdownOpen ? 'rotate-180 text-red-500' : 'text-slate-400'
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </Link>
+        </div>
 
-        {/* Dropdown Menu Panel with Smooth Flyout */}
-        <div
-          className={`absolute left-0 top-full pt-3 w-80 md:w-96 transition-all duration-200 origin-top-left z-50 ${
-            dropdownOpen
-              ? 'opacity-100 scale-100 pointer-events-auto visible'
-              : 'opacity-0 scale-95 pointer-events-none invisible'
-          }`}
-        >
-          <div className="rounded-2xl border border-white/10 bg-slate-950/95 p-3 shadow-2xl backdrop-blur-2xl divide-y divide-white/5">
-            <div className="px-3 py-2 text-[10px] font-mono uppercase tracking-widest text-slate-400 flex items-center justify-between">
-              <span>CORE SPECIALIZATIONS</span>
-              <Link href="/services/" className="text-red-400 hover:text-red-300 normal-case font-sans text-xs">
-                View All &rarr;
+        {/* Secondary Links */}
+        {secondaryNav.map((item) => {
+          const isActive = pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href));
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`nav-link-item text-xs uppercase tracking-[0.2em] font-light ${
+                isActive
+                  ? 'active text-red-600 font-medium'
+                  : 'text-slate-300 hover:text-white'
+              }`}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
+      </nav>
+
+      {/* Sanity-Style Full-Width Mega-Menu Dropdown Panel */}
+      <div
+        className={`absolute left-0 top-full w-full dropdown-panel border-y border-white/5 transition-all duration-300 origin-top overflow-hidden shadow-2xl z-50 ${
+          dropdownOpen
+            ? 'opacity-100 max-h-[600px] py-12 pointer-events-auto'
+            : 'opacity-0 max-h-0 py-0 pointer-events-none'
+        } bg-[#0a0a0a]/98 backdrop-blur-3xl`}
+      >
+        <div className="mx-auto max-w-full px-[30px] grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          {/* Column 1: Core Specializations */}
+          <div className="lg:col-span-5 space-y-5">
+            <div className="dropdown-header text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 font-semibold flex items-center justify-between pb-3 border-b border-white/5">
+              <span>Core Architectural Services</span>
+              <Link href="/services/" className="normal-case text-xs font-sans text-slate-400 hover:text-white transition-colors">
+                View catalog &rarr;
               </Link>
             </div>
-            <div className="py-2 space-y-1">
-              {servicesDropdown.map((svc) => {
-                const isCurrent = pathname === svc.href;
+
+            <div className="space-y-1.5">
+              {coreSpecializations.map((item) => {
+                const isCurrent = pathname === item.href;
                 return (
                   <Link
-                    key={svc.href}
-                    href={svc.href}
-                    className={`block rounded-xl p-3 transition-all ${
+                    key={item.href}
+                    href={item.href}
+                    className={`dropdown-item-hover group block rounded-xl p-3.5 transition-all duration-300 ${
                       isCurrent
-                        ? 'bg-red-950/50 border border-red-800/40 text-white'
-                        : 'hover:bg-white/5 hover:translate-x-1'
+                        ? 'bg-white/5'
+                        : 'hover:bg-white/[0.03] hover:translate-x-1'
                     }`}
                   >
-                    <div className="flex items-center justify-between mb-1">
-                      <div className={`text-xs font-bold ${isCurrent ? 'text-red-400' : 'text-white'}`}>
-                        {svc.title}
+                    <div className="flex items-center justify-between">
+                      <div className={`dropdown-item-title text-[15px] font-semibold transition-colors ${
+                        isCurrent ? 'text-white' : 'text-slate-200 group-hover:text-white'
+                      }`}>
+                        {item.title}
                       </div>
-                      <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-red-950/80 text-red-300 border border-red-800/30">
-                        {svc.tag}
+                      <span className="text-[9px] font-mono px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 transition-colors group-hover:bg-red-600 group-hover:text-white">
+                        {item.badge}
                       </span>
                     </div>
-                    <div className="text-[11px] text-slate-400 leading-snug">
-                      {svc.desc}
-                    </div>
+                    <p className="dropdown-item-desc text-[13px] text-slate-500 mt-1.5 line-clamp-1">
+                      {item.desc}
+                    </p>
                   </Link>
                 );
               })}
             </div>
           </div>
+
+          {/* Column 2: Architectural Insights & Verification */}
+          <div className="lg:col-span-4 space-y-5">
+            <div className="dropdown-header text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 font-semibold pb-3 border-b border-white/5">
+              Insights &amp; Deployment
+            </div>
+
+            <div className="space-y-1.5">
+              {insightsAndDelivery.map((item, idx) => (
+                <Link
+                  key={idx}
+                  href={item.href}
+                  className="dropdown-item-hover group block rounded-xl p-3.5 transition-all duration-300 hover:bg-white/[0.03] hover:translate-x-1"
+                >
+                  <div className="dropdown-item-title text-[14px] font-medium text-slate-200 group-hover:text-white transition-colors">
+                    {item.title}
+                  </div>
+                  <p className="dropdown-item-desc text-[13px] text-slate-500 mt-1 line-clamp-1">
+                    {item.desc}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Column 3: Visual Showcase Card */}
+          <div className="lg:col-span-3 flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-gradient-to-br from-slate-900/50 to-black/80 p-7 relative overflow-hidden">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-slate-800/20 via-transparent to-transparent pointer-events-none"></div>
+            
+            <div className="space-y-4 relative z-10">
+              <div className="font-raleway text-lg font-light tracking-[0.25em] uppercase text-white/90">
+                ZITRAC<span className="text-red-500 font-bold tracking-normal">.</span>
+              </div>
+              <div className="text-[15px] font-semibold text-white leading-snug">
+                Zimbabwe Enterprise Cloud Infrastructure
+              </div>
+              <p className="text-[13px] text-slate-400 leading-relaxed">
+                Experience guaranteed 99.98% uptime, sub-second latency, and AI automated defense watchdogs tailored for Harare enterprises.
+              </p>
+            </div>
+
+            <div className="pt-8 relative z-10">
+              <Link
+                href="/contact/"
+                className="block text-center rounded-xl bg-white text-black py-3 px-4 text-xs font-bold uppercase tracking-widest hover:bg-slate-200 hover:scale-[1.02] transition-all focus:outline-none focus:ring-2 focus:ring-white"
+              >
+                Schedule Consultation
+              </Link>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      {/* Main Secondary Links: Our Work, Pricing, About */}
-      {mainNavItems.map((item) => {
-        const isActive = pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href));
-        return (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={`nav-link-item ${
-              isActive
-                ? 'active text-red-600 font-semibold'
-                : 'text-slate-300 hover:text-white'
-            }`}
-          >
-            {item.label}
-          </Link>
-        );
-      })}
-    </nav>
+    </div>
   );
 }

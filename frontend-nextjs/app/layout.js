@@ -87,51 +87,36 @@ export default function RootLayout({ children }) {
           Skip to main content
         </a>
 
-        {/* Top Notification Announcement Bar - Inspired by Sanity Style */}
-        <div className="w-full bg-slate-950 border-b border-slate-900 py-1.5 px-4 text-center text-[11px] font-mono tracking-tight text-slate-400">
-          <span className="text-red-500 font-bold mr-1.5">LIVE</span>
-          <span>Enterprise IT Engineering, AI Automation &amp; Cloud Migration in Harare &bull; </span>
-          <Link href="/contact/" className="text-slate-300 underline underline-offset-2 hover:text-white transition">
-            Book strategic audit &rarr;
-          </Link>
-        </div>
-
-        {/* Global Navigation with Glassmorphism, Red Hover State & Logo */}
         <header
           id="main-navbar"
-          className="sticky top-0 z-40 w-full navbar-glass border-b border-white/5 bg-black/80 hover:bg-red-950/90 transition-all duration-500 group/nav"
+          className="fixed top-0 z-40 w-full border-none bg-transparent transition-all duration-300"
         >
-          <div className="mx-auto flex max-w-full items-center justify-between px-[30px] py-3.5 md:py-4">
+          <div className="mx-auto flex max-w-full items-center justify-between px-[30px] py-4 md:py-5">
             <Link
               href="/"
-              className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-red-600 rounded-lg group"
+              className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-red-600 rounded-lg group"
               aria-label="ZITRAC Technologies Homepage"
             >
-              {/* Emblem Logo Badge */}
-              <div className="logo-badge-container relative h-9 w-14 sm:h-10 sm:w-16 rounded-lg overflow-hidden border border-white/15 bg-black shadow-md transition-all duration-300 group-hover:scale-105 group-hover:border-red-500/50">
-                <Image
-                  src="/assets/zitrac-logo.jpg"
-                  alt="ZITRAC 3D Emblem"
-                  fill
-                  priority
-                  className="object-contain p-0.5"
-                />
-              </div>
-
-              {/* Explicit ZITRAC brand title & location label */}
+              {/* Elegant Thin Raleway Typography with Relaxed Letter Spacing */}
               <div className="flex flex-col leading-none">
-                <span className="brand-title text-xl sm:text-2xl font-black tracking-tight text-white transition-colors duration-300">
-                  ZITRAC<span className="text-red-500">.</span>
+                <span className="brand-title font-raleway text-2xl sm:text-3xl font-light tracking-[0.3em] uppercase text-white transition-colors duration-300">
+                  ZITRAC<span className="text-red-500 font-bold tracking-normal">.</span>
                 </span>
-                <span className="brand-subtext text-[10px] font-mono uppercase tracking-widest text-slate-400 mt-0.5 transition-colors duration-300">
-                  Zimbabwe
+                <span className="brand-subtext text-[9px] font-mono uppercase tracking-[0.25em] text-slate-400 mt-1 transition-colors duration-300">
+                  Technologies <span className="text-red-500 font-bold px-0.5">.</span> Zimbabwe
                 </span>
               </div>
             </Link>
 
             <NavbarLinks />
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
+              <Link
+                href="#"
+                className="nav-link-item font-raleway text-xs uppercase tracking-[0.2em] font-light text-slate-300 hover:text-white transition-colors"
+              >
+                Log In
+              </Link>
               <Link
                 href="/contact/"
                 className="btn-glow inline-flex items-center justify-center rounded-full bg-red-600 px-5 py-2 text-xs font-semibold tracking-wide text-white shadow-md transition-all hover:bg-red-500 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-black"
@@ -151,14 +136,9 @@ export default function RootLayout({ children }) {
         <footer className="border-t border-slate-900 bg-slate-950 py-16 text-sm text-slate-400">
           <div className="mx-auto max-w-full px-[30px] grid grid-cols-1 md:grid-cols-4 gap-10">
             <div className="space-y-4">
-              <div className="relative h-10 w-28 rounded-md overflow-hidden border border-white/10">
-                <Image
-                  src="/assets/zitrac-logo.jpg"
-                  alt="ZITRAC Logo"
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              <span className="font-raleway text-2xl sm:text-3xl font-light tracking-[0.3em] uppercase text-white">
+                ZITRAC<span className="text-red-500 font-bold tracking-normal">.</span>
+              </span>
               <p className="text-xs leading-relaxed text-slate-400 font-normal">
                 Premier enterprise IT support company in Zimbabwe. Engineering mission-critical infrastructure, custom software, and AI threat defense systems from Harare.
               </p>
