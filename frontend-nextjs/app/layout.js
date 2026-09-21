@@ -5,6 +5,8 @@ import ScrollAnimator from './components/ScrollAnimator';
 import NavbarScrollEffect from './components/NavbarScrollEffect';
 import NavbarLinks from './components/NavbarLinks';
 import ThemeToggle from './components/ThemeToggle';
+import ScrollToTop from './components/ScrollToTop';
+import ChatWithUs from './components/ChatWithUs';
 
 export const metadata = {
   metadataBase: new URL('https://zitrac.co.zw'),
@@ -114,6 +116,8 @@ export default function RootLayout({ children }) {
       <body className="flex min-h-full flex-col bg-black text-slate-100 relative">
         <ScrollAnimator />
         <NavbarScrollEffect />
+        <ScrollToTop />
+        <ChatWithUs />
 
         {/* Accessible Skip Link */}
         <a
