@@ -58,7 +58,7 @@ export default function RootLayout({ children }) {
     alternateName: 'ZITRAC',
     url: 'https://zitrac.co.zw/',
     logo: 'https://zitrac.co.zw/assets/zitrac-logo.jpg',
-    telephone: '+263770000000',
+    telephone: '+263718001031',
     email: 'info@zitrac.co.zw',
     address: {
       '@type': 'PostalAddress',
@@ -374,7 +374,7 @@ export default function RootLayout({ children }) {
               <div className="flex items-center gap-5 self-start lg:self-auto">
                 <Link
                   href="/contact/"
-                  className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-950/20 px-3.5 py-1.5 font-mono text-[10px] tracking-wider uppercase text-emerald-400 hover:bg-emerald-950/50 hover:border-emerald-500/50 transition-all"
+                  className="status-pill inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-950/20 px-3.5 py-1.5 font-mono text-[10px] tracking-wider uppercase text-emerald-400 hover:bg-emerald-950/50 hover:border-emerald-500/50 transition-all"
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                   <span className="font-semibold tracking-[0.14em]">All Systems Operational</span>

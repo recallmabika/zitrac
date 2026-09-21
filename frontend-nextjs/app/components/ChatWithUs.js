@@ -38,15 +38,15 @@ export default function ChatWithUs() {
       ref={widgetRef}
       className="fixed bottom-6 right-20 z-40 select-none font-sans"
     >
-      {/* Pop-up Channel Menu (Modeled on user's reference) */}
+      {/* Pop-up Channel Menu - connected right above the button */}
       <div
-        className={`chat-widget-panel absolute bottom-14 right-0 w-[300px] sm:w-[320px] rounded-2xl border border-white/10 bg-[#0a0a0a]/95 p-4 shadow-2xl backdrop-blur-2xl transition-all duration-300 origin-bottom-right ${
+        className={`chat-widget-panel absolute bottom-full mb-3 right-0 w-[300px] sm:w-[320px] rounded-2xl border border-white/10 bg-[#0a0a0a]/95 p-4 shadow-2xl backdrop-blur-2xl transition-all duration-300 origin-bottom-right ${
           isOpen
             ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
             : 'opacity-0 scale-95 translate-y-2 pointer-events-none'
         }`}
       >
-        {/* Header with technical badge */}
+        {/* Header */}
         <div className="mb-3 px-1">
           <div className="flex items-center justify-between">
             <span className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-red-500">
@@ -66,7 +66,7 @@ export default function ChatWithUs() {
         <div className="space-y-2">
           {/* 1. WhatsApp Chat */}
           <a
-            href="https://wa.me/263770000000?text=Hello%20ZITRAC%20Technologies%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+            href="https://wa.me/263718001031?text=Hello%20ZITRAC%20Technologies%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsOpen(false)}
@@ -86,10 +86,9 @@ export default function ChatWithUs() {
                 Fast replies via WhatsApp
               </div>
             </div>
-            <span className="text-slate-500 group-hover:text-white transition-colors">&rarr;</span>
           </a>
 
-          {/* 2. Webchat / Direct Technical Inquiry */}
+          {/* 2. Webchat / Direct Technical Scope Inquiry */}
           <Link
             href="/contact/"
             onClick={() => setIsOpen(false)}
@@ -118,12 +117,11 @@ export default function ChatWithUs() {
                 Send engineering brief directly
               </div>
             </div>
-            <span className="text-slate-500 group-hover:text-white transition-colors">&rarr;</span>
           </Link>
 
-          {/* 3. Direct Phone Call */}
+          {/* 3. Direct Call Desk */}
           <a
-            href="tel:+263770000000"
+            href="tel:+263718001031"
             onClick={() => setIsOpen(false)}
             className="chat-channel-item group flex items-center gap-3.5 rounded-xl border border-white/[0.06] bg-white/[0.03] p-3 transition-all duration-200 hover:border-blue-500/30 hover:bg-blue-950/20"
           >
@@ -147,15 +145,14 @@ export default function ChatWithUs() {
                 Call ZITRAC Desk
               </div>
               <div className="text-[11px] font-mono text-slate-400">
-                +263 77 000 0000
+                +263 71 800 1031
               </div>
             </div>
-            <span className="text-slate-500 group-hover:text-white transition-colors">&rarr;</span>
           </a>
         </div>
       </div>
 
-      {/* Trigger Button (Pill style with online indicator, matching user reference) */}
+      {/* Trigger Button */}
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}

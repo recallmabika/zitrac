@@ -195,6 +195,7 @@ export default function ContactPage() {
                 Harare, Zimbabwe
               </div>
               <div className="pt-2 border-t border-slate-800 text-xs text-slate-400">
+                <div className="mb-1"><span className="text-slate-200 font-medium">Direct Line:</span> <a href="tel:+263718001031" className="text-red-400 font-mono">+263 71 800 1031</a></div>
                 <div className="mb-1"><span className="text-slate-200 font-medium">Email:</span> <a href="mailto:info@zitrac.co.zw" className="text-red-400">info@zitrac.co.zw</a></div>
                 <div><span className="text-slate-200 font-medium">Gateway:</span> mail.zitrac.co.zw:465</div>
               </div>
