@@ -3,21 +3,21 @@ import Link from 'next/link';
 export default function MetricsBanner() {
   const metrics = [
     {
-      client: "Kenny Tech College",
+      product: "Online Admissions Portal",
       stat: "100%",
-      desc: "DIGITIZED ADMISSIONS WITH CUSTOM ONLINE APPLICATION SYSTEM.",
+      desc: "AUTOMATED APPLICANT SCREENING & ZERO PAPER INTAKE.",
       link: "/services/software-development/"
     },
     {
-      client: "Chibuwe Tech High",
+      product: "School Management System",
       stat: "5X",
-      desc: "FASTER FEE PROCESSING VIA SECURE PAYMENT INTEGRATIONS.",
+      desc: "FASTER FEE CLEARANCES VIA DIRECT PAYMENT GATEWAYS.",
       link: "/services/software-development/"
     },
     {
-      client: "Enterprise Networks",
+      product: "Managed Cloud & SOC",
       stat: "99.9%",
-      desc: "GUARANTEED UPTIME SLA FOR MANAGED IT INFRASTRUCTURE.",
+      desc: "ENTERPRISE UPTIME SLA WITH ZERO-TRUST ARCHITECTURE.",
       link: "/services/it-consulting/"
     }
   ];
@@ -29,9 +29,9 @@ export default function MetricsBanner() {
         <div className="flex flex-col md:flex-row items-start justify-between w-full xl:w-auto flex-1 gap-10 md:gap-8 lg:gap-16">
           {metrics.map((item, idx) => (
             <div key={idx} className="flex flex-col gap-4 flex-1 w-full border-l border-white/5 pl-4 md:border-none md:pl-0">
-              {/* Client Name acting as Logo */}
-              <div className="font-raleway text-sm md:text-base font-extrabold tracking-[0.2em] text-white uppercase">
-                {item.client}
+              {/* Product/System Name */}
+              <div className="font-raleway text-sm md:text-base font-extrabold tracking-[0.16em] text-white uppercase">
+                {item.product}
               </div>
               <div className="flex items-center gap-4">
                 {/* Big Stat */}
