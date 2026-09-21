@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,12 +7,276 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Custom Sleek Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 4px;
+    border: 1px solid #3f3f46;
+    transition: background 0.3s ease;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #dc2626;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #27272a #000000;
+  }
+
   /* Universal Accessibility Focus Traversal Rule */
   :focus-visible {
     outline: 2px solid #dc2626 !important;
     outline-offset: 2px !important;
   }
+
+  /* Smooth link and button transitions globally */
+  a, button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer utilities {
+
+  /* ── Scroll-triggered reveal animations ── */
+
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered children  — add delay-100 … delay-500 */
+  .animate-on-scroll.delay-100 { transition-delay: 0.1s; }
+  .animate-on-scroll.delay-200 { transition-delay: 0.2s; }
+  .animate-on-scroll.delay-300 { transition-delay: 0.3s; }
+  .animate-on-scroll.delay-400 { transition-delay: 0.4s; }
+  .animate-on-scroll.delay-500 { transition-delay: 0.5s; }
+
+  /* Slide from left */
+  .animate-slide-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .animate-slide-left.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Slide from right */
+  .animate-slide-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .animate-slide-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Scale-in effect */
+  .animate-scale {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .animate-scale.is-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* ── Hero-specific entrance ── */
+
+  .hero-title-line {
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hero-title-line.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.5s,
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+  }
+  .hero-fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Card hover lift ── */
+
+  .card-hover {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s ease,
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
+  }
+
+  /* ── Navbar glassmorphism + scroll to pure solid #ffffff ── */
+
+  .navbar-glass {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .navbar-scrolled {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.07) !important;
+  }
+
+  .navbar-scrolled .nav-link-item {
+    color: #0f172a !important;
+  }
+  .navbar-scrolled .nav-link-item:hover {
+    color: #dc2626 !important;
+    background-color: rgba(220, 38, 38, 0.08) !important;
+  }
+  .navbar-scrolled .nav-link-item.active {
+    color: #dc2626 !important;
+    background-color: rgba(220, 38, 38, 0.1) !important;
+  }
+  .navbar-scrolled .brand-title {
+    color: #0f172a !important;
+  }
+  .navbar-scrolled .brand-subtext {
+    color: #64748b !important;
+  }
+  .navbar-scrolled .logo-badge-container {
+    border-color: #e2e8f0 !important;
+  }
+
+  /* ── Outstanding Navbar Link Hover, Focus & Active Features ── */
+  .nav-link-item {
+    position: relative;
+    border-radius: 9999px;
+    padding: 6px 14px;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .nav-link-item::after {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 16px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: #dc2626;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .nav-link-item:hover::after,
+  .nav-link-item.active::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+  .nav-link-item:hover {
+    transform: translateY(-1px);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .nav-link-item:active {
+    transform: translateY(0px) scale(0.96);
+  }
+  .nav-link-item:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 2px #dc2626 !important;
+  }
+
+  /* ── Gradient text helper ── */
+
+  .text-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Glow on CTA buttons ── */
+
+  .btn-glow {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    box-shadow: 0 0 30px 4px rgba(220, 38, 38, 0.4);
+  }
+  .btn-glow:hover::after {
+    opacity: 1;
+  }
+}
+
+/* ── Keyframe animations ── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ── Smooth page transition wrapper ── */
+
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.page-transition-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
