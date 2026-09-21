@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import HeroBackground from './components/HeroBackground';
+import MetricsBanner from './components/MetricsBanner';
 
 export const metadata = {
   title: 'Managed IT Services & Software Development Zimbabwe | ZITRAC',
@@ -98,6 +99,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Metrics Impact Banner - Directly below marquee */}
+      <MetricsBanner />
 
       {/* Service Capabilities Grid with Smooth Motion & Lift */}
 

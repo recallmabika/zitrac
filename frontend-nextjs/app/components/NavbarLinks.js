@@ -14,7 +14,7 @@ const coreSpecializations = [
     showcase: {
       title: 'Strategic IT Consulting',
       desc: 'Expert guidance for enterprise architecture, risk management, and digital transformation in Zimbabwe.',
-      images: ['/assets/consulting-1.png', '/assets/consulting-2.png'],
+      images: ['/assets/it-consulting.jpg', '/assets/consulting-1.png'],
     }
   },
   {
@@ -25,7 +25,7 @@ const coreSpecializations = [
     showcase: {
       title: 'Next-Gen Software & AI',
       desc: 'Scalable cloud applications and AI-driven internal tools engineered for performance and reliability.',
-      images: ['/assets/software-1.png', '/assets/software-2.png'],
+      images: ['/assets/software-development.jpg', '/assets/software-1.png'],
     }
   },
   {
@@ -34,9 +34,9 @@ const coreSpecializations = [
     badge: 'Zero-Trust',
     desc: 'Automated threat detection watchdogs & proactive penetration audits.',
     showcase: {
-      title: 'Zero-Trust Security',
-      desc: 'Military-grade encryption, endpoint protection, and proactive vulnerability scanning for your infrastructure.',
-      images: ['/assets/software-3.png', '/assets/software-1.png'],
+      title: 'Zero-Trust Security Watchdogs',
+      desc: 'Military-grade encryption, automated threat intrusion monitoring, and proactive penetration testing tailored for enterprise assets.',
+      images: ['/assets/cyber-1.png', '/assets/cyber-2.jpg', '/assets/cyber-3.png'],
     }
   },
   {
@@ -46,8 +46,8 @@ const coreSpecializations = [
     desc: 'Fast, accessible frontends built for maximum search crawler dominance.',
     showcase: {
       title: 'High-Performance Web Engineering',
-      desc: 'Lightning-fast React & Next.js web applications optimized for conversion and global accessibility.',
-      images: ['/assets/software-2.png', '/assets/consulting-1.png'],
+      desc: 'Custom modern frontends and interactive web applications engineered with Next.js, sub-second speeds, and world-class design systems.',
+      images: ['/assets/web-eng-1.png', '/assets/web-eng-2.png'],
     }
   },
   {
@@ -58,31 +58,29 @@ const coreSpecializations = [
     showcase: {
       title: 'Enterprise Cloud Hosting',
       desc: '99.98% SLA uptime, automated backups, and instant .co.zw domain provisioning in Harare.',
-      images: ['/assets/consulting-2.png', '/assets/software-3.png'],
+      images: ['/assets/server-rack.png', '/assets/global-network.png'],
     }
   },
 ];
 
-const insightsAndDelivery = [
+const recentWorkItems = [
   {
-    title: 'Engineering Methodologies',
-    href: '/about/',
-    desc: 'Our zero-downtime split-architecture paradigm & SLA discipline.',
-  },
-  {
-    title: 'Client Deployments & Proof',
+    title: 'Chipinge Safari Area (ZimParks)',
     href: '/work/',
-    desc: 'Verified enterprise case studies and real-world impact metrics.',
+    desc: 'Conservation & safari ecotourism platform with interactive experience bookings.',
+    tag: 'Ecotourism Portal',
   },
   {
-    title: 'Cloudflare R2 Media Vaults',
-    href: '/services/software-development/',
-    desc: 'Zero-disk server streaming architectures utilizing external S3 storage.',
+    title: 'Kenny Technologies College',
+    href: '/work/',
+    desc: 'Online student application system with automated payment gateway integrations.',
+    tag: 'EdTech Portal',
   },
   {
-    title: 'Harare Regional Presence',
-    href: '/contact/',
-    desc: 'Central engineering hub coordinating operations across Zimbabwe.',
+    title: 'Chibuwe Technical High School',
+    href: '/work/',
+    desc: 'School Management System (SMS) & digital admissions with payment integration.',
+    tag: 'SMS & Payments',
   },
 ];
 
@@ -113,13 +111,14 @@ export default function NavbarLinks() {
     }, 200);
   };
 
-  // Crossfade between the two images every 2s while hovering a service
+  // Crossfade between images every 2.4s while hovering a service
   useEffect(() => {
-    if (hoveredService) {
+    if (hoveredService && hoveredService.showcase?.images?.length > 1) {
       setImgIndex(0);
+      const total = hoveredService.showcase.images.length;
       imgIntervalRef.current = setInterval(() => {
-        setImgIndex(i => (i === 0 ? 1 : 0));
-      }, 2000);
+        setImgIndex(i => (i + 1) % total);
+      }, 2400);
     } else {
       clearInterval(imgIntervalRef.current);
       setImgIndex(0);
@@ -192,7 +191,7 @@ export default function NavbarLinks() {
           dropdownOpen
             ? 'opacity-100 max-h-[600px] py-12 pointer-events-auto'
             : 'opacity-0 max-h-0 py-0 pointer-events-none'
-        } bg-[#0a0a0a]/75 backdrop-blur-md`}
+        } bg-[#0a0a0a]/50 backdrop-blur-sm`}
       >
         <div className="mx-auto max-w-full px-[30px] grid grid-cols-1 lg:grid-cols-12 gap-12">
           
@@ -239,23 +238,31 @@ export default function NavbarLinks() {
             </div>
           </div>
 
-          {/* Column 2: Architectural Insights & Verification */}
+          {/* Column 2: Our Recent Work */}
           <div className="lg:col-span-4 space-y-5">
-            <div className="dropdown-header text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 font-semibold pb-3 border-b border-white/5">
-              Insights &amp; Deployment
+            <div className="dropdown-header text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 font-semibold flex items-center justify-between pb-3 border-b border-white/5">
+              <span>Our Recent Work</span>
+              <Link href="/work/" className="normal-case text-xs font-sans text-slate-400 hover:text-white transition-colors">
+                All projects &rarr;
+              </Link>
             </div>
 
-            <div className="space-y-1.5">
-              {insightsAndDelivery.map((item, idx) => (
+            <div className="space-y-2">
+              {recentWorkItems.map((item, idx) => (
                 <Link
                   key={idx}
                   href={item.href}
-                  className="dropdown-item-hover group block rounded-xl p-3.5 transition-all duration-300 hover:bg-white/[0.03] hover:translate-x-1"
+                  className="dropdown-item-hover group block rounded-xl p-3.5 transition-all duration-300 hover:bg-white/[0.03] hover:translate-x-1 border border-transparent hover:border-white/5"
                 >
-                  <div className="dropdown-item-title text-[14px] font-medium text-slate-200 group-hover:text-white transition-colors">
-                    {item.title}
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="dropdown-item-title text-[14px] font-medium text-slate-200 group-hover:text-white transition-colors">
+                      {item.title}
+                    </div>
+                    <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-400 border border-white/5 group-hover:border-red-500/30 group-hover:text-red-400 transition-colors">
+                      {item.tag}
+                    </span>
                   </div>
-                  <p className="dropdown-item-desc text-[13px] text-slate-500 mt-1 line-clamp-1">
+                  <p className="dropdown-item-desc text-[12px] text-slate-500 leading-relaxed line-clamp-2">
                     {item.desc}
                   </p>
                 </Link>

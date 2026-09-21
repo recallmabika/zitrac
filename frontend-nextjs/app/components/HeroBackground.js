@@ -2,12 +2,19 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import InteractiveCanvasBackground from './InteractiveCanvasBackground';
 
 const slides = [
   { type: 'video', src: '/assets/networking.mp4' },
   { type: 'image', src: '/assets/server-rack.png', animation: 'zoom' },
-  { type: 'image', src: '/assets/cloud-infrastructure.png', animation: 'zoom' },
+  { type: 'image', src: '/assets/software-development.jpg', animation: 'zoom' },
+  { type: 'image', src: '/assets/it-consulting.jpg', animation: 'pan' },
+  { type: 'image', src: '/assets/cyber-1.png', animation: 'zoom' },
+  { type: 'image', src: '/assets/web-eng-1.png', animation: 'pan' },
   { type: 'video', src: '/assets/hm2xc7jyixawkycqxesi.mp4' },
+  { type: 'image', src: '/assets/cyber-2.jpg', animation: 'pan' },
+  { type: 'image', src: '/assets/web-eng-2.png', animation: 'zoom' },
+  { type: 'image', src: '/assets/cyber-3.png', animation: 'zoom' },
   { type: 'image', src: '/assets/global-network.png', animation: 'pan' },
   { type: 'image', src: '/assets/particle-wave-1.png', animation: 'zoom' },
   { type: 'image', src: '/assets/particle-wave-2.png', animation: 'pan' },

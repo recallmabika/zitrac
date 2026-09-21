@@ -162,29 +162,29 @@
     }
   }
 
-  /* Smooth, relaxed, elegant animations */
+  /* Smooth, relaxed, elegant animations — slower cinematic reveal */
   .hero-title-drop {
     opacity: 0;
-    animation: heroTitleDrop 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    animation: heroTitleDrop 2.8s cubic-bezier(0.12, 1, 0.25, 1) 0.2s forwards;
   }
 
   .hero-desc-zoom {
     opacity: 0;
     transform-origin: center center;
-    animation: heroDescZoom 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+    animation: heroDescZoom 3.0s cubic-bezier(0.12, 1, 0.25, 1) 0.6s forwards;
   }
 
   .hero-buttons-slide-right {
     opacity: 0;
-    animation: heroButtonsSlideRight 1.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+    animation: heroButtonsSlideRight 2.9s cubic-bezier(0.12, 1, 0.25, 1) 1.0s forwards;
   }
 
   .hero-title-line {
-    animation: heroTitleDrop 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: heroTitleDrop 2.8s cubic-bezier(0.12, 1, 0.25, 1) forwards;
   }
 
   .hero-fade-up {
-    animation: heroFadeUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+    animation: heroFadeUp 2.4s cubic-bezier(0.12, 1, 0.25, 1) 1.2s forwards;
   }
 
   /* ── Card hover lift ── */
