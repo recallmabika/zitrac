@@ -199,6 +199,21 @@
     box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
   }
 
+  /* ── Service card refined hover ── */
+
+  .service-card {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.4s ease,
+                box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .service-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(220, 38, 38, 0.15) !important;
+    box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(220, 38, 38, 0.08),
+                0 0 40px -10px rgba(220, 38, 38, 0.12);
+  }
+
   /* ── Navbar glassmorphism + scroll to pure solid #ffffff ── */
 
   .navbar-glass {

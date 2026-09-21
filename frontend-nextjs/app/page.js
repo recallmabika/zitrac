@@ -103,99 +103,242 @@ export default function HomePage() {
       {/* Metrics Impact Banner - Directly below marquee */}
       <MetricsBanner />
 
-      {/* Service Capabilities Grid with Smooth Motion & Lift */}
+      {/* Service Capabilities Architecture - Editorial Asymmetric Bento Grid */}
 
-      <section className="relative z-10 mx-auto max-w-full px-[30px]">
-        <div className="animate-on-scroll mb-14">
-          <div className="text-xs font-mono font-semibold tracking-widest text-red-500 uppercase mb-2">
-            ARCHITECTURE MATRIX
+      <section className="relative z-10 mx-auto max-w-full px-[30px] py-24 border-b border-white/5">
+        {/* Section Header with Hero-aligned typography */}
+        <div className="animate-on-scroll mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span>
+              <span className="font-mono text-xs uppercase tracking-[0.25em] text-red-500 font-semibold">
+                Architecture Matrix
+              </span>
+            </div>
+            <h2 className="font-raleway text-3xl sm:text-5xl font-light tracking-[0.03em] text-white leading-tight">
+              Integrated Technical Core Competencies
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-            Integrated Technical Core Competencies
-          </h2>
-          <p className="mt-3 text-base text-slate-400 max-w-3xl">
-            Engineered specifically to satisfy enterprise availability thresholds and regional infrastructure demands.
+          <p className="font-raleway text-sm sm:text-base text-slate-400 font-light max-w-md leading-relaxed">
+            Engineered specifically to satisfy enterprise availability thresholds, zero-downtime requirements, and regional infrastructure demands.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <div className="animate-on-scroll card-hover rounded-2xl border border-white/10 bg-slate-950/80 p-8 flex flex-col justify-between">
-            <div>
-              <div className="text-xs font-mono text-red-400 mb-3 tracking-wider uppercase font-semibold">01 / Advisory</div>
-              <h3 className="text-2xl font-bold text-white mb-3">IT Consulting &amp; Support</h3>
-              <p className="text-sm text-slate-400 leading-relaxed mb-6">
-                High-intent strategic tech guidance, infrastructure audits, and round-the-clock systems support across Harare and broader Zimbabwe.
-              </p>
+        {/* Asymmetric Technical Grid - No Icons, Pure Visual Imagery & Typography */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+          {/* 01: IT Consulting & Enterprise Support - Featured 7 cols */}
+          <div className="md:col-span-7 animate-on-scroll group relative rounded-2xl border border-white/10 bg-[#070707] overflow-hidden min-h-[380px] flex flex-col justify-between transition-all duration-700 hover:border-red-600/40">
+            {/* Background Image with Layered Gradient */}
+            <div className="absolute inset-0 z-0">
+              <Image
+                src="/assets/it-consulting.jpg"
+                alt="IT Consulting & Support Zimbabwe"
+                fill
+                className="object-cover opacity-35 transition-transform duration-1000 group-hover:scale-105"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
             </div>
-            <Link href="/services/it-consulting/" className="inline-flex items-center text-xs font-bold text-red-400 hover:text-red-300 tracking-wider uppercase">
-              Read Consulting Specs <span className="ml-1.5">&rarr;</span>
-            </Link>
+
+            {/* Top Bar: Monospace Tag & Live Technical Indicator */}
+            <div className="relative z-10 p-8 pb-0 flex items-center justify-between">
+              <span className="font-mono text-xs tracking-[0.2em] text-red-400 uppercase font-medium">
+                01 / Advisory &amp; Support
+              </span>
+              <span className="font-mono text-[10px] tracking-wider text-slate-400 border border-white/10 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full uppercase">
+                Harare &bull; Bulawayo
+              </span>
+            </div>
+
+            {/* Bottom Content */}
+            <div className="relative z-10 p-8 pt-6">
+              <h3 className="font-raleway text-2xl sm:text-3xl font-normal tracking-wide text-white mb-3 group-hover:text-red-50 transition-colors">
+                Enterprise IT Consulting &amp; Support
+              </h3>
+              <p className="font-raleway text-sm text-slate-300 font-light leading-relaxed max-w-xl mb-6">
+                High-intent strategic tech guidance, infrastructure audits, disaster recovery failover architectures, and round-the-clock enterprise systems support across Zimbabwe.
+              </p>
+              <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                <Link
+                  href="/services/it-consulting/"
+                  className="font-mono text-xs font-semibold text-white group-hover:text-red-400 tracking-[0.15em] uppercase inline-flex items-center gap-2 transition-colors"
+                >
+                  <span>Read Consulting Specs</span>
+                  <span className="text-red-500 transition-transform group-hover:translate-x-1.5">&rarr;</span>
+                </Link>
+                <span className="font-mono text-[11px] text-slate-500 hidden sm:inline-block">SLA: 24/7 Response</span>
+              </div>
+            </div>
           </div>
 
-          <div className="animate-on-scroll delay-100 card-hover rounded-2xl border border-white/10 bg-slate-950/80 p-8 flex flex-col justify-between">
-            <div>
-              <div className="text-xs font-mono text-red-400 mb-3 tracking-wider uppercase font-semibold">02 / AI &amp; Automation</div>
-              <h3 className="text-2xl font-bold text-white mb-3">Custom Software &amp; AI</h3>
-              <p className="text-sm text-slate-400 leading-relaxed mb-6">
-                Bespoke applications engineered with intelligent automation algorithms, tailored database transactions, and scalable cloud microservices.
-              </p>
+          {/* 02: Custom Software & AI - 5 cols */}
+          <div className="md:col-span-5 animate-on-scroll delay-100 group relative rounded-2xl border border-white/10 bg-[#070707] overflow-hidden min-h-[380px] flex flex-col justify-between transition-all duration-700 hover:border-red-600/40">
+            <div className="absolute inset-0 z-0">
+              <Image
+                src="/assets/software-development.jpg"
+                alt="Custom Software Development & AI"
+                fill
+                className="object-cover opacity-30 transition-transform duration-1000 group-hover:scale-105"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent"></div>
             </div>
-            <Link href="/services/software-development/" className="inline-flex items-center text-xs font-bold text-red-400 hover:text-red-300 tracking-wider uppercase">
-              Explore AI Architecture <span className="ml-1.5">&rarr;</span>
-            </Link>
+
+            <div className="relative z-10 p-8 pb-0 flex items-center justify-between">
+              <span className="font-mono text-xs tracking-[0.2em] text-red-400 uppercase font-medium">
+                02 / Intelligent Systems
+              </span>
+              <span className="font-mono text-[10px] tracking-wider text-emerald-400 border border-emerald-500/20 bg-emerald-950/40 backdrop-blur-md px-3 py-1 rounded-full uppercase">
+                AI Powered
+              </span>
+            </div>
+
+            <div className="relative z-10 p-8 pt-6">
+              <h3 className="font-raleway text-2xl sm:text-3xl font-normal tracking-wide text-white mb-3 group-hover:text-red-50 transition-colors">
+                Custom Software &amp; AI
+              </h3>
+              <p className="font-raleway text-sm text-slate-300 font-light leading-relaxed mb-6">
+                Bespoke enterprise applications engineered with automated data pipelines, custom transaction gateways, and scalable cloud microservices.
+              </p>
+              <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                <Link
+                  href="/services/software-development/"
+                  className="font-mono text-xs font-semibold text-white group-hover:text-red-400 tracking-[0.15em] uppercase inline-flex items-center gap-2 transition-colors"
+                >
+                  <span>Explore AI Architecture</span>
+                  <span className="text-red-500 transition-transform group-hover:translate-x-1.5">&rarr;</span>
+                </Link>
+                <span className="font-mono text-[11px] text-slate-500 hidden sm:inline-block">Sub-Second Exec</span>
+              </div>
+            </div>
           </div>
 
-          <div className="animate-on-scroll delay-200 card-hover rounded-2xl border border-white/10 bg-slate-950/80 p-8 flex flex-col justify-between">
-            <div>
-              <div className="text-xs font-mono text-red-400 mb-3 tracking-wider uppercase font-semibold">03 / Zero-Trust</div>
-              <h3 className="text-2xl font-bold text-white mb-3">Cyber Security Watchdogs</h3>
-              <p className="text-sm text-slate-400 leading-relaxed mb-6">
-                Continuous threat mitigation and AI-driven automated surveillance algorithms guarding enterprise corporate perimeters.
-              </p>
+          {/* 03: Cyber Security Watchdogs - 4 cols */}
+          <div className="md:col-span-4 animate-on-scroll delay-200 group relative rounded-2xl border border-white/10 bg-[#070707] overflow-hidden min-h-[380px] flex flex-col justify-between transition-all duration-700 hover:border-red-600/40">
+            <div className="absolute inset-0 z-0">
+              <Image
+                src="/assets/cyber-1.png"
+                alt="Cyber Security Watchdogs"
+                fill
+                className="object-cover opacity-35 transition-transform duration-1000 group-hover:scale-105"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/60"></div>
             </div>
-            <Link href="/services/cyber-security/" className="inline-flex items-center text-xs font-bold text-red-400 hover:text-red-300 tracking-wider uppercase">
-              Inspect Security Protocols <span className="ml-1.5">&rarr;</span>
-            </Link>
+
+            <div className="relative z-10 p-8 pb-0 flex items-center justify-between">
+              <span className="font-mono text-xs tracking-[0.2em] text-red-400 uppercase font-medium">
+                03 / Zero-Trust Perimeter
+              </span>
+              <span className="font-mono text-[10px] tracking-wider text-red-400 border border-red-500/20 bg-red-950/40 backdrop-blur-md px-3 py-1 rounded-full uppercase">
+                Active SOC
+              </span>
+            </div>
+
+            <div className="relative z-10 p-8 pt-6">
+              <h3 className="font-raleway text-xl sm:text-2xl font-normal tracking-wide text-white mb-3 group-hover:text-red-50 transition-colors">
+                Cyber Security Watchdogs
+              </h3>
+              <p className="font-raleway text-sm text-slate-300 font-light leading-relaxed mb-6">
+                Continuous threat intrusion monitoring, automated honeypots, penetration testing, and zero-trust protocol enforcement guarding corporate networks.
+              </p>
+              <div className="pt-4 border-t border-white/10">
+                <Link
+                  href="/services/cyber-security/"
+                  className="font-mono text-xs font-semibold text-white group-hover:text-red-400 tracking-[0.15em] uppercase inline-flex items-center gap-2 transition-colors"
+                >
+                  <span>Inspect Security Protocols</span>
+                  <span className="text-red-500 transition-transform group-hover:translate-x-1.5">&rarr;</span>
+                </Link>
+              </div>
+            </div>
           </div>
 
-          <div className="animate-on-scroll delay-100 card-hover rounded-2xl border border-white/10 bg-slate-950/80 p-8 flex flex-col justify-between">
-            <div>
-              <div className="text-xs font-mono text-red-400 mb-3 tracking-wider uppercase font-semibold">04 / Frontend UI</div>
-              <h3 className="text-2xl font-bold text-white mb-3">Web Design &amp; Development</h3>
-              <p className="text-sm text-slate-400 leading-relaxed mb-6">
-                Ultra-fast, accessible digital frontends built for maximum search visibility, flawless technical SEO, and conversion velocity in Harare.
-              </p>
+          {/* 04: Web Engineering - 4 cols */}
+          <div className="md:col-span-4 animate-on-scroll group relative rounded-2xl border border-white/10 bg-[#070707] overflow-hidden min-h-[380px] flex flex-col justify-between transition-all duration-700 hover:border-red-600/40">
+            <div className="absolute inset-0 z-0">
+              <Image
+                src="/assets/web-eng-1.png"
+                alt="Tailored Web Engineering"
+                fill
+                className="object-cover opacity-35 transition-transform duration-1000 group-hover:scale-105"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/60"></div>
             </div>
-            <Link href="/services/web-design-development/" className="inline-flex items-center text-xs font-bold text-red-400 hover:text-red-300 tracking-wider uppercase">
-              Review Web Engineering <span className="ml-1.5">&rarr;</span>
-            </Link>
+
+            <div className="relative z-10 p-8 pb-0 flex items-center justify-between">
+              <span className="font-mono text-xs tracking-[0.2em] text-red-400 uppercase font-medium">
+                04 / Performance Engineering
+              </span>
+              <span className="font-mono text-[10px] tracking-wider text-slate-400 border border-white/10 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full uppercase">
+                Sub-Second
+              </span>
+            </div>
+
+            <div className="relative z-10 p-8 pt-6">
+              <h3 className="font-raleway text-xl sm:text-2xl font-normal tracking-wide text-white mb-3 group-hover:text-red-50 transition-colors">
+                Tailored Web Engineering
+              </h3>
+              <p className="font-raleway text-sm text-slate-300 font-light leading-relaxed mb-6">
+                Ultra-fast, accessible digital frontends built for maximum crawler visibility, technical SEO dominance, and instantaneous conversion velocity.
+              </p>
+              <div className="pt-4 border-t border-white/10">
+                <Link
+                  href="/services/web-design-development/"
+                  className="font-mono text-xs font-semibold text-white group-hover:text-red-400 tracking-[0.15em] uppercase inline-flex items-center gap-2 transition-colors"
+                >
+                  <span>Review Web Engineering</span>
+                  <span className="text-red-500 transition-transform group-hover:translate-x-1.5">&rarr;</span>
+                </Link>
+              </div>
+            </div>
           </div>
 
-          <div className="animate-on-scroll delay-200 card-hover rounded-2xl border border-white/10 bg-slate-950/80 p-8 flex flex-col justify-between">
-            <div>
-              <div className="text-xs font-mono text-red-400 mb-3 tracking-wider uppercase font-semibold">05 / Infrastructure</div>
-              <h3 className="text-2xl font-bold text-white mb-3">Web Hosting &amp; .co.zw Domains</h3>
-              <p className="text-sm text-slate-400 leading-relaxed mb-6">
-                Reliable cPanel hosting tiers, high-speed regional DNS resolution, and automated official .co.zw domain registration processing.
-              </p>
+          {/* 05: Infrastructure, Domains & Cloud - 4 cols */}
+          <div className="md:col-span-4 animate-on-scroll delay-100 group relative rounded-2xl border border-white/10 bg-[#070707] overflow-hidden min-h-[380px] flex flex-col justify-between transition-all duration-700 hover:border-red-600/40">
+            <div className="absolute inset-0 z-0">
+              <Image
+                src="/assets/server-rack.png"
+                alt="Web Hosting & .co.zw Domains"
+                fill
+                className="object-cover opacity-35 transition-transform duration-1000 group-hover:scale-105"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/60"></div>
             </div>
-            <Link href="/services/web-hosting-domain-registration/" className="inline-flex items-center text-xs font-bold text-red-400 hover:text-red-300 tracking-wider uppercase">
-              Choose Hosting Tier <span className="ml-1.5">&rarr;</span>
-            </Link>
+
+            <div className="relative z-10 p-8 pb-0 flex items-center justify-between">
+              <span className="font-mono text-xs tracking-[0.2em] text-red-400 uppercase font-medium">
+                05 / Cloud &amp; Domains
+              </span>
+              <span className="font-mono text-[10px] tracking-wider text-slate-400 border border-white/10 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full uppercase">
+                99.98% SLA
+              </span>
+            </div>
+
+            <div className="relative z-10 p-8 pt-6">
+              <h3 className="font-raleway text-xl sm:text-2xl font-normal tracking-wide text-white mb-3 group-hover:text-red-50 transition-colors">
+                Hosting, .co.zw &amp; Cloud Migration
+              </h3>
+              <p className="font-raleway text-sm text-slate-300 font-light leading-relaxed mb-6">
+                Reliable cPanel hosting tiers, high-speed regional DNS resolution, automated .co.zw domain registration, and AWS S3/Cloudflare R2 cloud migrations.
+              </p>
+              <div className="pt-4 border-t border-white/10">
+                <Link
+                  href="/services/web-hosting-domain-registration/"
+                  className="font-mono text-xs font-semibold text-white group-hover:text-red-400 tracking-[0.15em] uppercase inline-flex items-center gap-2 transition-colors"
+                >
+                  <span>Choose Hosting Tier</span>
+                  <span className="text-red-500 transition-transform group-hover:translate-x-1.5">&rarr;</span>
+                </Link>
+              </div>
+            </div>
           </div>
 
-          <div className="animate-on-scroll delay-300 card-hover rounded-2xl border border-white/10 bg-slate-950/80 p-8 flex flex-col justify-between">
-            <div>
-              <div className="text-xs font-mono text-red-400 mb-3 tracking-wider uppercase font-semibold">06 / Cloud Vaults</div>
-              <h3 className="text-2xl font-bold text-white mb-3">Cloud Storage &amp; Migration</h3>
-              <p className="text-sm text-slate-400 leading-relaxed mb-6">
-                Seamless migration of legacy files and media to modern Cloudflare R2 and AWS S3 architectures with zero local disk footprint.
-              </p>
-            </div>
-            <Link href="/contact/" className="inline-flex items-center text-xs font-bold text-red-400 hover:text-red-300 tracking-wider uppercase">
-              Schedule Migration Audit <span className="ml-1.5">&rarr;</span>
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -207,7 +350,7 @@ export default function HomePage() {
           {/* Cloud Infrastructure Visual - decorative right side */}
           <div className="absolute right-0 bottom-0 w-[45%] h-full pointer-events-none hidden md:block">
             <Image
-              src="/assets/cloud-infrastructure.png"
+              src="/assets/server-rack.png"
               alt=""
               width={700}
               height={450}
