@@ -11,30 +11,55 @@ const coreSpecializations = [
     href: '/services/it-consulting/',
     badge: 'Advisory',
     desc: 'Strategic infrastructure audits, DR failover & 24/7 technical support.',
+    showcase: {
+      title: 'Strategic IT Consulting',
+      desc: 'Expert guidance for enterprise architecture, risk management, and digital transformation in Zimbabwe.',
+      image: '/assets/global-network.png'
+    }
   },
   {
     title: 'Custom Software & AI',
     href: '/services/software-development/',
     badge: 'AI Powered',
     desc: 'Bespoke applications integrated with intelligent automation engines.',
+    showcase: {
+      title: 'Next-Gen Software',
+      desc: 'Scalable cloud applications and AI-driven internal tools engineered for performance and reliability.',
+      image: '/assets/cloud-infrastructure.png'
+    }
   },
   {
     title: 'Cyber Security Watchdogs',
     href: '/services/cyber-security/',
     badge: 'Zero-Trust',
     desc: 'Automated threat detection watchdogs & proactive penetration audits.',
+    showcase: {
+      title: 'Zero-Trust Security',
+      desc: 'Military-grade encryption, endpoint protection, and proactive vulnerability scanning for your infrastructure.',
+      image: '/assets/particle-wave-1.png'
+    }
   },
   {
     title: 'Tailored Web Engineering',
     href: '/services/web-design-development/',
     badge: 'Sub-Second',
     desc: 'Fast, accessible frontends built for maximum search crawler dominance.',
+    showcase: {
+      title: 'High-Performance Web',
+      desc: 'Lightning-fast React & Next.js web applications optimized for conversion and global accessibility.',
+      image: '/assets/particle-wave-2.png'
+    }
   },
   {
     title: 'Web Hosting & .co.zw Domains',
     href: '/services/web-hosting-domain-registration/',
     badge: '99.98% SLA',
     desc: 'High-availability cPanel hosting tiers & official local DNS delegation.',
+    showcase: {
+      title: 'Enterprise Hosting',
+      desc: '99.98% SLA uptime, automated backups, and instant .co.zw domain provisioning in Harare.',
+      image: '/assets/global-network.png'
+    }
   },
 ];
 
@@ -72,6 +97,7 @@ const secondaryNav = [
 export default function NavbarLinks() {
   const pathname = usePathname();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [hoveredService, setHoveredService] = useState(null);
   const timeoutRef = useRef(null);
 
   const handleMouseEnter = () => {
@@ -170,6 +196,8 @@ export default function NavbarLinks() {
                   <Link
                     key={item.href}
                     href={item.href}
+                    onMouseEnter={() => setHoveredService(item)}
+                    onMouseLeave={() => setHoveredService(null)}
                     className={`dropdown-item-hover group block rounded-xl p-3.5 transition-all duration-300 ${
                       isCurrent
                         ? 'bg-white/5'
@@ -220,18 +248,29 @@ export default function NavbarLinks() {
           </div>
 
           {/* Column 3: Visual Showcase Card */}
-          <div className="lg:col-span-3 flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-gradient-to-br from-slate-900/50 to-black/80 p-7 relative overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-slate-800/20 via-transparent to-transparent pointer-events-none"></div>
+          <div className="lg:col-span-3 flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-gradient-to-br from-slate-900/50 to-black/80 p-7 relative overflow-hidden group">
+            {/* Dynamic Background Image */}
+            <div 
+              className="absolute inset-0 opacity-20 transition-opacity duration-500 mix-blend-screen group-hover:opacity-40"
+              style={{
+                backgroundImage: `url(${hoveredService?.showcase?.image || '/assets/global-network.png'})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+            ></div>
             
-            <div className="space-y-4 relative z-10">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-slate-800/40 via-transparent to-transparent pointer-events-none"></div>
+            
+            <div className="space-y-4 relative z-10 transition-all duration-300">
               <div className="font-raleway text-lg font-light tracking-[0.25em] uppercase text-white/90">
                 ZITRAC
               </div>
               <div className="text-[15px] font-semibold text-white leading-snug">
-                Zimbabwe Enterprise Cloud Infrastructure
+                {hoveredService ? hoveredService.showcase.title : 'Zimbabwe Enterprise Cloud Infrastructure'}
               </div>
-              <p className="text-[13px] text-slate-400 leading-relaxed">
-                Experience guaranteed 99.98% uptime, sub-second latency, and AI automated defense watchdogs tailored for Harare enterprises.
+              <p className="text-[13px] text-slate-300 leading-relaxed min-h-[60px]">
+                {hoveredService ? hoveredService.showcase.desc : 'Experience guaranteed 99.98% uptime, sub-second latency, and AI automated defense watchdogs tailored for Harare enterprises.'}
               </p>
             </div>
 
