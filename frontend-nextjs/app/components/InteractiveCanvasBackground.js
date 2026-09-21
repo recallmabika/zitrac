@@ -12,11 +12,14 @@ export default function InteractiveCanvasBackground() {
     if (!ctx) return;
 
     let animId;
+    let width = 0;
+    let height = 0;
+
     const updateSize = () => {
       if (!canvas) return;
       const rect = canvas.parentElement ? canvas.parentElement.getBoundingClientRect() : null;
-      width = canvas.width = rect ? rect.width : window.innerWidth;
-      height = canvas.height = rect ? rect.height : window.innerHeight;
+      width = canvas.width = rect && rect.width > 0 ? rect.width : window.innerWidth;
+      height = canvas.height = rect && rect.height > 0 ? rect.height : window.innerHeight;
     };
     updateSize();
 
