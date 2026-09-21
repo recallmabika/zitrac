@@ -22,7 +22,7 @@ export default function ShellSnippet() {
         type="button"
         aria-label="Copy command"
         onClick={copyToClipboard}
-        className="text-slate-400 hover:text-white transition focus:outline-none focus:ring-1 focus:ring-red-500 rounded"
+        className="text-slate-400 hover:text-white transition focus:outline-none rounded"
       >
         {copied ? (
           <span className="text-emerald-400 font-sans text-[11px] font-bold">Copied!</span>

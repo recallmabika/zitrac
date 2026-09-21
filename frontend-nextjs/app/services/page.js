@@ -74,7 +74,7 @@ export default function ServicesIndexPage() {
               <div>
                 <Link
                   href={`/services/${svc.slug}/`}
-                  className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-red-500 hover:text-red-400 focus:outline-none focus:ring-2 focus:ring-red-600 rounded py-1"
+                  className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-red-500 hover:text-red-400 focus:outline-none rounded py-1"
                 >
                   View Detailed Specs &rarr;
                 </Link>

@@ -112,7 +112,7 @@ export default function PricingPage() {
               <div>
                 <Link
                   href={`/contact/?tier=${encodeURIComponent(p.tier)}`}
-                  className={`block w-full text-center rounded-full py-3.5 text-xs font-bold uppercase tracking-wider transition-all focus:outline-none focus:ring-2 focus:ring-red-600 ${
+                  className={`block w-full text-center rounded-full py-3.5 text-xs font-bold uppercase tracking-wider transition-all focus:outline-none ${
                     p.highlight
                       ? 'bg-red-600 text-white hover:bg-red-500 hover:scale-105'
                       : 'border border-white/20 bg-white/5 text-white hover:bg-white/10 hover:scale-105'
