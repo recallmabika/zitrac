@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 const slides = [
   { type: 'video', src: '/assets/networking.mp4' },
+  { type: 'image', src: '/assets/server-rack.png', animation: 'zoom' },
   { type: 'image', src: '/assets/cloud-infrastructure.png', animation: 'zoom' },
   { type: 'video', src: '/assets/hm2xc7jyixawkycqxesi.mp4' },
   { type: 'image', src: '/assets/global-network.png', animation: 'pan' },

@@ -23,20 +23,20 @@ export default function HomePage() {
 
         <div className="relative z-10 w-full mx-auto px-[30px]">
           <div className="max-w-5xl space-y-6 py-10 md:py-14">
-            {/* Mega Display H1 - Elegant Raleway Typography matching company mark */}
+            {/* Mega Display H1 - Drop down from topbar */}
           <div className="overflow-hidden">
-            <h1 className="hero-title-line font-raleway text-[2.1rem] sm:text-4xl md:text-5xl lg:text-[3.25rem] font-light tracking-[0.04em] text-white leading-[1.5]">
+            <h1 className="hero-title-drop font-raleway text-[2.1rem] sm:text-4xl md:text-5xl lg:text-[3.25rem] font-light tracking-[0.04em] text-white leading-[1.5]">
               Enterprise IT Consulting and Custom Software Development in Zimbabwe
             </h1>
           </div>
 
-          {/* Subheading text block with relaxed letter spacing */}
-          <p className="hero-fade-up font-raleway text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-4xl font-light tracking-wide">
+          {/* Subheading text block - Zoom in from place */}
+          <p className="hero-desc-zoom font-raleway text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-4xl font-light tracking-wide">
             At ZITRAC Technologies, we bridge the gap between complex computing concepts and active enterprise deployment. As a premier <strong className="text-white font-medium">IT support company in Zimbabwe</strong>, we engineer bespoke technological solutions designed to streamline workflows, protect digital assets, and drive operational efficiency. From our engineering hub, our <strong className="text-white font-medium">tech consultants in Harare</strong> provide end-to-end management of corporate networks, cloud computing transitions, and full-stack systems built to stay working.
           </p>
 
-          {/* Action Button Row - Rounded Pills */}
-          <div className="hero-fade-up flex flex-wrap items-center gap-4 pt-2">
+          {/* Action Button Row - Smoothly slide from right to left */}
+          <div className="hero-buttons-slide-right flex flex-wrap items-center gap-4 pt-2">
             <Link
               href="/contact/"
               className="btn-glow rounded-full bg-red-600 px-10 py-5 text-sm font-bold text-white shadow-xl hover:bg-red-500 hover:scale-105 active:scale-95 transition-all focus:outline-none"

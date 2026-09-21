@@ -226,7 +226,7 @@ export default function NavbarLinks() {
                       }`}>
                         {item.title}
                       </div>
-                      <span className="text-[9px] font-mono px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 transition-colors group-hover:bg-red-600 group-hover:text-white">
+                      <span className="text-[9px] font-mono px-2.5 py-0.5 rounded-full bg-transparent text-transparent transition-colors group-hover:bg-red-600 group-hover:text-white">
                         {item.badge}
                       </span>
                     </div>
