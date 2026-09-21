@@ -23,6 +23,7 @@ class Config:
 
     # Relational Database Configuration
     USE_MYSQL = os.getenv('USE_MYSQL', 'true').lower() in ('true', '1', 'yes')
+    from urllib.parse import quote_plus
     DB_USER = os.getenv('DB_USER', 'zadmin')
     DB_PASSWORD = os.getenv('DB_PASSWORD', os.getenv('DB_PASS', ''))
     DB_HOST = os.getenv('DB_HOST', 'localhost')
@@ -30,8 +31,9 @@ class Config:
     DB_NAME = os.getenv('DB_NAME', 'zt2029')
 
     if USE_MYSQL and DB_PASSWORD:
+        encoded_pass = quote_plus(DB_PASSWORD)
         SQLALCHEMY_DATABASE_URI = (
-            f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?charset=utf8mb4"
+            f"mysql+pymysql://{DB_USER}:{encoded_pass}@{DB_HOST}:{DB_PORT}/{DB_NAME}?charset=utf8mb4"
         )
     else:
         # Fallback local sqlite for development if MySQL is unreachable
