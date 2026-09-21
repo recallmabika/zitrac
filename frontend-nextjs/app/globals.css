@@ -431,33 +431,68 @@
 
 html.light {
   color-scheme: light;
-  background-color: #fcfcfc !important;
+  background-color: #ffffff !important;
 }
 
 html.light body {
-  background-color: #fcfcfc !important;
+  background-color: #ffffff !important;
   color: #0f172a !important;
 }
 
 html.light footer {
-  background-color: #f8fafc !important;
-  border-top-color: #e2e8f0 !important;
+  background-color: #ffffff !important;
+  border-top-color: #e5e7eb !important;
+  color: #334155 !important;
+}
+
+html.light footer h2,
+html.light footer .font-raleway {
+  color: #000000 !important;
+}
+
+html.light footer a {
   color: #475569 !important;
 }
 
-html.light footer h3,
-html.light footer .font-raleway {
-  color: #0f172a !important;
+html.light footer a:hover {
+  color: #000000 !important;
+}
+
+html.light footer .text-slate-500 {
+  color: #64748b !important;
+}
+
+html.light footer .text-slate-400 {
+  color: #475569 !important;
+}
+
+html.light footer .text-slate-300 {
+  color: #334155 !important;
 }
 
 html.light footer input {
-  background-color: #ffffff !important;
+  background-color: #f8fafc !important;
   border-color: #cbd5e1 !important;
   color: #0f172a !important;
 }
 
 html.light footer input::placeholder {
   color: #94a3b8 !important;
+}
+
+html.light footer button[type="submit"] {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+  border-color: #0f172a !important;
+}
+
+html.light footer button[type="submit"]:hover {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html.light footer .border-white\/10 {
+  border-color: #e5e7eb !important;
 }
 
 html.light .theme-toggle-segmented {
@@ -478,4 +513,5 @@ html.light .theme-toggle-segmented button:not(.bg-white):hover {
   color: #0f172a !important;
   background-color: rgba(0, 0, 0, 0.05) !important;
 }
+
 
