@@ -62,7 +62,7 @@ export default function ContactPage() {
 
   return (
     <div className="py-12 md:py-20">
-      <div className="mx-auto max-w-4xl px-6">
+      <div className="mx-auto max-w-full px-[30px]">
         <header className="mb-10 text-left">
           <div className="text-xs font-bold uppercase tracking-widest text-red-500 mb-2">Direct Communications</div>
           <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
