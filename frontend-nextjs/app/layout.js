@@ -184,7 +184,7 @@ export default function RootLayout({ children }) {
                     href="/contact/"
                     className="group inline-flex items-center gap-2 font-raleway text-2xl sm:text-4xl lg:text-[2.6rem] font-light tracking-tight text-white hover:text-red-400 transition-colors"
                   >
-                    <span>Connect with our engineering team</span>
+                    <span className="group-hover:underline underline-offset-8 decoration-1 decoration-red-500/60">Connect with our engineering team</span>
                     <span className="text-red-500 transition-transform group-hover:translate-x-2">&rarr;</span>
                   </Link>
                   <h2 className="font-raleway text-2xl sm:text-4xl lg:text-[2.6rem] font-light tracking-tight text-slate-300 mt-2">
@@ -218,10 +218,28 @@ export default function RootLayout({ children }) {
                 <p className="text-[11px] font-mono text-slate-500">
                   Critical CVE security advisories, Zimbabwe enterprise IT alerts &bull; No spam.
                 </p>
+
+                {/* Direct Operational Inquiries */}
+                <div className="pt-2 font-mono text-xs text-slate-400 flex flex-wrap items-center gap-2.5">
+                  <span className="text-[11px] uppercase tracking-wider text-slate-500 font-semibold">Direct Desk:</span>
+                  <a
+                    href="mailto:support@zitrac.co.zw"
+                    className="text-slate-300 hover:text-white hover:underline transition"
+                  >
+                    support@zitrac.co.zw
+                  </a>
+                  <span className="text-slate-600">|</span>
+                  <a
+                    href="mailto:info@zitrac.co.zw"
+                    className="text-slate-300 hover:text-white hover:underline transition"
+                  >
+                    info@zitrac.co.zw
+                  </a>
+                </div>
               </div>
 
-              {/* Right Column: Structured Navigation Grid (Products, Resources, Company, Trust) */}
-              <div className="lg:col-span-6 grid grid-cols-2 sm:grid-cols-4 gap-8 font-mono text-xs">
+              {/* Right Column: Structured Navigation Grid (Capabilities, Infrastructure, Company, Help, Trust) */}
+              <div className="lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 font-mono text-xs">
                 {/* Capabilities */}
                 <div className="space-y-4">
                   <div className="text-[11px] uppercase tracking-[0.2em] text-slate-500 font-semibold">
@@ -247,8 +265,8 @@ export default function RootLayout({ children }) {
                     <li><Link href="/services/web-hosting-domain-registration/" className="hover:text-white hover:underline transition">.co.zw Registry</Link></li>
                     <li><Link href="/services/cyber-security/" className="hover:text-white hover:underline transition">Penetration Audits</Link></li>
                     <li><Link href="/services/it-consulting/" className="hover:text-white hover:underline transition">Disaster Recovery</Link></li>
-                    <li><Link href="/services/software-development/" className="hover:text-white hover:underline transition">REST &amp; GraphQL APIs</Link></li>
-                    <li><Link href="/services/it-consulting/" className="hover:text-white hover:underline transition">AWS S3 / Cloudflare</Link></li>
+                    <li><Link href="/services/software-development/" className="hover:text-white hover:underline transition">REST &amp; APIs</Link></li>
+                    <li><Link href="/services/it-consulting/" className="hover:text-white hover:underline transition">AWS / Cloudflare</Link></li>
                     <li><Link href="/services/it-consulting/" className="hover:text-white hover:underline transition">SLA Benchmarks</Link></li>
                   </ul>
                 </div>
@@ -263,6 +281,21 @@ export default function RootLayout({ children }) {
                     <li><Link href="/work/" className="hover:text-white hover:underline transition">Recent Work</Link></li>
                     <li><Link href="/pricing/" className="hover:text-white hover:underline transition">Pricing</Link></li>
                     <li><Link href="/contact/" className="hover:text-white hover:underline transition">Contact Sales</Link></li>
+                  </ul>
+                </div>
+
+                {/* Help & Support */}
+                <div className="space-y-4">
+                  <div className="text-[11px] uppercase tracking-[0.2em] text-slate-500 font-semibold">
+                    Help
+                  </div>
+                  <ul className="space-y-2.5 text-slate-300">
+                    <li><Link href="/contact/" className="hover:text-white hover:underline transition">Support Desk</Link></li>
+                    <li><a href="mailto:support@zitrac.co.zw" className="hover:text-white hover:underline transition">Email Support</a></li>
+                    <li><a href="https://wa.me/263718001031" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:underline transition">WhatsApp Help</a></li>
+                    <li><a href="tel:+263718001031" className="hover:text-white hover:underline transition">Call Hotline</a></li>
+                    <li><Link href="/pricing/" className="hover:text-white hover:underline transition">Billing &amp; SLAs</Link></li>
+                    <li><Link href="/contact/" className="hover:text-white hover:underline transition">Other</Link></li>
                   </ul>
                 </div>
 

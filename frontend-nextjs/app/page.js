@@ -390,7 +390,7 @@ export default function HomePage() {
 
       {/* Global Network Reach Visual Section */}
       <section className="relative z-10 mx-auto max-w-full px-[30px]">
-        <div className="animate-on-scroll rounded-3xl border border-white/10 bg-slate-950/80 overflow-hidden">
+        <div className="animate-on-scroll rounded-3xl bg-slate-950/80 overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
             {/* Visual Side */}
             <div className="relative p-8 md:p-12 flex items-center justify-center">

@@ -496,19 +496,20 @@ html.light footer .border-white\/10 {
 }
 
 html.light .status-pill {
-  background-color: #000000 !important;
-  color: #ffffff !important;
-  border-color: #000000 !important;
+  background-color: transparent !important;
+  color: #10b981 !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
 }
 
 html.light .status-pill:hover {
-  background-color: #111827 !important;
-  color: #ffffff !important;
+  background-color: rgba(16, 185, 129, 0.08) !important;
+  color: #059669 !important;
+  border-color: rgba(16, 185, 129, 0.6) !important;
 }
 
 html.light .theme-toggle-segmented {
-  background-color: #f1f5f9 !important;
-  border-color: #cbd5e1 !important;
+  background-color: transparent !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
 }
 
 html.light .theme-toggle-segmented button.bg-white {
@@ -573,7 +574,3 @@ html.light .chat-widget-panel .chat-channel-item .text-white {
 html.light .chat-widget-panel .chat-channel-item .text-slate-400 {
   color: #64748b !important;
 }
-
-
-
-
