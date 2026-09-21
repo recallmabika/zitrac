@@ -187,11 +187,11 @@ export default function NavbarLinks() {
 
       {/* Sanity-Style Full-Width Mega-Menu Dropdown Panel */}
       <div
-        className={`absolute left-0 top-full w-full dropdown-panel border-y border-white/5 transition-all duration-300 origin-top overflow-hidden shadow-2xl z-50 ${
+        className={`absolute left-0 top-full w-full dropdown-panel border-y border-white/10 transition-all duration-300 origin-top overflow-hidden shadow-2xl z-50 ${
           dropdownOpen
-            ? 'opacity-100 max-h-[600px] py-12 pointer-events-auto'
+            ? 'opacity-100 max-h-[640px] py-10 pointer-events-auto'
             : 'opacity-0 max-h-0 py-0 pointer-events-none'
-        } bg-[#0a0a0a]/50 backdrop-blur-sm`}
+        } bg-[#080808]/95 backdrop-blur-xl`}
       >
         <div className="mx-auto max-w-full px-[30px] grid grid-cols-1 lg:grid-cols-12 gap-12">
           
