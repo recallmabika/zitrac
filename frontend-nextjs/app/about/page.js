@@ -65,7 +65,7 @@ export default function AboutPage() {
         <div className="pt-6">
           <Link
             href="/contact/"
-            className="inline-block rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-red-700 transition focus:outline-none focus:ring-2 focus:ring-red-600"
+            className="inline-block rounded-lg bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-red-700 transition focus:outline-none"
           >
             Connect with Our Engineering Desk
           </Link>

@@ -104,7 +104,7 @@ export default function ContactPage() {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-slate-950"
+                className="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none"
               />
               {status.errors.name && <p className="mt-1 text-xs text-red-400">{status.errors.name}</p>}
             </div>
@@ -121,7 +121,7 @@ export default function ContactPage() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-slate-950"
+                  className="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none"
                 />
                 {status.errors.email && <p className="mt-1 text-xs text-red-400">{status.errors.email}</p>}
               </div>
@@ -136,7 +136,7 @@ export default function ContactPage() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-slate-950"
+                  className="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none"
                 />
               </div>
             </div>
@@ -150,7 +150,7 @@ export default function ContactPage() {
                 name="service"
                 value={formData.service}
                 onChange={handleChange}
-                className="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-slate-950"
+                className="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-white focus:outline-none"
               >
                 <option value="IT Consulting">IT Consulting & Infrastructure</option>
                 <option value="Software Development">Enterprise Software & AI Integration</option>
@@ -171,7 +171,7 @@ export default function ContactPage() {
                 required
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-slate-950"
+                className="w-full rounded-lg bg-slate-950 border border-slate-700 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none"
               ></textarea>
               {status.errors.message && <p className="mt-1 text-xs text-red-400">{status.errors.message}</p>}
             </div>
@@ -179,7 +179,7 @@ export default function ContactPage() {
             <button
               type="submit"
               disabled={status.state === 'submitting'}
-              className="w-full rounded-lg bg-red-600 px-6 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-red-700 transition disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-slate-950"
+              className="w-full rounded-lg bg-red-600 px-6 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-red-700 transition disabled:opacity-50 focus:outline-none"
             >
               {status.state === 'submitting' ? 'Transmitting Over TLS...' : 'Transmit Brief to Engineering Desk'}
             </button>

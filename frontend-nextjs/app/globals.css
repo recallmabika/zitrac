@@ -43,6 +43,14 @@
   }
 
   /* Removed Universal Accessibility Focus Traversal Rule */
+  /* Kill all focus outlines globally */
+  *:focus,
+  *:focus-visible,
+  *:focus-within {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
   /* Smooth link and button transitions globally */
   a, button {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

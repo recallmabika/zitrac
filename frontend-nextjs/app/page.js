@@ -25,7 +25,7 @@ export default function HomePage() {
           <div className="max-w-5xl space-y-6 py-10 md:py-14">
             {/* Mega Display H1 - Elegant Raleway Typography matching company mark */}
           <div className="overflow-hidden">
-            <h1 className="hero-title-line font-raleway text-[1.85rem] sm:text-3xl md:text-4xl lg:text-[2.75rem] font-light tracking-[0.04em] text-white leading-[1.15]">
+            <h1 className="hero-title-line font-raleway text-[2.1rem] sm:text-4xl md:text-5xl lg:text-[3.25rem] font-light tracking-[0.04em] text-white leading-[1.3]">
               Enterprise IT Consulting and Custom Software Development in Zimbabwe
             </h1>
           </div>
@@ -39,14 +39,14 @@ export default function HomePage() {
           <div className="hero-fade-up flex flex-wrap items-center gap-4 pt-2">
             <Link
               href="/contact/"
-              className="btn-glow rounded-full bg-red-600 px-8 py-3.5 text-sm font-bold text-white shadow-xl hover:bg-red-500 hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-black"
+              className="btn-glow rounded-full bg-red-600 px-8 py-3.5 text-sm font-bold text-white shadow-xl hover:bg-red-500 hover:scale-105 active:scale-95 transition-all focus:outline-none"
             >
               Start Building With Us
             </Link>
 
             <Link
               href="/services/"
-              className="rounded-full border border-white/20 bg-white/10 hover:bg-white hover:text-black backdrop-blur px-8 py-3.5 text-sm font-medium text-white transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white"
+              className="rounded-full border border-white/20 bg-white/10 hover:bg-white hover:text-black backdrop-blur px-8 py-3.5 text-sm font-medium text-white transition-all hover:scale-105 focus:outline-none"
             >
               Explore Solutions
             </Link>
@@ -226,13 +226,13 @@ export default function HomePage() {
             <div className="pt-4 flex flex-wrap gap-4">
               <Link
                 href="/contact/"
-                className="btn-glow inline-block rounded-full bg-red-600 px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-red-500 hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-red-600"
+                className="btn-glow inline-block rounded-full bg-red-600 px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-red-500 hover:scale-105 transition-all focus:outline-none"
               >
                 Initiate Project Brief
               </Link>
               <Link
                 href="/about/"
-                className="inline-block rounded-full border border-white/20 bg-white/5 hover:bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:scale-105 transition-all focus:outline-none focus:ring-2 focus:ring-red-600"
+                className="inline-block rounded-full border border-white/20 bg-white/5 hover:bg-white/10 px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-white hover:scale-105 transition-all focus:outline-none"
               >
                 Corporate Profile
               </Link>

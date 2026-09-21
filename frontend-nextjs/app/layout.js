@@ -94,7 +94,7 @@ export default function RootLayout({ children }) {
           <div className="mx-auto flex max-w-full items-center justify-between px-[30px] py-4 md:py-5">
             <Link
               href="/"
-              className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-red-600 rounded-lg group"
+              className="flex items-center gap-2 outline-none rounded-lg group"
               aria-label="ZITRAC Technologies Homepage"
             >
               {/* Elegant Thin Raleway Typography with Relaxed Letter Spacing */}
@@ -119,7 +119,7 @@ export default function RootLayout({ children }) {
               </Link>
               <Link
                 href="/contact/"
-                className="btn-glow inline-flex items-center justify-center rounded-full bg-red-600 px-5 py-2 text-xs font-semibold tracking-wide text-white shadow-md transition-all hover:bg-red-500 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-black"
+                className="btn-glow inline-flex items-center justify-center rounded-full bg-red-600 px-5 py-2 text-xs font-semibold tracking-wide text-white shadow-md transition-all hover:bg-red-500 hover:scale-105 focus:outline-none"
               >
                 Contact Sales
               </Link>
@@ -149,11 +149,11 @@ export default function RootLayout({ children }) {
                 Core Capabilities
               </h3>
               <ul className="space-y-2 text-xs">
-                <li><Link href="/services/it-consulting/" className="hover:text-red-400 transition focus:ring-2 focus:ring-red-600">IT Consulting Zimbabwe</Link></li>
-                <li><Link href="/services/software-development/" className="hover:text-red-400 transition focus:ring-2 focus:ring-red-600">Enterprise AI Software</Link></li>
-                <li><Link href="/services/web-design-development/" className="hover:text-red-400 transition focus:ring-2 focus:ring-red-600">Web Design Harare</Link></li>
-                <li><Link href="/services/cyber-security/" className="hover:text-red-400 transition focus:ring-2 focus:ring-red-600">Automated Threat Defense</Link></li>
-                <li><Link href="/services/web-hosting-domain-registration/" className="hover:text-red-400 transition focus:ring-2 focus:ring-red-600">.co.zw Domain Registration</Link></li>
+                <li><Link href="/services/it-consulting/" className="hover:text-red-400 transition">IT Consulting Zimbabwe</Link></li>
+                <li><Link href="/services/software-development/" className="hover:text-red-400 transition">Enterprise AI Software</Link></li>
+                <li><Link href="/services/web-design-development/" className="hover:text-red-400 transition">Web Design Harare</Link></li>
+                <li><Link href="/services/cyber-security/" className="hover:text-red-400 transition">Automated Threat Defense</Link></li>
+                <li><Link href="/services/web-hosting-domain-registration/" className="hover:text-red-400 transition">.co.zw Domain Registration</Link></li>
               </ul>
             </div>
 
@@ -166,7 +166,7 @@ export default function RootLayout({ children }) {
                 Harare, Zimbabwe
               </p>
               <p className="text-xs text-slate-400 font-mono">
-                Email: <a href="mailto:info@zitrac.co.zw" className="text-red-400 underline focus:ring-2 focus:ring-red-600">info@zitrac.co.zw</a>
+                Email: <a href="mailto:info@zitrac.co.zw" className="text-red-400 underline">info@zitrac.co.zw</a>
               </p>
             </div>
 
@@ -183,11 +183,11 @@ export default function RootLayout({ children }) {
                   type="email"
                   id="footer-subscriber-email"
                   placeholder="name@company.co.zw"
-                  className="w-full rounded-lg bg-slate-900 border border-slate-800 px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-600"
+                  className="w-full rounded-lg bg-slate-900 border border-slate-800 px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none"
                 />
                 <button
                   type="submit"
-                  className="w-full bg-red-600 hover:bg-red-500 text-white text-xs font-semibold py-2 rounded-lg transition focus:outline-none focus:ring-2 focus:ring-red-600"
+                  className="w-full bg-red-600 hover:bg-red-500 text-white text-xs font-semibold py-2 rounded-lg transition focus:outline-none"
                 >
                   Subscribe
                 </button>
@@ -198,8 +198,8 @@ export default function RootLayout({ children }) {
           <div className="mx-auto max-w-full px-[30px] mt-12 pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
             <div>&copy; {new Date().getFullYear()} ZITRAC Technologies. All rights reserved.</div>
             <div className="flex space-x-6 mt-4 md:mt-0 font-medium">
-              <Link href="/about/" className="hover:text-slate-300 transition focus:ring-2 focus:ring-red-600">Corporate Trust</Link>
-              <Link href="/contact/" className="hover:text-slate-300 transition focus:ring-2 focus:ring-red-600">Direct Dispatch</Link>
+              <Link href="/about/" className="hover:text-slate-300 transition">Corporate Trust</Link>
+              <Link href="/contact/" className="hover:text-slate-300 transition">Direct Dispatch</Link>
             </div>
           </div>
         </footer>
