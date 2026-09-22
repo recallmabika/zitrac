@@ -185,127 +185,103 @@ export default function NavbarLinks() {
         })}
       </nav>
 
-      {/* Sanity-Style Full-Width Mega-Menu Dropdown Panel */}
+      {/* Minimalist Sanity-Style Clean Dropdown Panel */}
       <div
-        className={`absolute left-0 top-full w-full dropdown-panel border-y border-white/10 transition-all duration-300 origin-top overflow-hidden shadow-2xl z-50 ${
+        className={`absolute left-0 top-full w-full dropdown-panel border-b border-white/10 transition-all duration-300 origin-top overflow-hidden shadow-2xl z-50 ${
           dropdownOpen
-            ? 'opacity-100 max-h-[640px] py-10 pointer-events-auto'
+            ? 'opacity-100 max-h-[640px] py-8 pointer-events-auto'
             : 'opacity-0 max-h-0 py-0 pointer-events-none'
-        } bg-[#080808]/95 backdrop-blur-xl`}
+        } bg-black/95 backdrop-blur-2xl`}
       >
-        <div className="mx-auto max-w-full px-[30px] grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="mx-auto max-w-full px-[30px] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
           
-          {/* Column 1: Core Specializations */}
-          <div className="lg:col-span-5 space-y-5">
-            <div className="dropdown-header text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 font-semibold flex items-center justify-between pb-3 border-b border-white/5">
+          {/* Column 1: Core Architectural Services (Restored original services) */}
+          <div className="lg:col-span-3 space-y-4">
+            <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-slate-500 font-semibold pb-2 border-b border-white/10 flex items-center justify-between">
               <span>Core Architectural Services</span>
               <Link href="/services/" className="normal-case text-xs font-sans text-slate-400 hover:text-white transition-colors">
-                View catalog &rarr;
+                All services &rarr;
               </Link>
             </div>
 
-            <div className="space-y-1.5">
-              {coreSpecializations.map((item) => {
-                const isCurrent = pathname === item.href;
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onMouseEnter={() => setHoveredService(item)}
-                    onMouseLeave={() => setHoveredService(null)}
-                    className={`dropdown-item-hover group block rounded-xl p-3.5 transition-all duration-300 ${
-                      isCurrent
-                        ? 'bg-white/5'
-                        : 'hover:bg-white/[0.03] hover:translate-x-1'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className={`dropdown-item-title text-[15px] font-semibold transition-colors ${
-                        isCurrent ? 'text-white' : 'text-slate-200 group-hover:text-white'
-                      }`}>
-                        {item.title}
-                      </div>
-                      <span className="text-[9px] font-mono px-2.5 py-0.5 rounded-full bg-transparent text-transparent transition-colors group-hover:bg-red-600 group-hover:text-white">
-                        {item.badge}
-                      </span>
-                    </div>
-                    <p className="dropdown-item-desc text-[13px] text-slate-500 mt-1.5 line-clamp-1">
-                      {item.desc}
-                    </p>
-                  </Link>
-                );
-              })}
+            <div className="space-y-1">
+              {coreSpecializations.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group flex items-center justify-between py-2 text-slate-200 hover:text-white transition-colors"
+                >
+                  <span className="font-raleway text-lg font-normal tracking-tight group-hover:underline group-hover:translate-x-1 transition-transform">
+                    {item.title}
+                  </span>
+                </Link>
+              ))}
+            </div>
+
+            {/* Decorative Dot Matrix Long Rectangle */}
+            <div className="pt-6 select-none pointer-events-none opacity-25 hover:opacity-40 transition-opacity">
+              <div className="grid grid-cols-12 gap-2 w-48 sm:w-56">
+                {Array.from({ length: 48 }).map((_, i) => (
+                  <div key={i} className="w-1 h-1 rounded-full bg-slate-400"></div>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Column 2: Our Recent Work */}
-          <div className="lg:col-span-4 space-y-5">
-            <div className="dropdown-header text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 font-semibold flex items-center justify-between pb-3 border-b border-white/5">
+          {/* Column 2: Our Recent Work (Restored original portfolio projects) */}
+          <div className="lg:col-span-4 space-y-4">
+            <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-slate-500 font-semibold pb-2 border-b border-white/10 flex items-center justify-between">
               <span>Our Recent Work</span>
               <Link href="/work/" className="normal-case text-xs font-sans text-slate-400 hover:text-white transition-colors">
                 All projects &rarr;
               </Link>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-1">
               {recentWorkItems.map((item, idx) => (
                 <Link
                   key={idx}
                   href={item.href}
-                  className="dropdown-item-hover group block rounded-xl p-3.5 transition-all duration-300 hover:bg-white/[0.03] hover:translate-x-1 border border-transparent hover:border-white/5"
+                  className="group flex items-center justify-between py-2 text-slate-200 hover:text-white transition-colors"
                 >
-                  <div className="flex items-center justify-between mb-1">
-                    <div className="dropdown-item-title text-[14px] font-medium text-slate-200 group-hover:text-white transition-colors">
-                      {item.title}
-                    </div>
-                    <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-400 border border-white/5 group-hover:border-red-500/30 group-hover:text-red-400 transition-colors">
-                      {item.tag}
-                    </span>
-                  </div>
-                  <p className="dropdown-item-desc text-[12px] text-slate-500 leading-relaxed line-clamp-2">
-                    {item.desc}
-                  </p>
+                  <span className="font-raleway text-lg font-normal tracking-tight group-hover:underline group-hover:translate-x-1 transition-transform truncate pr-2">
+                    {item.title}
+                  </span>
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Column 3: Visual Showcase Card */}
-          <div className="lg:col-span-3 flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-black/60 p-7 relative overflow-hidden">
-            {/* Crossfading background images */}
-            {(hoveredService ? hoveredService.showcase.images : ['/assets/consulting-1.png', '/assets/consulting-2.png']).map((src, i) => (
-              <div
-                key={src}
-                className="absolute inset-0 transition-opacity duration-700"
-                style={{
-                  backgroundImage: `url(${src})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  opacity: imgIndex === i ? 0.35 : 0,
-                }}
-              />
-            ))}
-            {/* Dark gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/30 pointer-events-none"></div>
-
-            <div className="space-y-4 relative z-10 transition-all duration-300">
-              <div className="font-raleway text-lg font-light tracking-[0.25em] uppercase text-white/90">
-                ZITRAC
+          {/* Column 3: Sanity-Style Graphic Announcement Banner - Expanded & Bigger */}
+          <div className="lg:col-span-5 rounded-3xl border border-white/15 bg-gradient-to-br from-black via-slate-950 to-black p-8 sm:p-9 relative overflow-hidden flex flex-col justify-between min-h-[340px] group shadow-2xl">
+            {/* Ambient Background Grid */}
+            <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-500/30 via-transparent to-transparent"></div>
+            
+            {/* Top Bold Typographic Lockup */}
+            <div className="space-y-2 relative z-10">
+              <div className="font-mono text-xs sm:text-sm text-emerald-400 tracking-[0.25em] font-semibold uppercase flex items-center gap-2.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                ZITRAC CORE
               </div>
-              <div className="text-[15px] font-semibold text-white leading-snug">
-                {hoveredService ? hoveredService.showcase.title : 'Zimbabwe Enterprise Cloud Infrastructure'}
-              </div>
-              <p className="text-[13px] text-slate-300 leading-relaxed min-h-[60px]">
-                {hoveredService ? hoveredService.showcase.desc : 'Experience guaranteed 99.98% uptime, sub-second latency, and AI automated defense watchdogs tailored for Harare enterprises.'}
-              </p>
+              <h4 className="font-raleway text-3xl sm:text-4xl lg:text-[2.6rem] font-light tracking-tight text-white leading-[1.08]">
+                EVERYTHING<br />
+                <span className="font-mono text-emerald-400 font-semibold tracking-tight">*HARARE</span> 2026
+              </h4>
             </div>
 
-            <div className="pt-8 relative z-10">
+            {/* Wireframe geometric graphic accent */}
+            <div className="py-3 text-xs sm:text-sm font-mono text-slate-400 relative z-10 leading-relaxed max-w-md">
+              Explore our latest enterprise cloud benchmarks, automated zero-trust protocols &amp; Next.js deployments.
+            </div>
+
+            {/* Bottom Action Pill */}
+            <div className="pt-3 relative z-10">
               <Link
-                href="/contact/"
-                className="block text-center rounded-xl bg-white text-black py-3 px-4 text-xs font-bold uppercase tracking-widest hover:bg-slate-200 hover:scale-[1.02] transition-all focus:outline-none"
+                href="/services/"
+                className="inline-flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.2em] font-semibold text-white bg-black/90 hover:bg-white hover:text-black border border-white/25 px-6 py-3 rounded-full transition-all duration-300 shadow-lg group-hover:border-emerald-500/40"
               >
-                Schedule Consultation
+                <span>SEE WHAT WE ANNOUNCED</span>
+                <span className="text-emerald-400 group-hover:text-black transition-transform group-hover:translate-x-1">&rarr;</span>
               </Link>
             </div>
           </div>
