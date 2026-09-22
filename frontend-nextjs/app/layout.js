@@ -80,7 +80,11 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en" className="h-full bg-black text-slate-100 antialiased selection:bg-red-600 selection:text-white">
+    <html
+      lang="en"
+      className="h-full bg-black text-slate-100 antialiased selection:bg-red-600 selection:text-white"
+      suppressHydrationWarning
+    >
       <head>
         <link rel="canonical" href="https://zitrac.co.zw/" />
         <script
