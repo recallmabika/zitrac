@@ -116,9 +116,9 @@ export default function ReliabilityBenchmark() {
                   <div
                     key={item.id}
                     onClick={() => setActiveTab(idx)}
-                    className={`benchmark-tab-card cursor-pointer p-6 transition-all duration-300 rounded-2xl border ${
+                    className={`benchmark-tab-card cursor-pointer p-6 transition-all duration-300 rounded-none border ${
                       isActive
-                        ? 'benchmark-tab-active bg-white/[0.04] border-red-500/40 shadow-lg shadow-red-500/5'
+                        ? 'benchmark-tab-active bg-white/[0.04] border-red-500/40 shadow-none'
                         : 'bg-transparent border-white/5 hover:border-white/15 hover:bg-white/[0.02]'
                     }`}
                   >
@@ -128,7 +128,7 @@ export default function ReliabilityBenchmark() {
                       }`}>
                         {item.tag}
                       </span>
-                      <span className={`font-mono text-xs font-semibold px-2 py-0.5 rounded-full ${
+                      <span className={`font-mono text-xs font-semibold px-2.5 py-0.5 rounded-none ${
                         isActive ? 'bg-red-500/10 text-red-400 border border-red-500/20' : 'text-slate-500'
                       }`}>
                         {item.metric}
@@ -162,7 +162,7 @@ export default function ReliabilityBenchmark() {
             </div>
 
             {/* Quick Authority Note */}
-            <div className="p-4 rounded-xl border border-white/5 bg-white/[0.02] flex items-center justify-between text-xs font-mono text-slate-400 mt-2">
+            <div className="p-4 rounded-none border border-white/5 bg-white/[0.02] flex items-center justify-between text-xs font-mono text-slate-400 mt-2">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
                 <span>ZITRAC Network Operations Center (NOC)</span>
@@ -172,7 +172,7 @@ export default function ReliabilityBenchmark() {
           </div>
 
           {/* Right Column: Hardware & Telemetry Showcase */}
-          <div className="benchmark-visual-col lg:col-span-7 relative min-h-[460px] rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-br from-[#0c0d12] via-[#07080b] to-[#020203] p-8 sm:p-10 flex flex-col justify-between">
+          <div className="benchmark-visual-col lg:col-span-7 relative min-h-[460px] rounded-none overflow-hidden border border-white/10 bg-gradient-to-br from-[#0c0d12] via-[#07080b] to-[#020203] p-8 sm:p-10 flex flex-col justify-between">
             {/* Ambient Lighting */}
             <div className="absolute top-0 right-0 w-80 h-80 bg-red-600/15 rounded-full blur-[100px] pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[90px] pointer-events-none"></div>
@@ -202,7 +202,7 @@ export default function ReliabilityBenchmark() {
 
             {/* Center Visual Callout */}
             <div className="relative z-10 my-auto py-8">
-              <div className="inline-block mb-3 px-3 py-1 rounded-full border border-red-500/30 bg-red-600/10 text-red-400 text-[11px] font-mono uppercase tracking-widest">
+              <div className="inline-block mb-3 px-3 py-1 rounded-none border border-red-500/30 bg-red-600/10 text-red-400 text-[11px] font-mono uppercase tracking-widest">
                 {current.metricLabel}
               </div>
               <div className="text-5xl sm:text-7xl font-extralight text-white font-raleway tracking-tighter mb-4">
@@ -215,15 +215,15 @@ export default function ReliabilityBenchmark() {
 
             {/* Bottom Status Grid */}
             <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-white/10">
-              <div className="p-3 rounded-xl bg-black/40 border border-white/10 backdrop-blur-md">
+              <div className="p-3 rounded-none bg-black/40 border border-white/10 backdrop-blur-md">
                 <div className="text-[10px] font-mono uppercase text-slate-400">Designated Node</div>
                 <div className="text-xs font-mono text-white font-medium truncate mt-0.5">{current.telemetry.node}</div>
               </div>
-              <div className="p-3 rounded-xl bg-black/40 border border-white/10 backdrop-blur-md">
+              <div className="p-3 rounded-none bg-black/40 border border-white/10 backdrop-blur-md">
                 <div className="text-[10px] font-mono uppercase text-slate-400">Latency Target</div>
                 <div className="text-xs font-mono text-emerald-400 font-medium truncate mt-0.5">{current.telemetry.latency}</div>
               </div>
-              <div className="p-3 rounded-xl bg-black/40 border border-white/10 backdrop-blur-md">
+              <div className="p-3 rounded-none bg-black/40 border border-white/10 backdrop-blur-md">
                 <div className="text-[10px] font-mono uppercase text-slate-400">Health State</div>
                 <div className="text-xs font-mono text-white font-medium truncate mt-0.5">{current.telemetry.health}</div>
               </div>

@@ -1074,3 +1074,92 @@ html.light .architecture-matrix .matrix-nav-col {
 html.light .architecture-matrix .matrix-dot-grid .bg-slate-400 {
   background-color: #94a3b8 !important;
 }
+
+/* ── Reliability Benchmark Light Mode & Theme Adaptations ── */
+html.light .reliability-benchmark {
+  background-color: #ffffff !important;
+  border-bottom-color: #e2e8f0 !important;
+}
+
+html.light .reliability-benchmark h2 {
+  color: #0f172a !important;
+}
+
+html.light .reliability-benchmark .hero-dots {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.12) 1px, transparent 1px) !important;
+}
+
+html.light .reliability-benchmark .benchmark-tab-card {
+  border-color: #e2e8f0 !important;
+  background-color: #ffffff !important;
+}
+
+html.light .reliability-benchmark .benchmark-tab-card:hover {
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light .reliability-benchmark .benchmark-tab-card.benchmark-tab-active {
+  background-color: #ffffff !important;
+  border-color: #dc2626 !important;
+  box-shadow: 0 10px 30px -10px rgba(220, 38, 38, 0.12) !important;
+}
+
+html.light .reliability-benchmark .benchmark-tab-card h3 {
+  color: #0f172a !important;
+}
+
+html.light .reliability-benchmark .benchmark-tab-card p,
+html.light .reliability-benchmark .benchmark-tab-card li span {
+  color: #334155 !important;
+}
+
+html.light .reliability-benchmark .benchmark-cta-secondary {
+  border-color: #0f172a !important;
+  color: #0f172a !important;
+}
+
+html.light .reliability-benchmark .benchmark-cta-secondary:hover {
+  border-color: #dc2626 !important;
+  color: #dc2626 !important;
+}
+
+html.light .reliability-benchmark .benchmark-visual-col {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%) !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light .reliability-benchmark .benchmark-visual-col .text-white {
+  color: #0f172a !important;
+}
+
+html.light .reliability-benchmark .benchmark-visual-col p {
+  color: #334155 !important;
+}
+
+html.light .reliability-benchmark .benchmark-visual-col .border-white\/10 {
+  border-color: #e2e8f0 !important;
+}
+
+html.light .reliability-benchmark .benchmark-visual-col .bg-black\/40 {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+}
+
+html.light .reliability-benchmark .benchmark-visual-col .text-slate-400 {
+  color: #64748b !important;
+}
+
+html.light .reliability-benchmark .benchmark-visual-col .text-slate-300 {
+  color: #475569 !important;
+}
+
+html.light .reliability-benchmark .border-white\/5 {
+  border-color: #e2e8f0 !important;
+}
+
+html.light .reliability-benchmark .bg-white\/\[0\.02\] {
+  background-color: #f8fafc !important;
+}
+
