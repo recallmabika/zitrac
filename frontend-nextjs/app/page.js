@@ -5,6 +5,7 @@ import HeroBackground from './components/HeroBackground';
 import MetricsBanner from './components/MetricsBanner';
 import ArchitectureMatrix from './components/ArchitectureMatrix';
 import ReliabilityBenchmark from './components/ReliabilityBenchmark';
+import GlobalReach from './components/GlobalReach';
 
 export const metadata = {
   title: 'Managed IT Services & Software Development Zimbabwe | ZITRAC',
@@ -120,41 +121,7 @@ export default function HomePage() {
       </div>
 
       {/* Global Network Reach Visual Section */}
-      <section className="relative z-10 mx-auto max-w-full px-[30px] py-16">
-        <div className="animate-on-scroll rounded-3xl bg-slate-950/80 overflow-hidden border border-white/5">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-center">
-            {/* Visual Side */}
-            <div className="relative p-8 md:p-12 flex items-center justify-center">
-              <Image
-                src="/assets/global-network.png"
-                alt="Global network infrastructure with connected endpoints"
-                width={600}
-                height={450}
-                className="w-full h-auto max-w-md object-contain"
-                unoptimized
-              />
-            </div>
-            {/* Content Side */}
-            <div className="p-8 md:p-12 space-y-5">
-              <div className="text-xs font-mono font-bold tracking-widest text-red-500 uppercase">
-                GLOBAL REACH
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
-                Connected Infrastructure Across Every Endpoint
-              </h2>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                From enterprise CDN distribution to real-time SOC monitoring nodes, ZITRAC deploys interconnected systems that keep your data flowing and your perimeter sealed — with 100% deployment completion guarantees.
-              </p>
-              <Link
-                href="/services/"
-                className="inline-flex items-center text-xs font-bold text-red-400 hover:text-red-300 tracking-wider uppercase"
-              >
-                Explore Full Architecture <span className="ml-1.5">&rarr;</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <GlobalReach />
     </div>
   );
 }

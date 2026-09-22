@@ -91,13 +91,13 @@ export default function ReliabilityBenchmark() {
           <div className="shrink-0 flex items-center gap-3">
             <Link
               href="/contact/"
-              className="benchmark-cta-primary inline-flex items-center justify-center rounded-none bg-red-600 px-7 py-3 text-xs font-mono font-semibold uppercase tracking-[0.2em] text-white hover:bg-red-500 transition-all duration-300 shadow-none border-0"
+              className="benchmark-cta-primary inline-flex items-center justify-center rounded-full bg-red-600 px-7 py-3 text-xs font-mono font-semibold uppercase tracking-[0.2em] text-white hover:bg-red-500 transition-all duration-300 shadow-none border-0"
             >
               <span>Initiate Brief</span>
             </Link>
             <Link
               href="/about/"
-              className="benchmark-cta-secondary inline-flex items-center justify-center rounded-none border border-white/20 bg-transparent px-7 py-3 text-xs font-mono font-semibold uppercase tracking-[0.2em] text-white hover:border-red-500 hover:text-red-500 transition-all duration-300 shadow-none"
+              className="benchmark-cta-secondary inline-flex items-center justify-center rounded-full border border-white/20 bg-transparent px-7 py-3 text-xs font-mono font-semibold uppercase tracking-[0.2em] text-white hover:border-red-500 hover:text-red-500 transition-all duration-300 shadow-none"
             >
               <span>Corporate Profile</span>
             </Link>
