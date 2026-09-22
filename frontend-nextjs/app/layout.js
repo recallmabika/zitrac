@@ -316,9 +316,11 @@ export default function RootLayout({ children }) {
             </div>
 
             {/* Giant Monolithic Brand Wordmark (Modeled on Sanity's massive centerpiece) */}
-            <div className="py-24 text-center select-none overflow-hidden">
-              <div className="font-raleway text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] font-light uppercase tracking-[0.22em] text-white/90 hover:text-white transition-all duration-700 hover:tracking-[0.25em]">
-                ZITRAC
+            <div className="py-24 text-center select-none overflow-hidden animate-on-scroll">
+              <div className="footer-wordmark font-raleway text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] font-light uppercase text-white/90 hover:text-white cursor-default inline-flex items-center justify-center">
+                <span className="wordmark-part wordmark-zi">ZI</span>
+                <span className="wordmark-part wordmark-tr">TR</span>
+                <span className="wordmark-part wordmark-ac">AC</span>
               </div>
               <p className="font-mono text-xs uppercase tracking-[0.35em] text-slate-500 mt-2">
                 Enterprise Computing &bull; Harare, Zimbabwe

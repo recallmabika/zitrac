@@ -574,3 +574,105 @@ html.light .chat-widget-panel .chat-channel-item .text-white {
 html.light .chat-widget-panel .chat-channel-item .text-slate-400 {
   color: #64748b !important;
 }
+
+/* Footer Wordmark Stretch on Hover */
+.footer-wordmark {
+  display: inline-block;
+  letter-spacing: 0.16em;
+  max-width: 90%;
+  transition: letter-spacing 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+  will-change: letter-spacing, transform;
+}
+
+.footer-wordmark:hover {
+  letter-spacing: 0.38em;
+  transform: scaleX(1.04);
+}
+
+@media (min-width: 640px) {
+  .footer-wordmark:hover {
+    letter-spacing: 0.48em;
+    transform: scaleX(1.05);
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-wordmark:hover {
+    letter-spacing: 0.58em;
+    transform: scaleX(1.06);
+  }
+}
+
+/* Footer Wordmark 3-Part Appearance Animation (Slow Motion + Heartbeat Pulse) */
+.wordmark-part {
+  display: inline-block;
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: transform 2.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 2.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ZI: transform and reveal from left */
+.wordmark-zi {
+  transform: translateX(-120px);
+  transition-delay: 0.1s;
+}
+
+/* TR: transform and reveal from top */
+.wordmark-tr {
+  transform: translateY(-100px);
+  transition-delay: 0.35s;
+}
+
+/* AC: transform and reveal from right */
+.wordmark-ac {
+  transform: translateX(120px);
+  transition-delay: 0.6s;
+}
+
+/* Triggered when parent .animate-on-scroll becomes visible */
+.animate-on-scroll.is-visible .wordmark-part {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Heartbeat Zoom Pulse after the 3 parts lock together */
+@keyframes wordmarkHeartbeat {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+    filter: brightness(1);
+  }
+  14% {
+    transform: scale(1.08);
+    opacity: 1;
+    filter: brightness(1.25);
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+  }
+  28% {
+    transform: scale(1);
+    opacity: 0.95;
+    filter: brightness(1);
+    text-shadow: none;
+  }
+  42% {
+    transform: scale(1.12);
+    opacity: 1;
+    filter: brightness(1.35);
+    text-shadow: 0 0 35px rgba(255, 255, 255, 0.5);
+  }
+  70% {
+    transform: scale(1);
+    opacity: 0.9;
+    filter: brightness(1);
+    text-shadow: none;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+    filter: brightness(1);
+  }
+}
+
+.animate-on-scroll.is-visible .footer-wordmark {
+  animation: wordmarkHeartbeat 1.8s cubic-bezier(0.25, 1, 0.5, 1) 3.1s forwards;
+}

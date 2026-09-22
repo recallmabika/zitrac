@@ -31,6 +31,9 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
 
+  // Disable experimental dev indicator overlays that crash React Client Manifest in dev mode
+  devIndicators: false,
+
   // Prune debugging noise in production builds
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error', 'warn'] } : false,
