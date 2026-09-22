@@ -200,11 +200,6 @@ export default function ArchitectureMatrix() {
 
   return (
     <section className="architecture-matrix relative z-10 mx-auto max-w-full border-b border-white/5">
-      {/* Full-Window Sticky Zimbabwe Dotted Map Background */}
-      <div className="architecture-matrix-map-layer">
-        <div className="architecture-matrix-map-layer-inner" />
-      </div>
-
       <div className="relative z-10 px-[30px] py-16 lg:py-24">
         {/* Section Header */}
         <div className="mb-12 lg:mb-16 max-w-3xl">

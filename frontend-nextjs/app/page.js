@@ -105,11 +105,19 @@ export default function HomePage() {
       {/* Metrics Impact Banner - Directly below marquee */}
       <MetricsBanner />
 
-      {/* Service Capabilities Architecture - Split editorial panels */}
-      <ArchitectureMatrix />
+      {/* Architecture + Reliability Sections — shared sticky Zimbabwe map background */}
+      <div className="map-sections-wrapper relative">
+        {/* Full-Window Sticky Zimbabwe Dotted Map Background */}
+        <div className="architecture-matrix-map-layer">
+          <div className="architecture-matrix-map-layer-inner" />
+        </div>
 
-      {/* Trust & Authority Signals Banner with Modern Sanity Styling */}
-      <ReliabilityBenchmark />
+        {/* Service Capabilities Architecture - Split editorial panels */}
+        <ArchitectureMatrix />
+
+        {/* Trust & Authority Signals Banner with Modern Sanity Styling */}
+        <ReliabilityBenchmark />
+      </div>
 
       {/* Global Network Reach Visual Section */}
       <section className="relative z-10 mx-auto max-w-full px-[30px] py-16">
