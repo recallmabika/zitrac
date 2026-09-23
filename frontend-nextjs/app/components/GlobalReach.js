@@ -1,140 +1,281 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function GlobalReach() {
-  const metrics = [
+  const [activeIdx, setActiveIdx] = useState(1);
+  const [isBtnHovered, setIsBtnHovered] = useState(false);
+
+  const hostingPlans = [
     {
-      label: 'Harare Core DC',
-      val: 'Primary Alpha',
-      sub: 'Tier III Peering Hub',
+      id: 'starter',
+      tier: 'Starter Tier',
+      tag: 'Local SMEs & Brands',
+      name: 'Starter Web Hosting',
+      storage: '10 GB NVMe SSD',
+      bandwidth: 'Unmetered Bandwidth',
+      domain: '1 Free .co.zw Domain',
+      mail: '5 Professional Mailboxes',
+      highlight: '99.98% SLA Uptime',
+      desc: 'High-speed cPanel web hosting ideal for Zimbabwean startups, small enterprises, and professional brand portfolios. Complete with free TLS/SSL certificates and DNSSEC protection.',
+      specs: [
+        'Free .co.zw domain registration included',
+        'Pure NVMe SSD high-throughput disk array',
+        'cPanel control panel with 1-click script installers',
+        'Automated daily offsite cloud backups',
+      ],
     },
     {
-      label: 'Bulawayo Failover',
-      val: 'Dual Zone',
-      sub: 'Sub-second DNS Sync',
+      id: 'business',
+      tier: 'Business Tier',
+      tag: 'Most Popular &bull; Portals & Apps',
+      name: 'Business Web Hosting',
+      storage: '35 GB NVMe SSD',
+      bandwidth: 'Unmetered Bandwidth',
+      domain: '1 Free .co.zw Domain',
+      mail: 'Unlimited Mailboxes',
+      highlight: 'Python / Node.js Runtimes',
+      desc: 'Engineered for growing Zimbabwean companies, dynamic web portals, and database-driven software applications. Backed by high CPU allocation and Phusion WSGI execution on our owned server array.',
+      specs: [
+        'Native Python WSGI & Node.js app environment',
+        'Unlimited business email addresses on mail.zitrac.co.zw',
+        'Direct peering at Harare IXP for lowest local latency',
+        'Zero-trust DDoS protection & automated spam filtering',
+      ],
     },
     {
-      label: 'Regional Transit',
-      val: '<12ms',
-      sub: 'Cross-Border Fiber Hop',
+      id: 'enterprise',
+      tier: 'Enterprise Tier',
+      tag: 'Mission-Critical & High Traffic',
+      name: 'Enterprise Web Hosting',
+      storage: '100 GB NVMe SSD',
+      bandwidth: 'Priority Fiber Routing',
+      domain: 'Free Multiple .co.zw Domains',
+      mail: 'Enterprise Mail Gateway',
+      highlight: 'Owned Hardware Core',
+      desc: 'Heavyweight computing environments running on our own purchased enterprise hardware servers, built for high-concurrency educational portals, corporate ERPs, and database-driven web applications.',
+      specs: [
+        'Company-owned enterprise hardware infrastructure',
+        'Direct peering at Harare IXP for low regional latency',
+        'Custom Cloudflare R2 object store integration',
+        '24/7 technical engineering support & 15-minute response SLA',
+      ],
     },
   ];
 
-  return (
-    <section className="global-reach-section relative z-10 mx-auto max-w-full px-[30px] py-16 lg:py-24 border-t border-white/5">
-      <div className="relative z-10 max-w-[1400px] mx-auto">
-        
-        {/* Section Header matching Sanity design */}
-        <div className="animate-on-scroll mb-12 lg:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-2.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse"></span>
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-red-500 font-semibold">
-                Global Network Architecture
-              </span>
-            </div>
-            <h2 className="font-raleway text-2xl sm:text-4xl lg:text-5xl font-light tracking-[0.03em] text-white leading-tight">
-              Connected Infrastructure Across Every Enterprise Endpoint
-            </h2>
-          </div>
+  const current = hostingPlans[activeIdx];
 
-          <div className="shrink-0">
-            <Link
-              href="/services/"
-              className="global-reach-cta inline-flex items-center justify-center rounded-full border border-white/20 bg-transparent px-7 py-3 text-xs font-mono font-semibold uppercase tracking-[0.2em] text-white hover:border-red-500 hover:text-red-500 transition-all duration-300 shadow-none"
-            >
-              <span>Explore Architecture &rarr;</span>
-            </Link>
-          </div>
+  return (
+    <section className="global-reach-section relative z-10 w-full py-20 lg:py-28">
+      <div className="max-w-[1400px] mx-auto px-[30px]">
+        
+        {/* Minimal Header — smooth scroll reveal */}
+        <div className="animate-on-scroll mb-16 lg:mb-20">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-red-500 mb-4">
+            Cloud Infrastructure &bull; Web Hosting &bull; .co.zw Domains
+          </p>
+          <h2 className="hosting-heading font-raleway text-3xl sm:text-4xl lg:text-[3.2rem] font-extralight tracking-tight leading-[1.15] text-[#1a1a2e] max-w-3xl">
+            Enterprise Web Hosting &amp; Domain Registration
+          </h2>
+          <p className="font-raleway text-sm sm:text-base text-[#686882] font-light mt-4 leading-relaxed max-w-2xl">
+            Ultra-fast cPanel hosting backed by pure NVMe SSDs, native Python and Node.js runtimes, official Zimbabwean .co.zw registry, and 99.98% high-availability uptime discipline.
+          </p>
         </div>
 
-        {/* Main Content Showcase: Flat Sanity-Studio Split Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          
-          {/* Left Column: Visual Showcase Canvas matching Architecture Studio */}
-          <div className="animate-slide-left global-reach-visual-col lg:col-span-7 relative min-h-[440px] sm:min-h-[500px] rounded-none overflow-hidden border-0 bg-gradient-to-br from-[#121217] via-[#09090b] to-[#040405] shadow-none p-6 sm:p-8 flex flex-col justify-between">
-            {/* Ambient Lighting */}
-            <div className="absolute -bottom-16 -left-16 w-80 h-80 rounded-full bg-red-600/15 blur-[100px] pointer-events-none"></div>
-            <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-emerald-500/10 blur-[90px] pointer-events-none"></div>
+        {/* Clean Flat Two-Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-            {/* Studio Browser Header Bar */}
-            <div className="matrix-studio-header relative z-10 flex items-center justify-between pb-3 border-0 text-xs font-mono text-slate-400">
-              <div className="flex items-center gap-2.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span className="tracking-wider uppercase text-[11px]">
-                  Global Routing Canvas / <strong className="global-reach-title text-white font-medium">Border Edge v4</strong>
-                </span>
-              </div>
-              <div className="flex items-center gap-2 opacity-70">
-                <span className="w-2 h-2 rounded-full bg-slate-600"></span>
-                <span className="w-2 h-2 rounded-full bg-slate-600"></span>
-                <span className="w-2 h-2 rounded-full bg-slate-600"></span>
-              </div>
-            </div>
-
-            {/* Network Vector Illustration Visual */}
-            <div className="relative z-0 my-auto py-4 flex items-center justify-center overflow-hidden">
-              <div className="relative w-full max-w-[540px] h-[280px] sm:h-[340px]">
+          {/* Left Column: Image drops from top, text slides from left to right */}
+          <div className="lg:col-span-7 flex flex-col justify-between space-y-8">
+            
+            {/* 1. Image drops from top */}
+            <div className="animate-drop-top relative w-full h-[320px] sm:h-[400px] flex items-center justify-center p-2 bg-transparent">
+              <div className="relative w-full max-w-[520px] h-full">
                 <Image
-                  src="/assets/global-network.png"
-                  alt="Global network infrastructure with connected endpoints"
+                  src="/assets/web-hosting-hero.png"
+                  alt="ZITRAC Web Hosting and Cloud Infrastructure"
                   fill
-                  className="global-reach-img object-contain filter contrast-105 brightness-105 transition-transform duration-700 hover:scale-105"
+                  className="object-contain transition-transform duration-700 hover:scale-105"
+                  priority
                   unoptimized
                 />
               </div>
             </div>
 
-            {/* Bottom Live Routing Status Bar */}
-            <div className="relative z-10 pt-4 border-0 flex items-center justify-between text-[11px] font-mono text-slate-400">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
-                <span className="text-slate-300 font-mono">BGP Autonomous System Routing</span>
-              </div>
-              <span className="text-emerald-400 font-mono">Peered &bull; 100% Guaranteed</span>
-            </div>
-          </div>
-
-          {/* Right Column: Editorial Overview & Key Interconnect Points */}
-          <div className="animate-slide-right delay-200 lg:col-span-5 flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div className="p-6 rounded-none bg-white/[0.02] border-0">
-                <h3 className="font-raleway text-xl sm:text-2xl font-light text-white tracking-tight mb-3">
-                  Enterprise Interconnectivity Without Geographic Compromise
-                </h3>
-                <p className="font-raleway text-sm text-slate-300 font-light leading-relaxed mb-4">
-                  From sub-second CDN distribution edge nodes to real-time SOC monitoring centers, ZITRAC deploys interconnected digital pipelines that keep your packets flowing fast, your communications uninterrupted, and your perimeter sealed.
-                </p>
-                <p className="font-raleway text-xs text-slate-400 font-light leading-relaxed">
-                  Dual-homed fiber links, Cloudflare edge caching tiers, and direct peering at local internet exchange points (IXPs) ensure your corporate users experience minimal latency and zero packet drop.
-                </p>
+            {/* 2. Text slides in from left to right */}
+            <div className="animate-slide-left delay-200 pt-4 space-y-6">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <span className="font-mono text-xs uppercase tracking-widest text-red-500 font-semibold">
+                    {current.tier}
+                  </span>
+                  <h3 className="hosting-active-title font-raleway text-2xl sm:text-3xl font-light text-[#1a1a2e] mt-1">
+                    {current.name}
+                  </h3>
+                </div>
+                <div className="text-right">
+                  <span className="inline-block px-3 py-1 rounded-full text-[11px] font-mono font-medium bg-red-50 text-red-600">
+                    {current.highlight}
+                  </span>
+                </div>
               </div>
 
-              {/* 3 Metric Cards matching the matrix-code-card style */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                {metrics.map((m, i) => (
-                  <div
-                    key={i}
-                    className="global-metric-box p-3.5 rounded-none bg-[#050505]/95 backdrop-blur-2xl border-0 shadow-none"
-                  >
-                    <div className="text-[9px] font-mono uppercase tracking-wider text-slate-400 mb-1">{m.label}</div>
-                    <div className="text-sm font-mono text-white font-medium">{m.val}</div>
-                    <div className="text-[10px] font-mono text-slate-400 mt-1">{m.sub}</div>
+              <p className="font-raleway text-base text-[#4a4a62] font-light leading-relaxed">
+                {current.desc}
+              </p>
+
+              {/* Specification Bullet Points */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                {current.specs.map((spec, sIdx) => (
+                  <div key={sIdx} className="flex items-start gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0"></span>
+                    <span className="font-raleway text-xs sm:text-sm text-[#4a4a62] font-light leading-normal">
+                      {spec}
+                    </span>
                   </div>
                 ))}
               </div>
+
+              {/* Active Plan Key Metrics Row with subtle hairline */}
+              <div className="hosting-divider grid grid-cols-3 gap-6 pt-6 border-t border-slate-200/50">
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-[#8888a0]">Storage</p>
+                  <p className="font-raleway text-lg font-light text-[#1a1a2e] mt-1">{current.storage}</p>
+                </div>
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-[#8888a0]">Bandwidth</p>
+                  <p className="font-raleway text-lg font-light text-[#1a1a2e] mt-1">{current.bandwidth}</p>
+                </div>
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-[#8888a0]">Domain</p>
+                  <p className="font-raleway text-lg font-light text-emerald-600 mt-1">{current.domain}</p>
+                </div>
+              </div>
             </div>
 
-            {/* Quick Authority Callout Bar */}
-            <div className="p-4 rounded-none border-0 bg-white/[0.02] flex items-center justify-between text-xs font-mono text-slate-400">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                <span>Regional Routing Gateways</span>
+          </div>
+
+          {/* Right Column: Tier Selector slides up from bottom */}
+          <div className="animate-slide-up delay-300 lg:col-span-5 flex flex-col gap-0">
+            {hostingPlans.map((plan, idx) => {
+              const isActive = idx === activeIdx;
+              return (
+                <button
+                  key={plan.id}
+                  type="button"
+                  onClick={() => setActiveIdx(idx)}
+                  className={`hosting-tier-btn w-full text-left py-7 px-2 transition-all duration-300 ${
+                    isActive
+                      ? 'opacity-100'
+                      : 'opacity-50 hover:opacity-75'
+                  }`}
+                  style={{
+                    borderTop: idx === 0 ? 'none' : '1px solid rgba(226, 232, 240, 0.4)',
+                  }}
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <span className={`font-mono text-[10px] uppercase tracking-[0.2em] transition-colors ${
+                          isActive ? 'text-red-500 font-semibold' : 'text-[#b0b0c0]'
+                        }`}>
+                          {plan.tier}
+                        </span>
+                        {plan.popular && (
+                          <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-red-50 text-red-600 font-semibold uppercase">
+                            Popular
+                          </span>
+                        )}
+                      </div>
+                      <h4 className="hosting-tier-name font-raleway text-lg font-medium text-[#1a1a2e] leading-snug">
+                        {plan.name}
+                      </h4>
+                      <p className="font-raleway text-xs text-[#8888a0] mt-1 line-clamp-1">
+                        {plan.storage} &bull; {plan.mail}
+                      </p>
+                    </div>
+
+                    <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                      isActive
+                        ? 'bg-red-500 text-white shadow-md shadow-red-500/20'
+                        : 'bg-[#f0f0f5] text-[#b0b0c0]'
+                    }`}>
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
+
+            {/* Quick Authority Callout with subtle hairline */}
+            <div className="hosting-divider mt-8 pt-6 space-y-5 border-t border-slate-200/50">
+              <div className="flex items-center justify-between text-xs font-mono text-[#8888a0]">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span>Harare Data Center Core</span>
+                </div>
+                <span className="text-emerald-600 font-medium">99.98% SLA</span>
               </div>
-              <span className="text-emerald-400 font-medium">99.98% High-Availability</span>
+
+              {/* Primary Action Buttons */}
+              <div className="flex flex-wrap items-center gap-4 pt-1">
+                <Link
+                  href="/services/web-hosting-domain-registration/"
+                  className="inline-flex items-center justify-center rounded-full bg-[#1a1a2e] px-7 py-3 text-xs font-mono font-medium uppercase tracking-[0.15em] text-white hover:bg-red-500 transition-colors duration-300"
+                >
+                  View All Packages
+                </Link>
+                <Link
+                  href="/contact/"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-[0.15em] text-[#8888a0] hover:text-red-500 transition-colors"
+                >
+                  <span>Domain Pricing</span>
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+
+              {/* BIG "GET YOUR FREEDOMAIN" BUTTON with Video Background on Hover */}
+              <div className="pt-3">
+                <Link
+                  href="/contact/"
+                  onMouseEnter={() => setIsBtnHovered(true)}
+                  onMouseLeave={() => setIsBtnHovered(false)}
+                  className="group relative flex w-full items-center justify-center overflow-hidden rounded-full bg-red-600 px-8 py-5 text-center font-raleway text-lg sm:text-xl font-bold uppercase tracking-wider text-white shadow-none border-0 transition-all duration-500 hover:bg-red-700 active:scale-[0.99]"
+                >
+                  {/* Background Video — smoothly fades in on hover */}
+                  <video
+                    src="/assets/networking.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 pointer-events-none ${
+                      isBtnHovered ? 'opacity-40' : 'opacity-0'
+                    }`}
+                  />
+
+                  {/* Darkening tint over the video to preserve text readability */}
+                  <div
+                    className={`absolute inset-0 bg-black/30 transition-opacity duration-500 pointer-events-none ${
+                      isBtnHovered ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+
+                  {/* Button Label */}
+                  <span className="relative z-10 select-none">
+                    GET YOUR FREEDOMAIN
+                  </span>
+                </Link>
+              </div>
+
             </div>
+
           </div>
 
         </div>

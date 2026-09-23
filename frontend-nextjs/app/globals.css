@@ -64,8 +64,8 @@
   .animate-on-scroll {
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .animate-on-scroll.is-visible {
@@ -80,28 +80,52 @@
   .animate-on-scroll.delay-400 { transition-delay: 0.4s; }
   .animate-on-scroll.delay-500 { transition-delay: 0.5s; }
 
-  /* Slide from left */
+  /* Slide from left — smooth slower entrance */
   .animate-slide-left {
     opacity: 0;
     transform: translateX(-60px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .animate-slide-left.is-visible {
     opacity: 1;
     transform: translateX(0);
   }
 
-  /* Slide from right */
+  /* Slide from right — smooth slower entrance */
   .animate-slide-right {
     opacity: 0;
     transform: translateX(60px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .animate-slide-right.is-visible {
     opacity: 1;
     transform: translateX(0);
+  }
+
+  /* Drop from top — smooth slower entrance */
+  .animate-drop-top {
+    opacity: 0;
+    transform: translateY(-80px);
+    transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .animate-drop-top.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Slide up from bottom — smooth slower entrance */
+  .animate-slide-up {
+    opacity: 0;
+    transform: translateY(70px);
+    transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .animate-slide-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   /* Scale-in effect */
@@ -1081,76 +1105,118 @@ html.light .architecture-matrix .matrix-dot-grid .bg-slate-400 {
 /* ── Reliability Benchmark Light Mode & Theme Adaptations ── */
 html.light .reliability-benchmark {
   background-color: transparent !important;
+  border-top-color: rgba(15, 23, 42, 0.08) !important;
 }
 
 html.light .reliability-benchmark h2 {
   color: #0f172a !important;
 }
 
-html.light .reliability-benchmark .hero-dots {
-  background-image: radial-gradient(rgba(15, 23, 42, 0.12) 1px, transparent 1px) !important;
-}
-
-/* Tab cards — borderless in light mode, matching ArchitectureMatrix nav */
-html.light .reliability-benchmark .benchmark-tab-card {
-  border: none !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-}
-
-html.light .reliability-benchmark .benchmark-tab-card:hover {
-  background-color: #f8fafc !important;
-  border: none !important;
-}
-
-html.light .reliability-benchmark .benchmark-tab-card.benchmark-tab-active {
-  background-color: #f8fafc !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-left: 2px solid #dc2626 !important;
-}
-
-html.light .reliability-benchmark .benchmark-tab-card h3 {
+html.light .reliability-benchmark .matrix-content-col h3 {
   color: #0f172a !important;
 }
 
-html.light .reliability-benchmark .benchmark-tab-card p,
-html.light .reliability-benchmark .benchmark-tab-card li span {
+html.light .reliability-benchmark .matrix-content-col p {
   color: #334155 !important;
 }
 
-html.light .reliability-benchmark .benchmark-tab-card .border-white\/10 {
-  border-color: #e2e8f0 !important;
+html.light .reliability-benchmark .matrix-content-col .text-slate-300 {
+  color: #334155 !important;
 }
 
-html.light .reliability-benchmark .benchmark-cta-secondary {
+html.light .reliability-benchmark .matrix-content-col .border-white\/15 {
+  border-color: #e2e8f0 !important;
+  background-color: #f1f5f9 !important;
+  color: #475569 !important;
+}
+
+html.light .reliability-benchmark .matrix-nav-btn {
+  color: #64748b !important;
+}
+
+html.light .reliability-benchmark .matrix-nav-btn:hover {
+  color: #0f172a !important;
+}
+
+html.light .reliability-benchmark .matrix-nav-btn.matrix-nav-btn-active {
+  color: #dc2626 !important;
+}
+
+html.light .reliability-benchmark .matrix-nav-btn.matrix-nav-btn-active span {
+  color: #dc2626 !important;
+}
+
+html.light .reliability-benchmark .matrix-nav-btn.matrix-nav-btn-active .matrix-nav-num {
+  color: #dc2626 !important;
+}
+
+html.light .reliability-benchmark .matrix-cta-btn {
   border-color: #0f172a !important;
+  background-color: transparent !important;
   color: #0f172a !important;
   box-shadow: none !important;
 }
 
-html.light .reliability-benchmark .benchmark-cta-secondary:hover {
+html.light .reliability-benchmark .matrix-cta-btn:hover {
+  background-color: #0f172a !important;
   border-color: #dc2626 !important;
-  color: #dc2626 !important;
+  color: #ef4444 !important;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.25) !important;
 }
 
-/* Right visual column — exact same treatment as matrix-studio-frame in ArchitectureMatrix */
-html.light .reliability-benchmark .benchmark-visual-col {
+/* Light mode styles for the 3 benchmark stat cards */
+html.light .reliability-benchmark .benchmark-stat-card {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+}
+
+html.light .reliability-benchmark .benchmark-stat-card .text-white {
+  color: #0f172a !important;
+}
+
+html.light .reliability-benchmark .benchmark-stat-card .text-slate-200 {
+  color: #334155 !important;
+}
+
+html.light .reliability-benchmark .benchmark-stat-card:hover {
+  border-color: #dc2626 !important;
+  box-shadow: 0 8px 25px -5px rgba(220, 38, 38, 0.15) !important;
+}
+
+html.light .reliability-benchmark .matrix-studio-frame {
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%) !important;
   border: none !important;
   box-shadow: none !important;
 }
 
-html.light .reliability-benchmark .benchmark-studio-title {
+html.light .reliability-benchmark .matrix-studio-header {
+  border: none !important;
+  color: #64748b !important;
+}
+
+html.light .reliability-benchmark .matrix-studio-title {
   color: #0f172a !important;
 }
 
-html.light .reliability-benchmark .benchmark-visual-col .text-white {
+html.light .reliability-benchmark .matrix-main-image-card {
+  border: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+html.light .reliability-benchmark .matrix-dot-grid .bg-slate-400 {
+  background-color: #94a3b8 !important;
+}
+
+html.light .reliability-benchmark .benchmark-cta-secondary {
+  border-color: #0f172a !important;
   color: #0f172a !important;
 }
 
-html.light .reliability-benchmark .benchmark-visual-col p {
-  color: #334155 !important;
+html.light .reliability-benchmark .benchmark-cta-secondary:hover {
+  border-color: #dc2626 !important;
+  color: #dc2626 !important;
 }
 
 /* Status boxes inside visual column — exact same treatment as matrix-code-card */
@@ -1194,59 +1260,275 @@ html.light .reliability-benchmark .bg-emerald-500\/10 {
   background-color: rgba(16, 185, 129, 0.04) !important;
 }
 /* ── Global Reach Architecture Light Theme Rules ── */
+/* ── Global Reach / Web Hosting — Flat, Borderless, Clean ── */
+.global-reach-section {
+  background-color: #fafafa;
+}
+
 html.light .global-reach-section {
+  background-color: #fafafa !important;
+  border: none !important;
+}
+
+/* Dark mode adaptation */
+html:not(.light) .global-reach-section {
+  background-color: #111118 !important;
+}
+
+html:not(.light) .global-reach-section .hosting-heading,
+html:not(.light) .global-reach-section .hosting-active-title {
+  color: #e8e8ef !important;
+}
+
+html:not(.light) .global-reach-section .hosting-tier-name {
+  color: #d0d0dd !important;
+}
+
+html:not(.light) .global-reach-section p,
+html:not(.light) .global-reach-section span {
+  color: #9898ad;
+}
+
+html:not(.light) .global-reach-section .hosting-tier-btn {
+  border-top-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+html:not(.light) .global-reach-section .hosting-divider {
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* ── School Management Showcase Light Theme Rules ── */
+html.light .school-showcase-section {
   background-color: #ffffff !important;
   border-top-color: #e2e8f0 !important;
 }
 
-html.light .global-reach-section h2,
-html.light .global-reach-section h3 {
+html.light .school-showcase-section h2,
+html.light .school-showcase-section h3 {
   color: #0f172a !important;
 }
 
-html.light .global-reach-section p {
+html.light .school-showcase-section p {
   color: #334155 !important;
 }
 
-html.light .global-reach-section .global-reach-visual-col {
+html.light .school-showcase-section ul li {
+  color: #0f172a !important;
+}
+
+html.light .school-showcase-section ul li span.text-slate-100 {
+  color: #1e293b !important;
+}
+
+html.light .school-showcase-section .matrix-nav-btn {
+  box-shadow: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #475569 !important;
+}
+
+html.light .school-showcase-section .matrix-nav-btn:hover {
+  color: #0f172a !important;
+}
+
+html.light .school-showcase-section .matrix-nav-btn.matrix-nav-btn-active {
+  color: #dc2626 !important;
+}
+
+html.light .school-showcase-section .matrix-nav-btn.matrix-nav-btn-active span {
+  color: #dc2626 !important;
+}
+
+html.light .school-showcase-section .matrix-nav-btn.matrix-nav-btn-active .matrix-nav-num {
+  color: #dc2626 !important;
+}
+
+/* Button hover style matching user screenshot: dark navy pill with red border and red text */
+.school-showcase-section .matrix-cta-btn,
+.reliability-benchmark .matrix-cta-btn {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.school-showcase-section .matrix-cta-btn:hover,
+.reliability-benchmark .matrix-cta-btn:hover {
+  background-color: #0d111a !important;
+  border-color: #dc2626 !important;
+  color: #ef4444 !important;
+  box-shadow: 0 0 20px -3px rgba(220, 38, 38, 0.35) !important;
+}
+
+html.light .school-showcase-section .matrix-cta-btn {
+  border-color: #0f172a !important;
+  background-color: transparent !important;
+  color: #0f172a !important;
+  box-shadow: none !important;
+}
+
+html.light .school-showcase-section .matrix-cta-btn:hover {
+  background-color: #0f172a !important;
+  border-color: #dc2626 !important;
+  color: #ef4444 !important;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.25) !important;
+}
+
+/* Light mode styles for the 3 stats cards */
+html.light .school-showcase-section .school-stat-card {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+}
+
+html.light .school-showcase-section .school-stat-card .text-white {
+  color: #0f172a !important;
+}
+
+html.light .school-showcase-section .school-stat-card:hover {
+  border-color: #dc2626 !important;
+  box-shadow: 0 8px 25px -5px rgba(220, 38, 38, 0.15) !important;
+}
+
+html.light .school-showcase-section .matrix-studio-frame {
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%) !important;
   border: none !important;
   box-shadow: none !important;
 }
 
-html.light .global-reach-section .global-reach-title {
-  color: #0f172a !important;
-}
-
-html.light .global-reach-section .global-reach-img {
-  filter: contrast(1.1) brightness(0.95) !important;
-}
-
-html.light .global-reach-section .global-metric-box {
-  background-color: rgba(255, 255, 255, 0.98) !important;
-  border: 1px solid #e2e8f0 !important;
-  box-shadow: none !important;
-}
-
-html.light .global-reach-section .global-metric-box .text-white {
-  color: #0f172a !important;
-}
-
-html.light .global-reach-section .global-metric-box .text-slate-400 {
+html.light .school-showcase-section .matrix-studio-header {
+  border: none !important;
   color: #64748b !important;
 }
 
-html.light .global-reach-section .global-reach-cta {
+html.light .school-showcase-section .matrix-studio-title {
+  color: #0f172a !important;
+}
+
+html.light .school-showcase-section .matrix-main-image-card {
+  border: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+html.light .school-showcase-section .matrix-code-card {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light .school-showcase-section .matrix-code-card pre code,
+html.light .school-showcase-section .matrix-code-card .text-slate-200 {
+  color: #0f172a !important;
+}
+
+html.light .school-showcase-section .matrix-dot-grid .bg-slate-400 {
+  background-color: #94a3b8 !important;
+}
+
+html.light .school-showcase-section .school-cta-secondary {
   border-color: #0f172a !important;
   color: #0f172a !important;
 }
 
-html.light .global-reach-section .global-reach-cta:hover {
+html.light .school-showcase-section .school-cta-secondary:hover {
   border-color: #dc2626 !important;
   color: #dc2626 !important;
 }
 
-html.light .global-reach-section .bg-white\/\[0\.02\] {
-  background-color: #f8fafc !important;
-  border: 1px solid #e2e8f0 !important;
+
+
+/* ── Testimonials — Flat, Borderless, Clean ── */
+.testimonials-section {
+  background-color: #fafafa;
+}
+
+html.light .testimonials-section {
+  background-color: #fafafa !important;
+  border: none !important;
+}
+
+/* Dark mode: invert to a soft dark surface, keep flat feel */
+html:not(.light) .testimonials-section {
+  background-color: #111118 !important;
+}
+
+html:not(.light) .testimonials-section h2 {
+  color: #e8e8ef !important;
+}
+
+html:not(.light) .testimonials-section h3 {
+  color: #d0d0dd !important;
+}
+
+html:not(.light) .testimonials-section p {
+  color: #9898ad !important;
+}
+
+html:not(.light) .testimonials-section .testimonial-card {
+  border-top-color: rgba(255,255,255,0.06) !important;
+}
+
+
+/* -- FAQs Section � Flat, Borderless, Clean -- */
+.faq-section {
+  background-color: #fafafa;
+}
+
+html.light .faq-section {
+  background-color: #fafafa !important;
+  border: none !important;
+}
+
+/* Dark mode adaptation */
+html:not(.light) .faq-section {
+  background-color: #111118 !important;
+}
+
+html:not(.light) .faq-section .faq-heading,
+html:not(.light) .faq-section .faq-question {
+  color: #e8e8ef !important;
+}
+
+html:not(.light) .faq-section p {
+  color: #9898ad !important;
+}
+
+html:not(.light) .faq-section .faq-item {
+  border-top-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* -- FAQs Section - Flat, Borderless, Clean (Subtle Palette) -- */
+.faq-section {
+  background-color: #fafafa;
+}
+
+html.light .faq-section {
+  background-color: #fafafa !important;
+  border: none !important;
+}
+
+/* Dark mode adaptation */
+html:not(.light) .faq-section {
+  background-color: #111118 !important;
+}
+
+html:not(.light) .faq-section .faq-heading,
+html:not(.light) .faq-section .faq-question,
+html:not(.light) .faq-section .faq-still-title {
+  color: #e8e8ef !important;
+}
+
+html:not(.light) .faq-section p {
+  color: #9898ad !important;
+}
+
+html:not(.light) .faq-section .faq-category {
+  color: #8888a0 !important;
+}
+
+html:not(.light) .faq-section .faq-item {
+  border-top-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+html:not(.light) .faq-section .faq-still-card {
+  border-top-color: rgba(255, 255, 255, 0.04) !important;
 }

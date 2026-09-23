@@ -5,7 +5,10 @@ import HeroBackground from './components/HeroBackground';
 import MetricsBanner from './components/MetricsBanner';
 import ArchitectureMatrix from './components/ArchitectureMatrix';
 import ReliabilityBenchmark from './components/ReliabilityBenchmark';
+import SchoolManagementShowcase from './components/SchoolManagementShowcase';
 import GlobalReach from './components/GlobalReach';
+import Testimonials from './components/Testimonials';
+import FAQSection from './components/FAQSection';
 
 export const metadata = {
   title: 'Managed IT Services & Software Development Zimbabwe | ZITRAC',
@@ -67,35 +70,70 @@ export default function HomePage() {
         </div>
         
         {/* Red Scrolling Marquee Trust Strip - Docked to bottom of hero */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden bg-red-600/95 backdrop-blur py-5 z-20 border-y border-red-500/30">
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden bg-red-600/95 backdrop-blur py-4 z-20 border-y border-red-500/30">
           <div className="marquee-track flex whitespace-nowrap">
             {[0, 1].map((i) => (
               <div key={i} className="marquee-content flex items-center gap-8 px-4 shrink-0" aria-hidden={i === 1}>
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">Next.js</span>
+                {/* Chipinge Safari Area (ZIMParks) with Logo */}
+                <div className="inline-flex items-center gap-2.5">
+                  <div className="relative w-6 h-6 rounded-full overflow-hidden shrink-0 border border-white/40 bg-white/10">
+                    <Image
+                      src="/assets/zimparks-logo.png"
+                      alt="ZimParks Logo"
+                      fill
+                      className="object-cover"
+                      unoptimized
+                    />
+                  </div>
+                  <span className="font-raleway text-xs font-semibold uppercase tracking-[0.22em] text-white">
+                    Chipinge Safari Area (ZIMParks)
+                  </span>
+                </div>
                 <span className="text-white/40">✦</span>
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">Python Flask</span>
+
+                {/* Education Plus */}
+                <div className="inline-flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+                  <span className="font-raleway text-xs font-semibold uppercase tracking-[0.22em] text-white/95">
+                    Education Plus (150+ Staff &bull; 2,000+ Students)
+                  </span>
+                </div>
                 <span className="text-white/40">✦</span>
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">Cloudflare R2</span>
+
+                {/* Kenny Tech College */}
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.22em] text-white/90">
+                  Kenny Technologies College
+                </span>
                 <span className="text-white/40">✦</span>
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">Zero-Trust IAM</span>
+
+                {/* ARTIS SecOps */}
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.22em] text-white/90">
+                  ARTIS CyberSecOps &bull; Harare Node
+                </span>
                 <span className="text-white/40">✦</span>
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">AI Automation</span>
+
+                {/* Local Harare IXP Peering */}
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.22em] text-white/90">
+                  Harare IXP Peered Web Hosting
+                </span>
                 <span className="text-white/40">✦</span>
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">cPanel Hosting</span>
+
+                {/* .co.zw Domains */}
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.22em] text-white/90">
+                  Official .co.zw Domain Registrar
+                </span>
                 <span className="text-white/40">✦</span>
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">DNSSEC</span>
+
+                {/* High Availability SLA */}
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.22em] text-white/90">
+                  99.98% High-Availability Uptime SLA
+                </span>
                 <span className="text-white/40">✦</span>
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">TLS 1.3</span>
-                <span className="text-white/40">✦</span>
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">.co.zw Domains</span>
-                <span className="text-white/40">✦</span>
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">AWS S3</span>
-                <span className="text-white/40">✦</span>
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">99.98% Uptime SLA</span>
-                <span className="text-white/40">✦</span>
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">SOC Monitoring</span>
-                <span className="text-white/40">✦</span>
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.25em] text-white/90">Harare Engineering Hub</span>
+
+                {/* Core Frameworks */}
+                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.22em] text-white/90">
+                  Next.js + Python Flask Architecture
+                </span>
                 <span className="text-white/40">✦</span>
               </div>
             ))}
@@ -120,8 +158,17 @@ export default function HomePage() {
         <ReliabilityBenchmark />
       </div>
 
-      {/* Global Network Reach Visual Section */}
+      {/* Authentic Live Product Showcase: Education Plus - Advanced School Management System */}
+      <SchoolManagementShowcase />
+
+      {/* Global Infrastructure Reach */}
       <GlobalReach />
+
+      {/* What People Say About Us - Authentic Client Testimonials */}
+      <Testimonials />
+
+      {/* Frequently Asked Questions */}
+      <FAQSection />
     </div>
   );
 }
