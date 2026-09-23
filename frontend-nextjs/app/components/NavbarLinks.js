@@ -77,10 +77,10 @@ const recentWorkItems = [
     tag: 'EdTech Portal',
   },
   {
-    title: 'Chibuwe Technical High School',
+    title: 'Education Plus (SMS Platform)',
     href: '/work/',
-    desc: 'School Management System (SMS) & digital admissions with payment integration.',
-    tag: 'SMS & Payments',
+    desc: 'Advanced School Management System (SMS) & digital admissions with payment integration.',
+    tag: 'Education Plus',
   },
 ];
 
@@ -252,36 +252,54 @@ export default function NavbarLinks() {
             </div>
           </div>
 
-          {/* Column 3: Sanity-Style Graphic Announcement Banner - Expanded & Bigger */}
-          <div className="lg:col-span-5 rounded-3xl border border-white/15 bg-gradient-to-br from-black via-slate-950 to-black p-8 sm:p-9 relative overflow-hidden flex flex-col justify-between min-h-[340px] group shadow-2xl">
-            {/* Ambient Background Grid */}
-            <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-500/30 via-transparent to-transparent"></div>
-            
-            {/* Top Bold Typographic Lockup */}
-            <div className="space-y-2 relative z-10">
-              <div className="font-mono text-xs sm:text-sm text-emerald-400 tracking-[0.25em] font-semibold uppercase flex items-center gap-2.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                ZITRAC CORE
+          {/* Column 3: Flagship Platform Showcase with Full Background Image (No shadows, No rounded corners, No unnecessary borders) */}
+          <div className="lg:col-span-5 relative overflow-hidden bg-black p-6 sm:p-7 flex flex-col justify-between min-h-[380px] group">
+            {/* Full Background Image - Bright and Clear */}
+            <Image
+              src="/assets/chibuwe-student-profile.png"
+              alt="ZITRAC Advanced School Management System Architecture"
+              fill
+              className="object-cover object-top opacity-85 group-hover:opacity-95 group-hover:scale-102 transition-all duration-500 pointer-events-none"
+              priority
+              unoptimized
+            />
+            {/* Subtle bottom & top gradient so the image shines through cleanly while preserving text legibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/70 pointer-events-none" />
+
+            {/* Top Bar: Status */}
+            <div className="relative z-10">
+              <div className="flex items-center justify-between">
+                <div className="font-mono text-xs text-emerald-400 tracking-[0.2em] font-semibold uppercase flex items-center gap-2">
+                  <span className="w-2 h-2 bg-emerald-400"></span>
+                  FLAGSHIP PLATFORM &bull; EDUCATION PLUS
+                </div>
+                <span className="font-mono text-[10px] text-slate-300 uppercase tracking-widest bg-white/10 px-2 py-0.5">
+                  ENTERPRISE SMS DEPLOYMENT
+                </span>
               </div>
-              <h4 className="font-raleway text-3xl sm:text-4xl lg:text-[2.6rem] font-light tracking-tight text-white leading-[1.08]">
-                EVERYTHING<br />
-                <span className="font-mono text-emerald-400 font-semibold tracking-tight">*HARARE</span> 2026
+            </div>
+
+            {/* Center Content Lockup */}
+            <div className="relative z-10 py-6 space-y-2">
+              <h4 className="font-raleway text-2xl sm:text-3xl font-light tracking-tight text-white leading-tight">
+                Education Plus &mdash; School Management
               </h4>
+              <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed max-w-md">
+                Production architecture supporting 150+ staff (including 60+ teachers), 2,000+ students, automated timetable scheduling &amp; tamper-proof UUID student dossiers.
+              </p>
             </div>
 
-            {/* Wireframe geometric graphic accent */}
-            <div className="py-3 text-xs sm:text-sm font-mono text-slate-400 relative z-10 leading-relaxed max-w-md">
-              Explore our latest enterprise cloud benchmarks, automated zero-trust protocols &amp; Next.js deployments.
-            </div>
-
-            {/* Bottom Action Pill */}
-            <div className="pt-3 relative z-10">
+            {/* Bottom Action Footer */}
+            <div className="relative z-10 flex items-center justify-between pt-2">
+              <span className="font-mono text-xs text-emerald-400 font-semibold tracking-wide">
+                150+ Staff &bull; 60+ Teachers
+              </span>
               <Link
-                href="/services/"
-                className="inline-flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.2em] font-semibold text-white bg-black/90 hover:bg-white hover:text-black border border-white/25 px-6 py-3 rounded-full transition-all duration-300 shadow-lg group-hover:border-emerald-500/40"
+                href="/work/"
+                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] font-semibold text-white hover:text-emerald-400 transition-colors"
               >
-                <span>SEE WHAT WE ANNOUNCED</span>
-                <span className="text-emerald-400 group-hover:text-black transition-transform group-hover:translate-x-1">&rarr;</span>
+                <span>EXPLORE WORK</span>
+                <span className="text-emerald-400 group-hover:translate-x-1 transition-transform">&rarr;</span>
               </Link>
             </div>
           </div>

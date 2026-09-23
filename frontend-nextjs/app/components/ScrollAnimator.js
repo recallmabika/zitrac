@@ -18,6 +18,8 @@ export default function ScrollAnimator() {
       '.animate-on-scroll',
       '.animate-slide-left',
       '.animate-slide-right',
+      '.animate-drop-top',
+      '.animate-slide-up',
       '.animate-scale',
       '.hero-title-line',
       '.hero-fade-up',
