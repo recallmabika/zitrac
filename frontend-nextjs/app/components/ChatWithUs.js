@@ -38,10 +38,10 @@ export default function ChatWithUs() {
       ref={widgetRef}
       className="fixed bottom-6 right-20 z-40 select-none font-sans"
     >
-      {/* Independent Floating Channel Pills with Slower, Staggered Entrance Motion */}
+      {/* Independent Floating Channel Pills with Slower, Staggered Entrance Motion (Rounded, Borderless) */}
       <div
-        className={`absolute bottom-full mb-3 right-0 flex flex-col items-end gap-2.5 transition-all duration-700 ease-out origin-bottom-right pointer-events-none ${
-          isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-6 pointer-events-none'
+        className={`absolute bottom-full mb-3 right-0 flex flex-col items-end gap-2.5 transition-all duration-800 ease-out origin-bottom-right pointer-events-none ${
+          isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-8 pointer-events-none'
         }`}
       >
         {/* Channel 1: WhatsApp Chat */}
@@ -51,13 +51,13 @@ export default function ChatWithUs() {
           rel="noopener noreferrer"
           onClick={() => setIsOpen(false)}
           style={{
-            transitionDelay: isOpen ? '160ms' : '0ms',
+            transitionDelay: isOpen ? '180ms' : '0ms',
           }}
-          className={`group flex items-center gap-3.5 px-4 py-3 rounded-none border border-black/15 dark:border-white/15 bg-white dark:bg-[#0c0d12] shadow-xl hover:border-emerald-500/50 hover:bg-emerald-50 dark:hover:bg-[#0f1a16] transition-all duration-500 min-w-[260px] sm:min-w-[280px] ${
-            isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+          className={`group flex items-center gap-3.5 px-4 py-3 rounded-2xl bg-white dark:bg-[#121318] shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-700 min-w-[260px] sm:min-w-[280px] ${
+            isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'
           }`}
         >
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-none bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-all">
             <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
             </svg>
@@ -84,11 +84,11 @@ export default function ChatWithUs() {
           style={{
             transitionDelay: isOpen ? '90ms' : '0ms',
           }}
-          className={`group flex items-center gap-3.5 px-4 py-3 rounded-none border border-black/15 dark:border-white/15 bg-white dark:bg-[#0c0d12] shadow-xl hover:border-red-500/50 hover:bg-red-50 dark:hover:bg-[#1a0f12] transition-all duration-500 min-w-[260px] sm:min-w-[280px] ${
-            isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+          className={`group flex items-center gap-3.5 px-4 py-3 rounded-2xl bg-white dark:bg-[#121318] shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-700 min-w-[260px] sm:min-w-[280px] ${
+            isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'
           }`}
         >
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-none bg-red-500/15 text-red-600 dark:text-red-400 border border-red-500/30 group-hover:bg-red-600 group-hover:text-white transition-all">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-500/15 text-red-600 dark:text-red-400 group-hover:bg-red-600 group-hover:text-white transition-all">
             <svg
               className="h-4 w-4 stroke-[1.8]"
               fill="none"
@@ -122,13 +122,13 @@ export default function ChatWithUs() {
           href="tel:+263718001031"
           onClick={() => setIsOpen(false)}
           style={{
-            transitionDelay: isOpen ? '20ms' : '0ms',
+            transitionDelay: isOpen ? '0ms' : '0ms',
           }}
-          className={`group flex items-center gap-3.5 px-4 py-3 rounded-none border border-black/15 dark:border-white/15 bg-white dark:bg-[#0c0d12] shadow-xl hover:border-blue-500/50 hover:bg-blue-50 dark:hover:bg-[#0f1422] transition-all duration-500 min-w-[260px] sm:min-w-[280px] ${
-            isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+          className={`group flex items-center gap-3.5 px-4 py-3 rounded-2xl bg-white dark:bg-[#121318] shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-700 min-w-[260px] sm:min-w-[280px] ${
+            isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-5'
           }`}
         >
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-none bg-blue-500/15 text-blue-600 dark:text-blue-400 border border-blue-500/30 group-hover:bg-blue-600 group-hover:text-white transition-all">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-500/15 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all">
             <svg
               className="h-4 w-4 stroke-[1.8]"
               fill="none"
@@ -158,13 +158,13 @@ export default function ChatWithUs() {
         </a>
       </div>
 
-      {/* Trigger Button - Clean architectural design */}
+      {/* Trigger Button - Clean rounded pill */}
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
         aria-expanded={isOpen}
         aria-label={isOpen ? 'Close chat menu' : 'Chat with ZITRAC Technologies'}
-        className="chat-toggle-btn flex items-center gap-2.5 rounded-none border border-black/15 dark:border-white/15 bg-white dark:bg-black px-4 py-2.5 text-xs font-semibold text-[#0a0a0f] dark:text-white shadow-xl transition-all duration-300 hover:border-red-500/50 hover:text-red-500 active:scale-95"
+        className="chat-toggle-btn flex items-center gap-2.5 rounded-full bg-white dark:bg-black px-4 py-2.5 text-xs font-semibold text-[#0a0a0f] dark:text-white shadow-lg transition-all duration-300 hover:text-red-500 active:scale-95"
       >
         {/* Pulsing Green Online Dot */}
         <span className="relative flex h-2.5 w-2.5">

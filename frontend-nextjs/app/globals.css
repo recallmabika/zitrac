@@ -1532,3 +1532,10 @@ html:not(.light) .faq-section .faq-item {
 html:not(.light) .faq-section .faq-still-card {
   border-top-color: rgba(255, 255, 255, 0.04) !important;
 }
+
+/* Hero slide indicator progress animation */
+@keyframes heroBarProgress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+

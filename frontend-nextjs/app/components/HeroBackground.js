@@ -1,124 +1,132 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import InteractiveCanvasBackground from './InteractiveCanvasBackground';
 
-const slides = [
-  { type: 'video', src: '/assets/networking.mp4' },
-  { type: 'image', src: '/assets/server-rack.png', animation: 'zoom' },
-  { type: 'image', src: '/assets/software-development.jpg', animation: 'zoom' },
-  { type: 'image', src: '/assets/it-consulting.jpg', animation: 'pan' },
-  { type: 'image', src: '/assets/cyber-1.png', animation: 'zoom' },
-  { type: 'image', src: '/assets/web-eng-1.png', animation: 'pan' },
-  { type: 'video', src: '/assets/hm2xc7jyixawkycqxesi.mp4' },
-  { type: 'image', src: '/assets/cyber-2.jpg', animation: 'pan' },
-  { type: 'image', src: '/assets/web-eng-2.png', animation: 'zoom' },
-  { type: 'image', src: '/assets/cyber-3.png', animation: 'zoom' },
-  { type: 'image', src: '/assets/global-network.png', animation: 'pan' },
-  { type: 'image', src: '/assets/particle-wave-1.png', animation: 'zoom' },
-  { type: 'image', src: '/assets/particle-wave-2.png', animation: 'pan' },
+// Hero backdrop images:
+// 1. Shaking hands at Advisory & Support (/assets/it-consulting.jpg)
+// 2. Web Hosting & Domain Registration office (/assets/web-hosting-hero.png)
+// 3. Enterprise Strategy / Business Meeting (/assets/hero-business-meeting.jpg)
+// 4. Mission-Critical Datacenter Server Racks (/assets/hero-datacenter-racks.png)
+// 5. Mobile & Cloud User Experience (/assets/hero-mobile-client.jpg)
+// 6. Solid Pure Black Background (Minimalist Enterprise Focus)
+const HERO_SLIDES = [
+  {
+    type: 'image',
+    src: '/assets/it-consulting.jpg',
+    label: 'Advisory & IT Support',
+    alt: 'ZITRAC Enterprise Advisory & Strategic IT Support',
+  },
+  {
+    type: 'image',
+    src: '/assets/web-hosting-hero.png',
+    label: 'Cloud & Web Hosting',
+    alt: 'Web Hosting & Domain Registration Zimbabwe',
+  },
+  {
+    type: 'image',
+    src: '/assets/hero-business-meeting.jpg',
+    label: 'Strategic Transformation',
+    alt: 'Enterprise Strategy & Digital Transformation Consulting',
+  },
+  {
+    type: 'image',
+    src: '/assets/hero-datacenter-racks.png',
+    label: 'Tier-3 Datacenter Racks',
+    alt: 'Tier-3 Datacenter Server Infrastructure & Cloud Hosting',
+  },
+  {
+    type: 'image',
+    src: '/assets/hero-mobile-client.jpg',
+    label: 'Mobile & Cloud Portals',
+    alt: 'Connected Mobile Applications & Cloud Client Portals',
+  },
+  {
+    type: 'color',
+    color: '#000000',
+    label: 'Zero-Distraction Mode',
+    alt: 'Solid Black Background',
+  },
 ];
+
+const SLIDE_DURATION = 6000; // 6 seconds per slide
 
 export default function HeroBackground() {
   const [current, setCurrent] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
-  const advance = useCallback(() => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-      setIsTransitioning(false);
-    }, 1200);
-  }, []);
 
   useEffect(() => {
-    const slide = slides[current];
-    // Videos play for 8s, images for 5s
-    const duration = slide.type === 'video' ? 8000 : 5000;
-    const timer = setTimeout(advance, duration);
-    return () => clearTimeout(timer);
-  }, [current, advance]);
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, SLIDE_DURATION);
+    return () => clearInterval(timer);
+  }, [current]);
 
   return (
-    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-      {slides.map((slide, i) => {
-        const isActive = i === current;
-        const animClass = slide.animation === 'pan' ? 'hero-bg-pan' : 'hero-bg-zoom';
+    <div className="absolute inset-0 z-0 overflow-hidden bg-black">
+      {/* Background slide items - Slightly reduced visibility as requested */}
+      {HERO_SLIDES.map((slide, idx) => (
+        <div
+          key={idx}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out pointer-events-none ${
+            idx === current ? 'opacity-60' : 'opacity-0'
+          }`}
+        >
+          {slide.type === 'image' ? (
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              fill
+              className="object-cover hero-bg-zoom contrast-105"
+              unoptimized
+              aria-hidden="true"
+              priority={idx === 0}
+            />
+          ) : (
+            <div className="w-full h-full bg-black" />
+          )}
+        </div>
+      ))}
 
-        return (
-          <div
-            key={i}
-            className={`absolute inset-0 transition-opacity duration-[1200ms] ease-in-out ${
-              isActive && !isTransitioning ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            {slide.type === 'video' ? (
-              <video
-                key={slide.src}
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="auto"
-                className={`w-full h-full object-cover scale-105 ${isActive ? 'hero-bg-zoom' : ''}`}
-                ref={(el) => {
-                  if (el && isActive) {
-                    el.play().catch(() => {});
-                  }
-                }}
+      {/* Balanced dark gradients to keep text legible */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/65 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/45 pointer-events-none" />
+
+      {/* Slide Navigation Progress Bars - Reduced size, docked neatly above marquee */}
+      <div className="absolute bottom-16 sm:bottom-20 left-0 right-0 z-30 pointer-events-auto">
+        <div className="max-w-md sm:max-w-lg mx-auto px-4 flex items-center gap-1.5 sm:gap-2">
+          {HERO_SLIDES.map((slide, idx) => {
+            const isActive = idx === current;
+            return (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => setCurrent(idx)}
+                aria-label={`Go to slide ${idx + 1}: ${slide.label}`}
+                className="group flex-1 py-2 focus:outline-none cursor-pointer"
               >
-                <source src={slide.src} type="video/mp4" />
-              </video>
-            ) : (
-              <Image
-                src={slide.src}
-                alt=""
-                fill
-                className={`object-cover ${isActive ? animClass : ''}`}
-                unoptimized
-                aria-hidden="true"
-                priority={i === 0}
-              />
-            )}
-          </div>
-        );
-      })}
-
-      {/* Converging Glow Orbs */}
-      <div className="absolute -top-20 -left-20 w-[550px] h-[550px] rounded-full bg-red-600/30 blur-[120px] pointer-events-none animate-pulse"></div>
-      <div className="absolute -bottom-20 -right-20 w-[600px] h-[600px] rounded-full bg-red-700/35 blur-[130px] pointer-events-none animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] rounded-full bg-red-900/20 blur-[150px] pointer-events-none"></div>
-
-      {/* Particle Wave Overlays - highly visible */}
-      <Image
-        src="/assets/particle-wave-1.png"
-        alt=""
-        width={900}
-        height={400}
-        className="absolute -top-10 -left-10 w-[55%] h-auto opacity-50 object-cover pointer-events-none mix-blend-screen rotate-[10deg] scale-110"
-        unoptimized
-        aria-hidden="true"
-      />
-      <Image
-        src="/assets/particle-wave-2.png"
-        alt=""
-        width={900}
-        height={400}
-        className="absolute -bottom-10 -right-10 w-[55%] h-auto opacity-45 object-cover pointer-events-none mix-blend-screen rotate-[-5deg] scale-110"
-        unoptimized
-        aria-hidden="true"
-      />
-
-      {/* Gradient overlays - adjusted to preserve rich video and canvas visibility */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-black/50"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
-
-      {/* Interactive Matrix, connecting nodes, dashed lines canvas */}
-      <InteractiveCanvasBackground />
-
-      {/* Animated connecting dots grid */}
-      <div className="hero-dots absolute inset-0 pointer-events-none opacity-20"></div>
+                {/* Thin Sleek Track */}
+                <div className="h-[2.5px] w-full bg-white/15 rounded-full overflow-hidden transition-colors group-hover:bg-white/25">
+                  {/* Faint Loading Fill */}
+                  <div
+                    className={`h-full rounded-full transition-all ${
+                      isActive
+                        ? 'bg-red-500/75 w-full'
+                        : 'w-0 bg-white/30'
+                    }`}
+                    style={
+                      isActive
+                        ? {
+                            animation: `heroBarProgress ${SLIDE_DURATION}ms linear forwards`,
+                          }
+                        : {}
+                    }
+                  />
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

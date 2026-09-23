@@ -69,72 +69,130 @@ export default function HomePage() {
           </div>
         </div>
         
-        {/* Red Scrolling Marquee Trust Strip - Docked to bottom of hero */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden bg-red-600/95 backdrop-blur py-4 z-20 border-y border-red-500/30">
+        {/* Orange-Red Scrolling Marquee Brand Strip - Styled after uploaded reference */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden bg-[#ff3b00] py-3.5 z-20 shadow-md">
           <div className="marquee-track flex whitespace-nowrap">
             {[0, 1].map((i) => (
-              <div key={i} className="marquee-content flex items-center gap-8 px-4 shrink-0" aria-hidden={i === 1}>
-                {/* Chipinge Safari Area (ZIMParks) with Logo */}
-                <div className="inline-flex items-center gap-2.5">
-                  <div className="relative w-6 h-6 rounded-full overflow-hidden shrink-0 border border-white/40 bg-white/10">
+              <div key={i} className="marquee-content flex items-center gap-12 sm:gap-16 px-6 shrink-0" aria-hidden={i === 1}>
+                {/* ZIMPARKS (Authentic Crest in Black & White) */}
+                <div className="inline-flex items-center gap-2.5 text-black">
+                  <div className="relative h-9 w-8 shrink-0">
                     <Image
-                      src="/assets/zimparks-logo.png"
+                      src="/assets/brands/zimparks-bw-crest.png"
                       alt="ZimParks Logo"
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       unoptimized
                     />
                   </div>
-                  <span className="font-raleway text-xs font-semibold uppercase tracking-[0.22em] text-white">
-                    Chipinge Safari Area (ZIMParks)
+                  <span className="font-raleway text-sm font-black tracking-tight uppercase">
+                    ZIMPARKS <span className="font-medium text-xs tracking-normal lowercase opacity-80">(Chipinge Safari)</span>
                   </span>
                 </div>
-                <span className="text-white/40">✦</span>
+
+                {/* ARTIS (Authentic Logo Artwork) */}
+                <div className="inline-flex items-center gap-2 text-black">
+                  <div className="relative h-7 w-7 shrink-0">
+                    <Image
+                      src="/assets/brands/artis-logo.png"
+                      alt="ARTIS Logo"
+                      fill
+                      className="object-contain"
+                      unoptimized
+                    />
+                  </div>
+                  <span className="font-mono font-black text-xs tracking-tight uppercase">
+                    CyberSecOps
+                  </span>
+                </div>
+
+                {/* Redis (Authentic Logo) */}
+                <div className="inline-flex items-center text-black">
+                  <div className="relative h-6 w-20 shrink-0">
+                    <Image
+                      src="/assets/brands/redis-logo.png"
+                      alt="Redis Logo"
+                      fill
+                      className="object-contain"
+                      unoptimized
+                    />
+                  </div>
+                </div>
+
+                {/* cPanel (Authentic Logo) */}
+                <div className="inline-flex items-center text-black">
+                  <div className="relative h-6 w-24 shrink-0">
+                    <Image
+                      src="/assets/brands/cpanel-logo.png"
+                      alt="cPanel Logo"
+                      fill
+                      className="object-contain"
+                      unoptimized
+                    />
+                  </div>
+                </div>
+
+                {/* Next.js (Authentic Logo) */}
+                <div className="inline-flex items-center text-black">
+                  <div className="relative h-6 w-24 shrink-0">
+                    <Image
+                      src="/assets/brands/nextjs-logo.png"
+                      alt="Next.js Logo"
+                      fill
+                      className="object-contain"
+                      unoptimized
+                    />
+                  </div>
+                </div>
 
                 {/* Education Plus */}
-                <div className="inline-flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
-                  <span className="font-raleway text-xs font-semibold uppercase tracking-[0.22em] text-white/95">
-                    Education Plus (150+ Staff &bull; 2,000+ Students)
+                <div className="inline-flex items-center gap-2 text-black">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                  </svg>
+                  <span className="font-sans font-black text-sm tracking-tight">
+                    EDUCATION<span className="text-black/70 font-light">+</span>
                   </span>
                 </div>
-                <span className="text-white/40">✦</span>
+
+                {/* Python */}
+                <div className="inline-flex items-center gap-1.5 text-black">
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M11.914 0C5.834 0 6.2 2.64 6.2 2.64l.006 2.736h5.82v.825H3.854s-3.854.437-3.854 6.136c0 5.7 3.36 5.508 3.36 5.508h2.007v-2.825s-.108-3.36 3.3-3.36h5.674s3.19.053 3.19-3.134V3.134S17.986 0 11.914 0zm-3.23 1.834a1.01 1.01 0 1 1 0 2.02 1.01 1.01 0 0 1 0-2.02zm3.402 22.166c6.08 0 5.714-2.64 5.714-2.64l-.006-2.736h-5.82v-.825h8.172s3.854-.437 3.854-6.136c0-5.7-3.36-5.508-3.36-5.508h-2.007v2.825s.108 3.36-3.3 3.36h-5.674s-3.19-.053-3.19 3.134v5.388s-.456 3.136 5.617 3.136zm3.23-1.834a1.01 1.01 0 1 1 0-2.02 1.01 1.01 0 0 1 0 2.02z"/>
+                  </svg>
+                  <span className="font-sans font-bold text-sm tracking-tight">
+                    python
+                  </span>
+                </div>
+
+                {/* Cloudflare */}
+                <div className="inline-flex items-center gap-2 text-black">
+                  <svg className="w-6 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M18.3 10.3c-.3-1.9-1.9-3.3-3.9-3.3-.8 0-1.5.2-2.1.6C11.5 5.5 9.5 4 7.2 4 4.3 4 2 6.3 2 9.2c0 .3 0 .7.1 1C.8 11 .1 12.2.1 13.5.1 15.4 1.7 17 3.6 17h14.7c1.9 0 3.5-1.6 3.5-3.5 0-1.7-1.3-3.1-3.5-3.2z"/>
+                  </svg>
+                  <span className="font-sans font-extrabold text-sm tracking-tight">
+                    CLOUDFLARE
+                  </span>
+                </div>
 
                 {/* Kenny Tech College */}
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.22em] text-white/90">
-                  Kenny Technologies College
-                </span>
-                <span className="text-white/40">✦</span>
+                <div className="inline-flex items-center gap-1.5 text-black">
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm5 12.73l-5 2.73-5-2.73v-4.64l5 2.73 5-2.73v4.64z"/>
+                  </svg>
+                  <span className="font-sans font-black text-sm tracking-wider uppercase">
+                    KENNY <span className="font-light">TECH</span>
+                  </span>
+                </div>
 
-                {/* ARTIS SecOps */}
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.22em] text-white/90">
-                  ARTIS CyberSecOps &bull; Harare Node
-                </span>
-                <span className="text-white/40">✦</span>
-
-                {/* Local Harare IXP Peering */}
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.22em] text-white/90">
-                  Harare IXP Peered Web Hosting
-                </span>
-                <span className="text-white/40">✦</span>
-
-                {/* .co.zw Domains */}
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.22em] text-white/90">
-                  Official .co.zw Domain Registrar
-                </span>
-                <span className="text-white/40">✦</span>
-
-                {/* High Availability SLA */}
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.22em] text-white/90">
-                  99.98% High-Availability Uptime SLA
-                </span>
-                <span className="text-white/40">✦</span>
-
-                {/* Core Frameworks */}
-                <span className="font-raleway text-xs font-semibold uppercase tracking-[0.22em] text-white/90">
-                  Next.js + Python Flask Architecture
-                </span>
-                <span className="text-white/40">✦</span>
+                {/* Harare IXP */}
+                <div className="inline-flex items-center gap-1.5 text-black">
+                  <span className="w-2 h-2 rounded-full bg-black"></span>
+                  <span className="font-mono text-xs font-black tracking-widest uppercase">
+                    HARARE IXP
+                  </span>
+                </div>
               </div>
             ))}
           </div>

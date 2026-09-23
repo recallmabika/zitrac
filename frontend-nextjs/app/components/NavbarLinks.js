@@ -133,15 +133,15 @@ export default function NavbarLinks() {
   const isServicesActive = pathname?.startsWith('/services');
 
   return (
-    <div
-      className="flex items-center"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <div className="flex items-center">
       {/* Top Navbar Row */}
       <nav aria-label="Main Navigation" className="hidden lg:flex items-center space-x-1 font-raleway">
-        {/* Services Mega-Menu Trigger */}
-        <div className="relative">
+        {/* Services Mega-Menu Trigger - Scoped strictly to Services */}
+        <div
+          className="relative"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           <Link
             href="/services/"
             className={`nav-link-item inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.2em] font-light ${
@@ -166,13 +166,17 @@ export default function NavbarLinks() {
           </Link>
         </div>
 
-        {/* Secondary Links */}
+        {/* Secondary Links (Portfolio, About, Careers, Contact, etc.) */}
         {secondaryNav.map((item) => {
           const isActive = pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href));
           return (
             <Link
               key={item.href}
               href={item.href}
+              onMouseEnter={() => {
+                if (timeoutRef.current) clearTimeout(timeoutRef.current);
+                setDropdownOpen(false);
+              }}
               className={`nav-link-item text-xs uppercase tracking-[0.2em] font-light ${
                 isActive
                   ? 'active text-red-600 font-medium'
@@ -185,8 +189,10 @@ export default function NavbarLinks() {
         })}
       </nav>
 
-      {/* Minimalist Sanity-Style Clean Dropdown Panel */}
+      {/* Minimalist Sanity-Style Clean Dropdown Panel - Preserves open state while hovering inside */}
       <div
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         className={`absolute left-0 top-full w-full dropdown-panel border-b border-white/10 transition-all duration-300 origin-top overflow-hidden shadow-2xl z-50 ${
           dropdownOpen
             ? 'opacity-100 max-h-[640px] py-8 pointer-events-auto'
