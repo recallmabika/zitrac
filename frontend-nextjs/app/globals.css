@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Raleway:wght@200;300;400;500;600&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Raleway:wght@200;300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -398,6 +398,13 @@
     transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
                 border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Subtle glassmorphism blur on navbar over hero before scroll (less than hover blur) */
+  header#main-navbar:not(.navbar-scrolled) {
+    background-color: rgba(5, 5, 5, 0.28) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
   }
 
   /* Darker background on hover while on the hero - reduced a bit per feedback */
@@ -1468,7 +1475,7 @@ html:not(.light) .testimonials-section .testimonial-card {
 }
 
 
-/* -- FAQs Section � Flat, Borderless, Clean -- */
+/* -- FAQs Section � Flat, Borderless, Clean -- */
 .faq-section {
   background-color: #fafafa;
 }
@@ -1539,3 +1546,810 @@ html:not(.light) .faq-section .faq-still-card {
   100% { width: 100%; }
 }
 
+/* ═══════════════════════════════════════════════════════════════════
+   Services Alternating Showcase Styles (Flat, No Shadows)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Light mode overrides for Services Directory */
+html.light .services-page-wrapper {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+html.light .services-page-wrapper .services-hero-bg {
+  opacity: 0.18 !important;
+  mix-blend-mode: multiply !important;
+  filter: contrast(1.1) brightness(0.95) !important;
+}
+
+html.light .services-page-wrapper .services-bg-overlay {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.95) 100%) !important;
+}
+
+html.light .services-page-wrapper .service-title {
+  color: #0f172a !important;
+}
+
+html.light .services-page-wrapper .service-heading-main {
+  color: #0f172a !important;
+}
+
+html.light .services-page-wrapper .service-tagline {
+  color: #334155 !important;
+}
+
+html.light .services-page-wrapper .service-desc {
+  color: #475569 !important;
+}
+
+html.light .services-page-wrapper .service-badge {
+  background-color: #fef2f2 !important;
+  border-color: #fecaca !important;
+  color: #dc2626 !important;
+}
+
+html.light .services-page-wrapper .service-feature-item {
+  color: #334155 !important;
+}
+
+html.light .services-page-wrapper .service-feature-item span {
+  color: #0f172a !important;
+}
+
+html.light .services-page-wrapper .service-feature-bullet {
+  color: #dc2626 !important;
+}
+
+html.light .services-page-wrapper .service-stat-box {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light .services-page-wrapper .service-stat-val {
+  color: #0f172a !important;
+}
+
+html.light .services-page-wrapper .service-stat-lbl {
+  color: #64748b !important;
+}
+
+html.light .services-page-wrapper .service-btn-primary {
+  background-color: #dc2626 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+html.light .services-page-wrapper .service-btn-primary:hover {
+  background-color: #b91c1c !important;
+  box-shadow: none !important;
+}
+
+html.light .services-page-wrapper .service-btn-secondary {
+  border-color: #cbd5e1 !important;
+  background-color: transparent !important;
+  color: #0f172a !important;
+  box-shadow: none !important;
+}
+
+html.light .services-page-wrapper .service-btn-secondary:hover {
+  border-color: #dc2626 !important;
+  color: #dc2626 !important;
+  background-color: #fef2f2 !important;
+  box-shadow: none !important;
+}
+
+html.light .services-page-wrapper .service-row-divider {
+  border-color: #e2e8f0 !important;
+}
+
+html.light .services-page-wrapper .service-metric-card {
+  border-color: #cbd5e1 !important;
+}
+
+html.light .services-page-wrapper .service-metric-stat {
+  color: #0f172a !important;
+}
+
+html.light .services-page-wrapper .service-metric-desc {
+  color: #475569 !important;
+}
+
+html.light .services-page-wrapper .service-tab-title {
+  color: #334155 !important;
+}
+
+/* Dark mode specifications for Services Directory */
+html:not(.light) .services-page-wrapper {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html:not(.light) .services-page-wrapper .services-hero-bg {
+  opacity: 0.28 !important;
+  filter: contrast(1.15) brightness(0.8) !important;
+}
+
+html:not(.light) .services-page-wrapper .services-bg-overlay {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.65) 50%, rgba(0, 0, 0, 0.92) 100%) !important;
+}
+
+html:not(.light) .services-page-wrapper .service-title,
+html:not(.light) .services-page-wrapper .service-heading-main {
+  color: #ffffff !important;
+}
+
+html:not(.light) .services-page-wrapper .service-tagline {
+  color: #cbd5e1 !important;
+}
+
+html:not(.light) .services-page-wrapper .service-desc {
+  color: #94a3b8 !important;
+}
+
+html:not(.light) .services-page-wrapper .service-badge {
+  background-color: rgba(69, 10, 10, 0.5) !important;
+  border-color: rgba(185, 28, 28, 0.4) !important;
+  color: #f87171 !important;
+}
+
+html:not(.light) .services-page-wrapper .service-feature-item {
+  color: #94a3b8 !important;
+}
+
+html:not(.light) .services-page-wrapper .service-feature-item span {
+  color: #e2e8f0 !important;
+}
+
+html:not(.light) .services-page-wrapper .service-stat-box {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html:not(.light) .services-page-wrapper .service-stat-val {
+  color: #ffffff !important;
+}
+
+html:not(.light) .services-page-wrapper .service-stat-lbl {
+  color: #64748b !important;
+}
+
+html:not(.light) .services-page-wrapper .service-btn-primary {
+  background-color: #dc2626 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+html:not(.light) .services-page-wrapper .service-btn-primary:hover {
+  background-color: #ef4444 !important;
+  box-shadow: none !important;
+}
+
+html:not(.light) .services-page-wrapper .service-btn-secondary {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+html:not(.light) .services-page-wrapper .service-btn-secondary:hover {
+  border-color: #dc2626 !important;
+  color: #f87171 !important;
+  background-color: rgba(220, 38, 38, 0.08) !important;
+  box-shadow: none !important;
+}
+
+html:not(.light) .services-page-wrapper .service-row-divider {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html:not(.light) .services-page-wrapper .service-metric-card {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html:not(.light) .services-page-wrapper .service-metric-stat {
+  color: #ffffff !important;
+}
+
+html:not(.light) .services-page-wrapper .service-metric-desc {
+  color: #cbd5e1 !important;
+}
+
+html:not(.light) .services-page-wrapper .service-tab-title {
+  color: #e2e8f0 !important;
+}
+/* ═══════════════════════════════════════════════════════════════════
+   Services Alternating Showcase Styles (Flat, No Shadows)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Light mode overrides for Services Directory */
+html.light .services-page-wrapper {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+html.light .services-page-wrapper .service-title {
+  color: #0f172a !important;
+}
+
+html.light .services-page-wrapper .service-tagline {
+  color: #334155 !important;
+}
+
+html.light .services-page-wrapper .service-desc {
+  color: #475569 !important;
+}
+
+html.light .services-page-wrapper .service-feature-item {
+  color: #334155 !important;
+}
+
+html.light .services-page-wrapper .service-feature-item span {
+  color: #0f172a !important;
+}
+
+html.light .services-page-wrapper .service-btn-primary {
+  background-color: #dc2626 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+html.light .services-page-wrapper .service-btn-primary:hover {
+  background-color: #b91c1c !important;
+  box-shadow: none !important;
+}
+
+html.light .services-page-wrapper .service-btn-secondary {
+  border-color: #cbd5e1 !important;
+  background-color: transparent !important;
+  color: #0f172a !important;
+  box-shadow: none !important;
+}
+
+html.light .services-page-wrapper .service-btn-secondary:hover {
+  border-color: #dc2626 !important;
+  color: #dc2626 !important;
+  background-color: #fef2f2 !important;
+  box-shadow: none !important;
+}
+
+html.light .services-page-wrapper .service-row-divider {
+  border-color: #e2e8f0 !important;
+}
+
+html.light .services-page-wrapper .service-metric-card {
+  border-color: #cbd5e1 !important;
+}
+
+html.light .services-page-wrapper .service-metric-stat {
+  color: #0f172a !important;
+}
+
+html.light .services-page-wrapper .service-metric-desc {
+  color: #475569 !important;
+}
+
+html.light .services-page-wrapper .service-tab-title {
+  color: #334155 !important;
+}
+
+/* Dark mode specifications for Services Directory */
+html:not(.light) .services-page-wrapper {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html:not(.light) .services-page-wrapper .service-title {
+  color: #ffffff !important;
+}
+
+html:not(.light) .services-page-wrapper .service-tagline {
+  color: #cbd5e1 !important;
+}
+
+html:not(.light) .services-page-wrapper .service-desc {
+  color: #94a3b8 !important;
+}
+
+html:not(.light) .services-page-wrapper .service-feature-item {
+  color: #94a3b8 !important;
+}
+
+html:not(.light) .services-page-wrapper .service-feature-item span {
+  color: #e2e8f0 !important;
+}
+
+html:not(.light) .services-page-wrapper .service-btn-primary {
+  background-color: #dc2626 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+html:not(.light) .services-page-wrapper .service-btn-primary:hover {
+  background-color: #ef4444 !important;
+  box-shadow: none !important;
+}
+
+html:not(.light) .services-page-wrapper .service-btn-secondary {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+html:not(.light) .services-page-wrapper .service-btn-secondary:hover {
+  border-color: #dc2626 !important;
+  color: #f87171 !important;
+  background-color: rgba(220, 38, 38, 0.08) !important;
+  box-shadow: none !important;
+}
+
+html:not(.light) .services-page-wrapper .service-row-divider {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html:not(.light) .services-page-wrapper .service-metric-card {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html:not(.light) .services-page-wrapper .service-metric-stat {
+  color: #ffffff !important;
+}
+
+html:not(.light) .services-page-wrapper .service-metric-desc {
+  color: #cbd5e1 !important;
+}
+
+html:not(.light) .services-page-wrapper .service-tab-title {
+  color: #e2e8f0 !important;
+}
+/* ═══════════════════════════════════════════════════════════════════
+   Super Smooth Slow-Motion Appearance Animations (Reduced Speed)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.services-page-wrapper .animate-drop-top {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 2.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 2.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.services-page-wrapper .animate-drop-top.is-visible {
+  opacity: 1;
+  transform: translateY(0) !important;
+}
+
+.services-page-wrapper .animate-slide-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 2.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 2.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.services-page-wrapper .animate-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0) !important;
+}
+
+.services-page-wrapper .animate-slide-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 2.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 2.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.services-page-wrapper .animate-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Button Loading-Style Hover / Focus Wipe Transition
+   - On Hover: background color fills from LEFT to RIGHT
+   - On Focus / Blur: sweeps out/in from RIGHT to LEFT
+   ═══════════════════════════════════════════════════════════════════ */
+
+.service-interactive-btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.4s ease, border-color 0.4s ease !important;
+}
+
+/* Red Wipe Fill */
+.service-interactive-btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #dc2626;
+  z-index: -1;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.service-interactive-btn-primary:hover::before {
+  transform-origin: left center;
+  transform: scaleX(1);
+}
+
+.service-interactive-btn-primary:focus::before,
+.service-interactive-btn-primary:focus-visible::before {
+  transform-origin: right center;
+  transform: scaleX(1);
+}
+
+/* Outline Secondary Wipe Fill */
+.service-interactive-btn-secondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #dc2626;
+  z-index: -1;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.service-interactive-btn-secondary:hover::before {
+  transform-origin: left center;
+  transform: scaleX(1);
+}
+
+.service-interactive-btn-secondary:hover {
+  color: #ffffff !important;
+  border-color: #dc2626 !important;
+}
+
+.service-interactive-btn-secondary:focus::before,
+.service-interactive-btn-secondary:focus-visible::before {
+  transform-origin: right center;
+  transform: scaleX(1);
+}
+
+.service-interactive-btn-secondary:focus,
+.service-interactive-btn-secondary:focus-visible {
+  color: #ffffff !important;
+  border-color: #dc2626 !important;
+}
+
+/* Bottom Big CTA Wipe */
+.service-interactive-btn-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ef4444;
+  z-index: -1;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.service-interactive-btn-cta:hover::before {
+  transform-origin: left center;
+  transform: scaleX(1);
+}
+
+.service-interactive-btn-cta:focus::before,
+.service-interactive-btn-cta:focus-visible::before {
+  transform-origin: right center;
+  transform: scaleX(1);
+}
+/* ═══════════════════════════════════════════════════════════════════
+   Cinematic Slow-Motion Reveal & Drop Animations (Gentle & Smooth)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.services-page-wrapper .animate-drop-top {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: opacity 3.2s cubic-bezier(0.12, 1, 0.25, 1),
+              transform 3.2s cubic-bezier(0.12, 1, 0.25, 1) !important;
+}
+
+.services-page-wrapper .animate-drop-top.is-visible {
+  opacity: 1;
+  transform: translateY(0) !important;
+}
+
+/* Stagger delay classes for cascading slow drops */
+.services-page-wrapper .animate-drop-delay-1 {
+  transition-delay: 0.3s !important;
+}
+.services-page-wrapper .animate-drop-delay-2 {
+  transition-delay: 0.6s !important;
+}
+.services-page-wrapper .animate-drop-delay-3 {
+  transition-delay: 0.9s !important;
+}
+
+.services-page-wrapper .animate-slide-left {
+  opacity: 0;
+  transform: translateX(-45px);
+  transition: opacity 3.2s cubic-bezier(0.12, 1, 0.25, 1),
+              transform 3.2s cubic-bezier(0.12, 1, 0.25, 1) !important;
+}
+
+.services-page-wrapper .animate-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0) !important;
+}
+
+.services-page-wrapper .animate-slide-right {
+  opacity: 0;
+  transform: translateX(45px);
+  transition: opacity 3.2s cubic-bezier(0.12, 1, 0.25, 1),
+              transform 3.2s cubic-bezier(0.12, 1, 0.25, 1) !important;
+}
+
+.services-page-wrapper .animate-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0) !important;
+}
+/* ═══════════════════════════════════════════════════════════════════
+   Button Loading-Style Hover / Focus Wipe Transition (Slower & High Contrast)
+   - On Hover: background color fills from LEFT to RIGHT
+   - On Focus / Blur: sweeps out/in from RIGHT to LEFT
+   - Transparent bordered button: hover background is BLACK with crisp WHITE text
+   ═══════════════════════════════════════════════════════════════════ */
+
+.service-interactive-btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+              border-color 0.7s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* Red Primary Wipe Fill (Slow & smooth) */
+.service-interactive-btn-primary {
+  color: #ffffff !important;
+}
+
+.service-interactive-btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #dc2626;
+  z-index: -1;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-interactive-btn-primary:hover::before {
+  transform-origin: left center;
+  transform: scaleX(1);
+}
+
+.service-interactive-btn-primary:focus::before,
+.service-interactive-btn-primary:focus-visible::before {
+  transform-origin: right center;
+  transform: scaleX(1);
+}
+
+/* Secondary Button with Border & Transparency:
+   ON HOVER/FOCUS: BG-COLOR IS SOLID BLACK, TEXT IS CRISP WHITE */
+.service-interactive-btn-secondary {
+  background-color: transparent !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  transition: color 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+              border-color 0.7s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* Light mode default text and border */
+html.light .services-page-wrapper .service-interactive-btn-secondary {
+  color: #0f172a !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Dark mode default text and border */
+html:not(.light) .services-page-wrapper .service-interactive-btn-secondary {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Wipe Fill for Transparent/Bordered Buttons */
+.service-interactive-btn-secondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000 !important;
+  z-index: -1;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html:not(.light) .services-page-wrapper .service-interactive-btn-secondary::before {
+  background-color: #ffffff !important;
+}
+
+.service-interactive-btn-secondary:hover::before {
+  transform-origin: left center;
+  transform: scaleX(1);
+}
+
+.service-interactive-btn-secondary:hover {
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+html:not(.light) .services-page-wrapper .service-interactive-btn-secondary:hover {
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+.service-interactive-btn-secondary:focus::before,
+.service-interactive-btn-secondary:focus-visible::before {
+  transform-origin: right center;
+  transform: scaleX(1);
+}
+
+.service-interactive-btn-secondary:focus,
+.service-interactive-btn-secondary:focus-visible {
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+html:not(.light) .services-page-wrapper .service-interactive-btn-secondary:focus,
+html:not(.light) .services-page-wrapper .service-interactive-btn-secondary:focus-visible {
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+/* Bottom Big CTA Wipe */
+.service-interactive-btn-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #b91c1c;
+  z-index: -1;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-interactive-btn-cta:hover::before {
+  transform-origin: left center;
+  transform: scaleX(1);
+}
+
+.service-interactive-btn-cta:focus::before,
+.service-interactive-btn-cta:focus-visible::before {
+  transform-origin: right center;
+  transform: scaleX(1);
+}
+/* ═══════════════════════════════════════════════════════════════════
+   Universal Override: Secondary Transparent & Bordered Buttons
+   - Default: transparent background, clear legible border & text
+   - Hover: Background fills with SOLID BLACK from left to right
+   - Hover text: High-contrast PURE WHITE (completely legible)
+   - Slower, elegant, relaxed motion
+   ═══════════════════════════════════════════════════════════════════ */
+
+html.light .services-page-wrapper .service-btn-secondary,
+html:not(.light) .services-page-wrapper .service-btn-secondary {
+  position: relative !important;
+  overflow: hidden !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  z-index: 1 !important;
+  transition: color 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.75s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+html.light .services-page-wrapper .service-btn-secondary {
+  color: #0f172a !important;
+  border-color: #94a3b8 !important;
+}
+
+html:not(.light) .services-page-wrapper .service-btn-secondary {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
+}
+
+/* Pseudo element that creates the loading wipe effect */
+html.light .services-page-wrapper .service-btn-secondary::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: #000000 !important;
+  z-index: -1 !important;
+  transform-origin: left center !important;
+  transform: scaleX(0) !important;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* In dark mode, background fill on hover is PURE WHITE */
+html:not(.light) .services-page-wrapper .service-btn-secondary::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: #ffffff !important;
+  z-index: -1 !important;
+  transform-origin: left center !important;
+  transform: scaleX(0) !important;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* Hover State */
+html.light .services-page-wrapper .service-btn-secondary:hover::before,
+html:not(.light) .services-page-wrapper .service-btn-secondary:hover::before {
+  transform-origin: left center !important;
+  transform: scaleX(1) !important;
+}
+
+html.light .services-page-wrapper .service-btn-secondary:hover {
+  color: #ffffff !important;
+  background-color: transparent !important;
+  border-color: #000000 !important;
+}
+
+/* In dark mode on hover, background is white, text is black, border is white */
+html:not(.light) .services-page-wrapper .service-btn-secondary:hover {
+  color: #000000 !important;
+  background-color: transparent !important;
+  border-color: #ffffff !important;
+}
+
+/* Focus State: sweeps from right to left */
+html.light .services-page-wrapper .service-btn-secondary:focus::before,
+html.light .services-page-wrapper .service-btn-secondary:focus-visible::before,
+html:not(.light) .services-page-wrapper .service-btn-secondary:focus::before,
+html:not(.light) .services-page-wrapper .service-btn-secondary:focus-visible::before {
+  transform-origin: right center !important;
+  transform: scaleX(1) !important;
+}
+
+html.light .services-page-wrapper .service-btn-secondary:focus,
+html.light .services-page-wrapper .service-btn-secondary:focus-visible {
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+html:not(.light) .services-page-wrapper .service-btn-secondary:focus,
+html:not(.light) .services-page-wrapper .service-btn-secondary:focus-visible {
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+/* ═══════════════════════════════════════════════════════════════════
+   Contact Item Cards Hover Fill
+   ═══════════════════════════════════════════════════════════════════ */
+
+.contact-item-card {
+  transition: background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.3s ease !important;
+}
+
+.contact-item-card:hover {
+  background-color: #1e293b !important;
+  transform: translateY(-2px);
+}
+
+html:not(.light) .contact-item-card:hover {
+  background-color: #1a2333 !important;
+}

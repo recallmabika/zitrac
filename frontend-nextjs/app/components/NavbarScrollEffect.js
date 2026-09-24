@@ -1,16 +1,20 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function NavbarScrollEffect() {
   const [scrollState, setScrollState] = useState('top'); // 'top', 'hero', 'past-hero'
+  const pathname = usePathname();
 
   useEffect(() => {
     const handler = () => {
-      const heroHeight = window.innerHeight - 100;
-      if (window.scrollY > heroHeight) {
+      const isHome = pathname === '/';
+      const threshold = isHome ? (window.innerHeight - 100) : 20;
+
+      if (window.scrollY > threshold) {
         setScrollState('past-hero');
-      } else if (window.scrollY > 32) {
+      } else if (isHome && window.scrollY > 32) {
         setScrollState('hero');
       } else {
         setScrollState('top');
@@ -19,7 +23,7 @@ export default function NavbarScrollEffect() {
     window.addEventListener('scroll', handler, { passive: true });
     handler();
     return () => window.removeEventListener('scroll', handler);
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     const nav = document.getElementById('main-navbar');
