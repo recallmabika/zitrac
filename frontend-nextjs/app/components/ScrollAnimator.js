@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 
 /**
  * Intersection Observer hook that adds 'is-visible' class to elements
@@ -8,12 +9,10 @@ import { useEffect, useRef } from 'react';
  * 'animate-scale', 'hero-title-line', or 'hero-fade-up' classes.
  */
 export default function ScrollAnimator() {
-  const initialized = useRef(false);
+  const pathname = usePathname();
+  const observerRef = useRef(null);
 
   useEffect(() => {
-    if (initialized.current) return;
-    initialized.current = true;
-
     const selectors = [
       '.animate-on-scroll',
       '.animate-slide-left',
@@ -35,13 +34,22 @@ export default function ScrollAnimator() {
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.05,
+        rootMargin: '0px 0px 50px 0px',
       }
     );
+    observerRef.current = observer;
 
     // Observe existing elements
-    document.querySelectorAll(selectors).forEach((el) => observer.observe(el));
+    document.querySelectorAll(selectors).forEach((el) => {
+      // If already visible in viewport, make visible immediately
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('is-visible');
+      } else {
+        observer.observe(el);
+      }
+    });
 
     // MutationObserver for dynamically added elements
     const mutation = new MutationObserver((mutations) => {
@@ -60,7 +68,7 @@ export default function ScrollAnimator() {
       observer.disconnect();
       mutation.disconnect();
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

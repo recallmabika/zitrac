@@ -348,27 +348,27 @@ export default function WorkPage() {
 
             {/* Right Column: Contact details (each in their own longer div, borderless, big flush icons, hover bg color) on top of Action Button */}
             <div className="w-full lg:w-auto shrink-0 flex flex-col items-start lg:items-end gap-5">
-              {/* Call: Own Div, Longer Width, No Border, Big Flush Icon, Hover bg-color */}
-              <div className="contact-item-card w-full sm:w-[380px] bg-[#141d2e] dark:bg-[#0f1726] rounded-xl overflow-hidden flex items-stretch shadow-sm cursor-pointer">
-                {/* Big Flush Phone Icon Container */}
-                <div className="w-14 sm:w-16 bg-red-600 flex items-center justify-center shrink-0">
+              {/* Telephone Hotline: Full card turns red on hover, clean phone icon */}
+              <a
+                href="tel:+263718001031"
+                className="group w-full sm:w-[380px] bg-[#141d2e] dark:bg-[#0f1726] hover:!bg-red-600 rounded-xl overflow-hidden flex items-stretch shadow-sm transition-all duration-300 cursor-pointer"
+              >
+                <div className="w-14 sm:w-16 bg-red-600 group-hover:bg-red-700 flex items-center justify-center shrink-0 transition-colors">
                   <svg
-                    className="w-7 h-7 sm:w-8 sm:h-8 text-white fill-current"
+                    className="w-6 h-6 text-white"
+                    fill="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z" />
+                    <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.053 15.053 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 3.92c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.54c0-.55-.45-1-.99-1z" />
                   </svg>
                 </div>
                 <div className="px-5 py-3.5 flex flex-col justify-center flex-1">
-                  <span className="text-[10px] uppercase tracking-wider text-slate-400 font-semibold font-mono">Telephone Hotline</span>
-                  <a
-                    href="tel:+263718001031"
-                    className="text-white hover:text-red-400 font-bold text-sm sm:text-base font-raleway transition-colors"
-                  >
+                  <span className="text-[10px] uppercase tracking-wider text-slate-400 group-hover:text-white/80 font-semibold font-mono transition-colors">Telephone Hotline</span>
+                  <span className="text-white font-bold text-sm sm:text-base font-raleway">
                     +263 71 800 1031
-                  </a>
+                  </span>
                 </div>
-              </div>
+              </a>
 
               {/* Email: Own Div, Longer Width, No Border, Big Flush Icon, Hover bg-color */}
               <div className="contact-item-card w-full sm:w-[380px] bg-[#141d2e] dark:bg-[#0f1726] rounded-xl overflow-hidden flex items-stretch shadow-sm cursor-pointer">
@@ -398,7 +398,7 @@ export default function WorkPage() {
                   href="/contact/"
                   className="service-interactive-btn service-interactive-btn-cta w-full inline-flex items-center justify-center py-5 sm:py-5 text-sm sm:text-base font-bold uppercase tracking-wider rounded-full bg-red-600 text-white hover:scale-105 active:scale-95 transition-all focus:outline-none shadow-none text-center"
                 >
-                  Initiate Architectural Brief
+                  Start a Project
                 </Link>
               </div>
             </div>

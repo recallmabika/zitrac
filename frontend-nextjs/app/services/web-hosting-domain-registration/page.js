@@ -2,102 +2,84 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata = {
-  title: 'Fast Web Hosting & .co.zw Domain Registration Zimbabwe | ZITRAC',
-  description: 'Enterprise cPanel cloud hosting packages, NVMe storage tiers, and official local .co.zw domain registration engineered for Zimbabwean businesses by ZITRAC Technologies.',
+  title: 'Affordable Web Hosting Plans For Zimbabwe | ZITRAC Technologies',
+  description: 'Affordable cPanel web hosting packages in Zimbabwe starting at US $3.50/mo. Fast NVMe storage, free SSL certificates, 1-click WordPress, and official .co.zw domain registration.',
   openGraph: {
-    title: 'Fast Web Hosting and Domain Registration Zimbabwe | ZITRAC',
-    description: 'Secure your digital visibility with fast cPanel hosting and local .co.zw domain registration.',
+    title: 'Affordable Web Hosting Plans For Zimbabwe | ZITRAC',
+    description: 'Fast, affordable cPanel web hosting with free SSL, high-speed NVMe storage, and local .co.zw domain registration in Zimbabwe.',
     url: 'https://zitrac.co.zw/services/web-hosting-domain-registration/',
     images: [{ url: 'https://media.zitrac.co.zw/og-hosting-1200x630.jpg', width: 1200, height: 630 }],
   },
 };
 
-const hostingFeatures = [
-  {
-    slug: 'cpanel-hosting',
-    number: '01',
-    badge: 'Enterprise Cloud Hosting',
-    title: 'High-Availability NVMe cPanel Hosting Tiers',
-    tagline: 'Lightning-fast SSD storage tiers, unmetered network pipelines, and round-the-clock technical care.',
-    description: 'We deliver ultra-performant cloud hosting infrastructure backed by high-speed NVMe storage, automated SSL provisioning, and daily offsite backup replication. Our hosting environment is fine-tuned for high throughput on PHP, Node.js, and Python WSGI workloads.',
-    metrics: [
-      {
-        stat: '99.98%',
-        desc: 'HIGH-AVAILABILITY UPTIME SLA WITH ENTERPRISE NVME TIERS.',
-      },
-      {
-        stat: '<0.8s',
-        desc: 'SERVER TIME-TO-FIRST-BYTE ACCELERATING REGIONAL LOAD SPEEDS.',
-      },
-    ],
-    features: [
-      'High-Speed Enterprise NVMe Storage & Dedicated CPU Resources',
-      'Automated Daily Offsite Backups & Rapid Disaster Recovery',
-      'cPanel Control Panel with Python, Node.js & PHP Multi-Version Support',
-    ],
-    image: '/assets/cloud-hosting-server.png',
-    imageAlt: 'ZITRAC Enterprise Cloud Hosting and Server Infrastructure',
-    ctaText: 'Explore Hosting Tiers',
-    ctaHref: '#hosting-plans',
-  },
-  {
-    slug: 'domain-registration',
-    number: '02',
-    badge: 'Official Domains Registry',
-    title: 'Local .co.zw & Global Domain Registration & DNSSEC',
-    tagline: 'Direct local registry delegation with high-speed DNS propagation and enterprise nameserver security.',
-    description: 'Protect your corporate brand and identity across Zimbabwe and globally. We handle direct registration and renewals for official Zimbabwean extensions (.co.zw, .org.zw, .ac.zw) and top-level global domains (.com, .net, .org) with DNSSEC security.',
-    metrics: [
-      {
-        stat: 'Direct',
-        desc: 'LOCAL .CO.ZW REGISTRY DELEGATION & HARARE DNS PROVISIONING.',
-      },
-      {
-        stat: '100%',
-        desc: 'DNSSEC CRYPTOGRAPHIC RECORD VALIDATION AGAINST HIJACKING.',
-      },
-    ],
-    features: [
-      'Official .co.zw, .org.zw & Global Domain Registrations',
-      'Cryptographically Signed DNSSEC Records & Low-TTL Nameservers',
-      'Instant WHOIS Privacy Protection & Automated Renewal Daemons',
-    ],
-    image: '/assets/global-network.png',
-    imageAlt: 'ZITRAC Global Network and Domain Registration Infrastructure',
-    ctaText: 'Register Your Domain',
-    ctaHref: '#domain-search',
-  },
-];
 
 const packages = [
   {
-    name: 'Starter Tier',
-    badge: 'Standard',
-    tagline: 'Ideal for local SMEs, personal brands, and static web profiles.',
-    storage: '10 GB NVMe SSD Storage',
-    bandwidth: 'Unmetered Bandwidth',
-    domains: '1 Free .co.zw Domain',
-    emails: '5 Professional Mailboxes',
+    name: 'BRONZE',
+    price: '3.50',
+    currency: 'US $',
+    period: '/Month',
+    badge: 'Starter',
+    tagline: 'Perfect for basic personal blogs, small portfolios, and starter websites.',
+    specs: [
+      '1 GB Disk Space',
+      '20 Email Accounts',
+      'Host 1-10 Domains',
+      '10 MySQL Databases',
+      'FREE SSL Certificate',
+      'FAST One-Click WordPress Installer',
+    ],
     popular: false,
   },
   {
-    name: 'Business Tier',
-    badge: 'Most Popular',
-    tagline: 'Engineered for growing businesses, portals, and dynamic web apps.',
-    storage: '35 GB NVMe SSD Storage',
-    bandwidth: 'Unmetered Bandwidth',
-    domains: '1 Free .co.zw Domain',
-    emails: 'Unlimited Mailboxes',
+    name: 'SILVER',
+    price: '7',
+    currency: 'US $',
+    period: '/Month',
+    badge: 'Best Seller',
+    tagline: 'Ideal for small-to-medium businesses, corporate profiles, and active websites.',
+    specs: [
+      '2 GB Disk Space',
+      '50 Email Accounts',
+      'Host 1-30 Domains',
+      '30 MySQL Databases',
+      'FREE SSL Certificate',
+      'FAST One-Click WordPress Installer',
+    ],
     popular: true,
   },
   {
-    name: 'Enterprise Tier',
-    badge: 'High Performance',
-    tagline: 'Dedicated CPU allocation for mission-critical software and high-traffic sites.',
-    storage: '100 GB NVMe SSD Storage',
-    bandwidth: 'Priority Fiber Routing',
-    domains: 'Free Multiple .co.zw Domains',
-    emails: 'Enterprise Mail Gateway',
+    name: 'GOLD',
+    price: '17.50',
+    currency: 'US $',
+    period: '/Month',
+    badge: 'Growing Business',
+    tagline: 'Designed for expanding companies, dynamic web portals, and e-commerce stores.',
+    specs: [
+      '5 GB Disk Space',
+      '150 Email Accounts',
+      'Host 1-100 Domains',
+      '100 MySQL Databases',
+      'FREE SSL Certificate',
+      'FAST One-Click WordPress Installer',
+    ],
+    popular: false,
+  },
+  {
+    name: 'PLATINUM',
+    price: '35',
+    currency: 'US $',
+    period: '/Month',
+    badge: 'Enterprise',
+    tagline: 'High-capacity infrastructure for busy organizations, multi-site networks, and heavy traffic.',
+    specs: [
+      '10 GB Disk Space',
+      '500 Email Accounts',
+      'Host 1-500 Domains',
+      '500 MySQL Databases',
+      'FREE SSL Certificate',
+      'FAST One-Click WordPress Installer',
+    ],
     popular: false,
   },
 ];
@@ -150,16 +132,16 @@ export default function WebHostingDomainRegistrationPage() {
 
             <div className="space-y-4">
               <h1 className="hero-title-drop font-raleway text-2xl sm:text-4xl lg:text-[2.6rem] font-light tracking-[0.03em] text-slate-900 leading-[1.25] sm:leading-[1.3]">
-                High-Availability Cloud Hosting &amp; .co.zw Registry
+                Affordable Web Hosting Packages in Zimbabwe
               </h1>
 
               <p className="hero-desc-zoom font-raleway text-sm sm:text-base text-slate-600 leading-relaxed font-light text-justify">
-                Establish and protect your corporate online identity with enterprise cPanel cloud hosting packages and official Zimbabwean domain delegation. Engineered with NVMe solid-state storage and direct regional DNS connectivity.
+                High-speed cPanel web hosting and local .co.zw domain registration built for Zimbabwean businesses, organizations, and startups. Reliable NVMe SSD performance, fast WordPress setup, and free SSL certificates with 99.9% uptime.
               </p>
 
               <div className="flex items-center gap-2 pt-2 text-xs font-mono text-slate-500">
                 <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>99.98% High Availability SLA &bull; Harare Direct Registry Delegation</span>
+                <span>Transparent Monthly &amp; Annual Billing &bull; Harare Direct Registry Delegation</span>
               </div>
             </div>
           </div>
@@ -177,210 +159,163 @@ export default function WebHostingDomainRegistrationPage() {
         {/* ──────────────────────────────────────────────────────────
             1. PRICING TIERS SECTION (Displayed First)
             ────────────────────────────────────────────────────────── */}
-        <section id="hosting-plans" className="space-y-12">
-          <div className="text-left space-y-3 max-w-3xl">
-            <div className="font-mono text-xs tracking-[0.2em] uppercase font-bold text-red-600 dark:text-red-400">
-              Cloud Hosting Packages
+        <section id="hosting-plans" className="space-y-10">
+          <div className="text-center sm:text-left space-y-2 max-w-3xl">
+            <div className="font-mono text-xs tracking-[0.2em] uppercase font-bold text-red-600 dark:text-red-500">
+              Web Hosting Plans
             </div>
             <h2 className="font-raleway text-3xl sm:text-4xl lg:text-5xl font-light tracking-[0.02em] text-slate-900 dark:text-white">
-              Transparent, Scalable cPanel Cloud Tiers
+              Affordable Web Hosting Plans For Zimbabwe
             </h2>
-            <p className="font-raleway text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-light text-justify">
-              All tiers include unmetered bandwidth, automated SSL encryption, and high-performance NVMe storage. Upgrade or scale your infrastructure anytime without service interruption.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {packages.map((pkg) => (
-              <div
-                key={pkg.name}
-                className="relative rounded-2xl bg-white dark:bg-[#0c121d] border border-slate-200 dark:border-zinc-800 p-8 flex flex-col justify-between shadow-none transition-colors"
-              >
-                <div>
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-xs font-mono font-semibold uppercase tracking-wider text-red-600 dark:text-red-400">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {packages.map((pkg, idx) => {
+              // Directional slow-motion entrance:
+              // idx 0 (BRONZE): from left
+              // idx 1 (SILVER): drop from top
+              // idx 2 (GOLD): drop from top
+              // idx 3 (PLATINUM): from right
+              const animClass =
+                idx === 0
+                  ? 'plan-card-left'
+                  : idx === 1
+                  ? 'plan-card-drop-1'
+                  : idx === 2
+                  ? 'plan-card-drop-2'
+                  : 'plan-card-right';
+
+              return (
+                <div
+                  key={pkg.name}
+                  className={`relative rounded-2xl bg-white dark:bg-[#0c121d] border overflow-hidden flex flex-col justify-between shadow-none transition-all ${animClass} ${
+                    pkg.popular
+                      ? 'border-red-600 dark:border-red-500 ring-2 ring-red-600/10 dark:ring-red-500/20'
+                      : 'border-slate-200 dark:border-zinc-800'
+                  }`}
+                >
+                  {/* Popular / Best Seller Top Ribbon */}
+                  {pkg.popular && (
+                    <div className="w-full bg-red-600 text-white text-center py-1.5 text-[11px] font-raleway font-bold uppercase tracking-wider">
                       {pkg.badge}
-                    </span>
-                    {pkg.popular && (
-                      <span className="text-[10px] font-mono uppercase tracking-wider bg-red-600 text-white px-2.5 py-0.5 rounded-full font-bold">
-                        Recommended
-                      </span>
-                    )}
+                    </div>
+                  )}
+
+                  <div className="p-6">
+                    {/* Tier Title */}
+                    <div className="text-center pb-4">
+                      <h3 className="font-raleway text-lg sm:text-xl font-bold tracking-wider text-slate-900 dark:text-white uppercase">
+                        {pkg.name}
+                      </h3>
+                    </div>
+
+                    {/* Price Banner Box */}
+                    <div
+                      className={`rounded-xl py-6 px-4 text-center my-2 text-white transition-colors ${
+                        pkg.popular
+                          ? 'bg-red-600 dark:bg-red-600'
+                          : 'bg-[#1a1a2e] dark:bg-[#131926]'
+                      }`}
+                    >
+                      <div className="flex items-baseline justify-center gap-1">
+                        <span className="text-lg sm:text-xl font-bold tracking-tight">{pkg.currency}</span>
+                        <span className="text-3xl sm:text-4xl font-extrabold tracking-tight">{pkg.price}</span>
+                        <span className="text-xs font-light opacity-90">{pkg.period}</span>
+                      </div>
+
+                      <div className="mt-4">
+                        <Link
+                          href={`/contact/?service=Web+Hosting&tier=${encodeURIComponent(pkg.name)}`}
+                          className={`inline-block w-full max-w-[160px] py-2.5 px-6 rounded-full font-raleway text-xs font-bold uppercase tracking-wider transition-colors shadow-sm ${
+                            pkg.popular
+                              ? 'bg-white text-red-600 hover:bg-slate-100'
+                              : 'bg-white text-slate-900 hover:bg-slate-100'
+                          }`}
+                        >
+                          SIGN UP
+                        </Link>
+                      </div>
+                    </div>
+
+                    {/* Specifications List */}
+                    <ul className="space-y-3.5 text-xs sm:text-[13px] font-raleway text-slate-700 dark:text-slate-300 mt-6 text-center divide-y divide-slate-100 dark:divide-zinc-850">
+                      {pkg.specs.map((spec, sIdx) => {
+                        const isBoldHighlight = spec.startsWith('FREE') || spec.startsWith('FAST');
+                        return (
+                          <li key={sIdx} className="pt-3 first:pt-0">
+                            {isBoldHighlight ? (
+                              <span>
+                                <strong className="text-red-600 dark:text-red-400 font-bold">
+                                  {spec.split(' ')[0]}{' '}
+                                </strong>
+                                {spec.substring(spec.indexOf(' ') + 1)}
+                              </span>
+                            ) : (
+                              <span>{spec}</span>
+                            )}
+                          </li>
+                        );
+                      })}
+                    </ul>
                   </div>
-                  <h3 className="font-raleway text-2xl font-light text-slate-900 dark:text-white mb-2">{pkg.name}</h3>
-                  <p className="font-raleway text-xs text-slate-600 dark:text-slate-400 mb-6 font-light">{pkg.tagline}</p>
 
-                  <ul className="space-y-3.5 text-xs sm:text-sm font-mono text-slate-700 dark:text-slate-300 mb-8 border-t border-slate-200 dark:border-zinc-800/80 pt-6">
-                    <li className="flex items-center gap-3">
-                      <span className="text-red-600 dark:text-red-400 font-bold">&#10003;</span>
-                      <span>{pkg.storage}</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <span className="text-red-600 dark:text-red-400 font-bold">&#10003;</span>
-                      <span>{pkg.bandwidth}</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <span className="text-red-600 dark:text-red-400 font-bold">&#10003;</span>
-                      <span>{pkg.domains}</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <span className="text-red-600 dark:text-red-400 font-bold">&#10003;</span>
-                      <span>{pkg.emails}</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <span className="text-red-600 dark:text-red-400 font-bold">&#10003;</span>
-                      <span>Automated SSL Certificate Included</span>
-                    </li>
-                  </ul>
+                  {/* Bottom Action Button (Rounded-full) */}
+                  <div className="p-6 pt-2 border-t border-slate-100 dark:border-zinc-800/60">
+                    <Link
+                      href={`/contact/?service=Web+Hosting&tier=${encodeURIComponent(pkg.name)}`}
+                      className={`service-interactive-btn w-full inline-flex items-center justify-center py-3 text-xs font-bold uppercase tracking-wider rounded-full transition-all focus:outline-none ${
+                        pkg.popular
+                          ? 'service-interactive-btn-primary service-btn-primary'
+                          : 'service-interactive-btn-secondary service-btn-secondary border'
+                      }`}
+                    >
+                      Select {pkg.name}
+                    </Link>
+                  </div>
                 </div>
-
-                <div className="pt-2">
-                  <Link
-                    href={`/contact/?service=Web+Hosting&tier=${encodeURIComponent(pkg.name)}`}
-                    className={`service-interactive-btn w-full inline-flex items-center justify-center py-4 text-xs font-bold uppercase tracking-wider rounded-full transition-all focus:outline-none ${
-                      pkg.popular
-                        ? 'service-interactive-btn-primary service-btn-primary'
-                        : 'service-interactive-btn-secondary service-btn-secondary border'
-                    }`}
-                  >
-                    Request {pkg.name}
-                  </Link>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
-        {/* ──────────────────────────────────────────────────────────
-            2. MAIN ARCHITECTURAL SECTIONS: ALTERNATING FLAT ROWS
-            - Hosting Section: Text Left, Image Right
-            - Domains Section: Image Left, Text Right
-            ────────────────────────────────────────────────────────── */}
-        <div className="mt-28 space-y-24 lg:space-y-32">
-          {hostingFeatures.map((featItem, index) => {
-            const isImageLeft = index % 2 === 1;
-
-            return (
-              <section
-                key={featItem.slug}
-                id={featItem.slug}
-                className="service-row group border-b service-row-divider pb-20 lg:pb-28 last:border-b-0 last:pb-0"
-              >
-                <div
-                  className={`flex flex-col gap-10 lg:gap-16 items-center ${
-                    isImageLeft ? 'lg:flex-row-reverse' : 'lg:flex-row'
-                  }`}
-                >
-                  {/* TEXT EXPLANATION COLUMN (Smooth slow-motion drop from top) */}
-                  <div className="w-full lg:w-1/2 space-y-6 animate-drop-top">
-                    {/* Headline - Raleway consistent with theme */}
-                    <h2 className="service-title font-raleway text-2xl sm:text-3xl lg:text-4xl font-light tracking-[0.02em] leading-tight text-left">
-                      {featItem.title}
-                    </h2>
-
-                    <p className="service-tagline font-raleway text-base font-normal leading-relaxed text-left">
-                      {featItem.tagline}
-                    </p>
-
-                    <p className="service-desc font-raleway text-sm sm:text-base font-light leading-relaxed text-justify">
-                      {featItem.description}
-                    </p>
-
-                    {/* Features List */}
-                    <div className="space-y-2.5 pt-1">
-                      {featItem.features.map((feat, fIdx) => (
-                        <div key={fIdx} className="service-feature-item flex items-center gap-3 text-xs sm:text-sm font-mono">
-                          <span className="font-bold text-slate-400 dark:text-slate-500">&bull;</span>
-                          <span>{feat}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Metrics Banner - Softened borders in dark mode & high-contrast visible text */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3">
-                      {featItem.metrics.map((m, mIdx) => (
-                        <div
-                          key={mIdx}
-                          className="service-metric-card flex items-center gap-4 border-l pl-4 py-2"
-                        >
-                          {/* Big Stat */}
-                          <div className="service-metric-stat font-raleway text-3xl sm:text-4xl font-light tracking-tighter">
-                            {m.stat}
-                          </div>
-                          {/* Description */}
-                          <div className="max-w-[210px]">
-                            <p className="service-metric-desc text-[10px] md:text-[11px] font-mono uppercase leading-relaxed text-justify">
-                              {m.desc}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Actions: Rounded buttons, Loading style hover/focus wipe */}
-                    <div className="pt-4 flex flex-wrap items-center gap-4">
-                      <a
-                        href={featItem.ctaHref}
-                        className="service-interactive-btn service-interactive-btn-primary service-btn-primary inline-flex items-center justify-center px-8 py-4 text-xs font-bold uppercase tracking-wider rounded-full transition-all focus:outline-none"
-                      >
-                        {featItem.ctaText}
-                      </a>
-
-                      <Link
-                        href="/contact/?service=Web+Hosting"
-                        className="service-interactive-btn service-interactive-btn-secondary service-btn-secondary inline-flex items-center justify-center px-8 py-4 text-xs font-bold uppercase tracking-wider rounded-full border transition-all focus:outline-none"
-                      >
-                        Request Consultation
-                      </Link>
-                    </div>
-                  </div>
-
-                  {/* IMAGE COLUMN (Smooth slow-motion slide from side, NOT rounded, NO shadow, BORDERLESS with top floating title) */}
-                  <div
-                    className={`w-full lg:w-1/2 pt-5 ${
-                      isImageLeft ? 'animate-slide-left' : 'animate-slide-right'
-                    }`}
-                  >
-                    <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] lg:aspect-[4/3]">
-                      {/* Floating Category Title on top of the image's margin like hero div */}
-                      <div className="absolute -top-3.5 left-6 sm:left-10 px-4 py-0.5 bg-white dark:bg-black inline-flex items-center rounded-t-lg z-20 shadow-none">
-                        <span className="service-tab-title font-raleway text-xs sm:text-sm font-semibold uppercase tracking-[0.22em]">
-                          {featItem.number} / {featItem.badge}
-                        </span>
-                      </div>
-
-                      {/* Borderless Image Container */}
-                      <div className="relative w-full h-full overflow-hidden bg-slate-100 dark:bg-zinc-900 border-0 border-none rounded-none shadow-none">
-                        <Image
-                          src={featItem.image}
-                          alt={featItem.imageAlt}
-                          fill
-                          className="object-cover rounded-none shadow-none transition-transform duration-700 ease-out group-hover:scale-105"
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          unoptimized
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            );
-          })}
-        </div>
 
         {/* ──────────────────────────────────────────────────────────
-            DOMAIN PROCEDURES & DNSSEC CARD
+            DOMAIN PROCEDURES & REGISTRY GOVERNANCE (Monochrome & Clean)
             ────────────────────────────────────────────────────────── */}
-        <section id="domain-search" className="mt-24 rounded-2xl border border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-[#0c121d] p-8 sm:p-12 space-y-4">
-          <div className="font-mono text-xs tracking-[0.2em] uppercase font-bold text-red-600 dark:text-red-400">
-            Zimbabwean Domain Delegation
+        <section
+          id="domain-search"
+          className="mt-20 sm:mt-24 rounded-2xl border border-slate-200 dark:border-zinc-800/80 bg-white dark:bg-[#0c121d] p-8 sm:p-12 lg:p-14 shadow-none transition-colors"
+        >
+          <div className="max-w-4xl space-y-4 text-left">
+            <div className="inline-flex items-center gap-2">
+              <span className="font-mono text-xs uppercase tracking-[0.25em] font-semibold text-slate-500 dark:text-slate-400">
+                Official Registry Delegation
+              </span>
+            </div>
+
+            <h2 className="font-raleway text-2xl sm:text-3xl lg:text-4xl font-light tracking-[0.02em] text-slate-900 dark:text-white leading-tight">
+              Official .co.zw, .org.zw &amp; .ac.zw Registry Governance
+            </h2>
+
+            <p className="font-raleway text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-light text-justify">
+              We directly handle official registry delegation with local Zimbabwean authority bodies, ensuring domain name servers, MX mail records, and SPF/DKIM/DMARC routing parameters are validated cryptographically against tampering. Low-TTL nameservers ensure immediate propagation across regional telecom carriers.
+            </p>
+
+            <div className="pt-4 flex flex-wrap items-center gap-6 sm:gap-10 border-t border-slate-100 dark:border-zinc-800/70 text-xs font-mono text-slate-600 dark:text-slate-400">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500" />
+                <span>Direct Harare Registry Connection</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500" />
+                <span>DNSSEC Cryptographic Signing</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500" />
+                <span>Automated Renewal Daemons</span>
+              </div>
+            </div>
           </div>
-          <h2 className="font-raleway text-2xl sm:text-3xl font-light text-slate-900 dark:text-white">
-            Official .co.zw, .org.zw &amp; .ac.zw Registry Governance
-          </h2>
-          <p className="font-raleway text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-light text-justify">
-            We directly handle official registry delegation with local Zimbabwean authority bodies, ensuring domain name servers, MX mail records, and SPF/DKIM/DMARC routing parameters are validated cryptographically against tampering. Low-TTL nameservers ensure immediate propagation across regional telecom carriers.
-          </p>
         </section>
 
         {/* ──────────────────────────────────────────────────────────
