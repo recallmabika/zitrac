@@ -167,12 +167,96 @@ export default function WebHostingDomainRegistrationPage() {
       </section>
 
       {/* ──────────────────────────────────────────────────────────
-          MAIN ARCHITECTURAL SECTIONS: ALTERNATING FLAT ROWS
-          - Hosting Section: Text Left, Image Right
-          - Domains Section: Image Left, Text Right
+          MAIN CONTENT CONTAINER
+          1. Cloud Hosting Packages (Displayed First)
+          2. Alternating Architecture Rows (cPanel & Domains)
+          3. Domain Delegation Procedures & DNSSEC Card
+          4. Bottom Consultation Callout
           ────────────────────────────────────────────────────────── */}
-      <main className="relative z-10 mx-auto max-w-full px-[30px] py-20 lg:py-28">
-        <div className="space-y-24 lg:space-y-32">
+      <main className="relative z-10 mx-auto max-w-full px-[30px] py-16 lg:py-24">
+        {/* ──────────────────────────────────────────────────────────
+            1. PRICING TIERS SECTION (Displayed First)
+            ────────────────────────────────────────────────────────── */}
+        <section id="hosting-plans" className="space-y-12">
+          <div className="text-left space-y-3 max-w-3xl">
+            <div className="font-mono text-xs tracking-[0.2em] uppercase font-bold text-red-600 dark:text-red-400">
+              Cloud Hosting Packages
+            </div>
+            <h2 className="font-raleway text-3xl sm:text-4xl lg:text-5xl font-light tracking-[0.02em] text-slate-900 dark:text-white">
+              Transparent, Scalable cPanel Cloud Tiers
+            </h2>
+            <p className="font-raleway text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-light text-justify">
+              All tiers include unmetered bandwidth, automated SSL encryption, and high-performance NVMe storage. Upgrade or scale your infrastructure anytime without service interruption.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {packages.map((pkg) => (
+              <div
+                key={pkg.name}
+                className="relative rounded-2xl bg-white dark:bg-[#0c121d] border border-slate-200 dark:border-zinc-800 p-8 flex flex-col justify-between shadow-none transition-colors"
+              >
+                <div>
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-xs font-mono font-semibold uppercase tracking-wider text-red-600 dark:text-red-400">
+                      {pkg.badge}
+                    </span>
+                    {pkg.popular && (
+                      <span className="text-[10px] font-mono uppercase tracking-wider bg-red-600 text-white px-2.5 py-0.5 rounded-full font-bold">
+                        Recommended
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="font-raleway text-2xl font-light text-slate-900 dark:text-white mb-2">{pkg.name}</h3>
+                  <p className="font-raleway text-xs text-slate-600 dark:text-slate-400 mb-6 font-light">{pkg.tagline}</p>
+
+                  <ul className="space-y-3.5 text-xs sm:text-sm font-mono text-slate-700 dark:text-slate-300 mb-8 border-t border-slate-200 dark:border-zinc-800/80 pt-6">
+                    <li className="flex items-center gap-3">
+                      <span className="text-red-600 dark:text-red-400 font-bold">&#10003;</span>
+                      <span>{pkg.storage}</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <span className="text-red-600 dark:text-red-400 font-bold">&#10003;</span>
+                      <span>{pkg.bandwidth}</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <span className="text-red-600 dark:text-red-400 font-bold">&#10003;</span>
+                      <span>{pkg.domains}</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <span className="text-red-600 dark:text-red-400 font-bold">&#10003;</span>
+                      <span>{pkg.emails}</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <span className="text-red-600 dark:text-red-400 font-bold">&#10003;</span>
+                      <span>Automated SSL Certificate Included</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="pt-2">
+                  <Link
+                    href={`/contact/?service=Web+Hosting&tier=${encodeURIComponent(pkg.name)}`}
+                    className={`service-interactive-btn w-full inline-flex items-center justify-center py-4 text-xs font-bold uppercase tracking-wider rounded-full transition-all focus:outline-none ${
+                      pkg.popular
+                        ? 'service-interactive-btn-primary service-btn-primary'
+                        : 'service-interactive-btn-secondary service-btn-secondary border'
+                    }`}
+                  >
+                    Request {pkg.name}
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ──────────────────────────────────────────────────────────
+            2. MAIN ARCHITECTURAL SECTIONS: ALTERNATING FLAT ROWS
+            - Hosting Section: Text Left, Image Right
+            - Domains Section: Image Left, Text Right
+            ────────────────────────────────────────────────────────── */}
+        <div className="mt-28 space-y-24 lg:space-y-32">
           {hostingFeatures.map((featItem, index) => {
             const isImageLeft = index % 2 === 1;
 
@@ -283,83 +367,6 @@ export default function WebHostingDomainRegistrationPage() {
             );
           })}
         </div>
-
-        {/* ──────────────────────────────────────────────────────────
-            PRICING TIERS SECTION (Flat, modern cards, no harsh shadows)
-            ────────────────────────────────────────────────────────── */}
-        <section id="hosting-plans" className="mt-28 space-y-12">
-          <div className="text-left space-y-3 max-w-3xl">
-            <div className="font-mono text-xs tracking-[0.2em] uppercase font-bold text-red-600 dark:text-red-400">
-              Cloud Hosting Packages
-            </div>
-            <h2 className="font-raleway text-3xl sm:text-4xl lg:text-5xl font-light tracking-[0.02em] text-slate-900 dark:text-white">
-              Transparent, Scalable cPanel Cloud Tiers
-            </h2>
-            <p className="font-raleway text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-light text-justify">
-              All tiers include unmetered bandwidth, automated SSL encryption, and high-performance NVMe storage. Upgrade or scale your infrastructure anytime without service interruption.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {packages.map((pkg) => (
-              <div
-                key={pkg.name}
-                className="relative rounded-2xl bg-white dark:bg-[#0c121d] border border-slate-200 dark:border-zinc-800 p-8 flex flex-col justify-between shadow-none transition-colors"
-              >
-                <div>
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-xs font-mono font-semibold uppercase tracking-wider text-red-600 dark:text-red-400">
-                      {pkg.badge}
-                    </span>
-                    {pkg.popular && (
-                      <span className="text-[10px] font-mono uppercase tracking-wider bg-red-600 text-white px-2.5 py-0.5 rounded-full font-bold">
-                        Recommended
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="font-raleway text-2xl font-light text-slate-900 dark:text-white mb-2">{pkg.name}</h3>
-                  <p className="font-raleway text-xs text-slate-600 dark:text-slate-400 mb-6 font-light">{pkg.tagline}</p>
-
-                  <ul className="space-y-3.5 text-xs sm:text-sm font-mono text-slate-700 dark:text-slate-300 mb-8 border-t border-slate-200 dark:border-zinc-800/80 pt-6">
-                    <li className="flex items-center gap-3">
-                      <span className="text-red-600 dark:text-red-400 font-bold">&#10003;</span>
-                      <span>{pkg.storage}</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <span className="text-red-600 dark:text-red-400 font-bold">&#10003;</span>
-                      <span>{pkg.bandwidth}</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <span className="text-red-600 dark:text-red-400 font-bold">&#10003;</span>
-                      <span>{pkg.domains}</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <span className="text-red-600 dark:text-red-400 font-bold">&#10003;</span>
-                      <span>{pkg.emails}</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <span className="text-red-600 dark:text-red-400 font-bold">&#10003;</span>
-                      <span>Automated SSL Certificate Included</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="pt-2">
-                  <Link
-                    href={`/contact/?service=Web+Hosting&tier=${encodeURIComponent(pkg.name)}`}
-                    className={`service-interactive-btn w-full inline-flex items-center justify-center py-4 text-xs font-bold uppercase tracking-wider rounded-full transition-all focus:outline-none ${
-                      pkg.popular
-                        ? 'service-interactive-btn-primary service-btn-primary'
-                        : 'service-interactive-btn-secondary service-btn-secondary border'
-                    }`}
-                  >
-                    Request {pkg.name}
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
 
         {/* ──────────────────────────────────────────────────────────
             DOMAIN PROCEDURES & DNSSEC CARD
