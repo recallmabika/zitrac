@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Raleway:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Raleway:wght@200;300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -2352,4 +2352,68 @@ html:not(.light) .services-page-wrapper .service-btn-secondary:focus-visible {
 
 html:not(.light) .contact-item-card:hover {
   background-color: #1a2333 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Slow-Motion Directional Card Entrance Animations (Hosting Plans)
+   1st card: slides from left
+   2nd & 3rd cards: drop from top
+   4th card: slides from right
+   ═══════════════════════════════════════════════════════════════════ */
+
+@keyframes cardSlideSlowLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes cardDropSlowTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-90px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardSlideSlowRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.plan-card-left {
+  opacity: 0;
+  animation: cardSlideSlowLeft 3.2s cubic-bezier(0.12, 1, 0.22, 1) 0.2s forwards;
+  will-change: transform, opacity;
+}
+
+.plan-card-drop-1 {
+  opacity: 0;
+  animation: cardDropSlowTop 3.2s cubic-bezier(0.12, 1, 0.22, 1) 0.35s forwards;
+  will-change: transform, opacity;
+}
+
+.plan-card-drop-2 {
+  opacity: 0;
+  animation: cardDropSlowTop 3.2s cubic-bezier(0.12, 1, 0.22, 1) 0.5s forwards;
+  will-change: transform, opacity;
+}
+
+.plan-card-right {
+  opacity: 0;
+  animation: cardSlideSlowRight 3.2s cubic-bezier(0.12, 1, 0.22, 1) 0.65s forwards;
+  will-change: transform, opacity;
 }

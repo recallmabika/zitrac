@@ -301,7 +301,6 @@ export default function RootLayout({ children }) {
                   <ul className="space-y-2.5 text-slate-300">
                     <li><Link href="/about/" className="hover:text-white hover:underline transition">About ZITRAC</Link></li>
                     <li><Link href="/work/" className="hover:text-white hover:underline transition">Recent Work</Link></li>
-                    <li><Link href="/pricing/" className="hover:text-white hover:underline transition">Pricing</Link></li>
                     <li><Link href="/contact/" className="hover:text-white hover:underline transition">Contact Sales</Link></li>
                   </ul>
                 </div>
@@ -317,7 +316,6 @@ export default function RootLayout({ children }) {
                     <li><a href="https://wa.me/263718001031" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:underline transition">WhatsApp Help</a></li>
                     <li><a href="tel:+263718001031" className="hover:text-white hover:underline transition">Call (+263 71 800 1031)</a></li>
                     <li><a href="tel:+263774590058" className="hover:text-white hover:underline transition">Call (+263 77 459 0058)</a></li>
-                    <li><Link href="/pricing/" className="hover:text-white hover:underline transition">Billing &amp; SLAs</Link></li>
                     <li><Link href="/contact/" className="hover:text-white hover:underline transition">Other</Link></li>
                   </ul>
                 </div>
