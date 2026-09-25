@@ -86,9 +86,8 @@ const recentWorkItems = [
 
 const secondaryNav = [
   { href: '/work/', label: 'Our Work' },
-  { href: '/pricing/', label: 'Pricing' },
   { href: '/services/web-hosting-domain-registration/', label: 'Hosting' },
-  { href: '/services/web-hosting-domain-registration/#domains', label: 'Domains' },
+  { href: '/domains/', label: 'Domains' },
   { href: '/about/', label: 'About' },
 ];
 
@@ -130,13 +129,15 @@ export default function NavbarLinks() {
     setDropdownOpen(false);
   }, [pathname]);
 
-  const isServicesActive = pathname?.startsWith('/services');
+  // Determine active states cleanly without dual-highlighting
+  const isHostingPage = pathname === '/services/web-hosting-domain-registration' || pathname === '/services/web-hosting-domain-registration/';
+  const isServicesActive = pathname?.startsWith('/services') && !isHostingPage;
 
   return (
     <div className="flex items-center">
       {/* Top Navbar Row */}
       <nav aria-label="Main Navigation" className="hidden lg:flex items-center space-x-1 font-raleway">
-        {/* Services Mega-Menu Trigger - Scoped strictly to Services */}
+        {/* Services Mega-Menu Trigger - Scoped strictly to Services (excluding Hosting) */}
         <div
           className="relative"
           onMouseEnter={handleMouseEnter}
@@ -168,7 +169,15 @@ export default function NavbarLinks() {
 
         {/* Secondary Links (Portfolio, About, Careers, Contact, etc.) */}
         {secondaryNav.map((item) => {
-          const isActive = pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href));
+          let isActive = false;
+          if (item.href === '/services/web-hosting-domain-registration/') {
+            isActive = isHostingPage;
+          } else if (item.href === '/domains/') {
+            isActive = pathname === '/domains' || pathname === '/domains/';
+          } else {
+            isActive = pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href));
+          }
+
           return (
             <Link
               key={item.href}

@@ -449,20 +449,6 @@ export default function DomainsPage() {
           )}
         </section>
 
-        {/* 3. GOVERNANCE & REGISTRY CARD - FULL WIDTH */}
-        <section className="mt-20 w-full rounded-2xl border border-slate-200 dark:border-zinc-800/80 bg-white dark:bg-[#0c121d] p-8 sm:p-12 shadow-none transition-colors">
-          <div className="space-y-4 text-left">
-            <div className="font-mono text-xs uppercase tracking-[0.25em] font-semibold text-slate-500 dark:text-slate-400">
-              Direct Local Delegation
-            </div>
-            <h3 className="font-raleway text-xl sm:text-2xl font-light text-slate-900 dark:text-white">
-              Official Harare Registry Accreditation
-            </h3>
-            <p className="font-raleway text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-light text-justify">
-              All Zimbabwean domains (.co.zw, .org.zw, .ac.zw) are registered directly with official accredited authority registers in Zimbabwe. We provide complete DNS management, low-TTL nameserver mapping, and complimentary domain registration on annual hosting plans.
-            </p>
-          </div>
-        </section>
       </main>
     </div>
   );
